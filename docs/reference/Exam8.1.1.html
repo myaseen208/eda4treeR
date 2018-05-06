@@ -128,16 +128,8 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>data</span>(<span class='no'>DataExam8.1</span>)
 <span class='fu'>library</span>(<span class='no'>tidyverse</span>)
-<span class='fu'>library</span>(<span class='no'>emmeans</span>)</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: ‘emmeans’</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:lsmeans’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    .all.vars, .aovlist.dffun, .diag, .get.offset, .my.vcov,</span>
-#&gt; <span class='message'>    add_grouping, as.glht, contrast, get.lsm.option, lsm, lsm.basis,</span>
-#&gt; <span class='message'>    lsm.options, lsmeans, lsmip, lsmobj, lstrends, make.tran, pmm,</span>
-#&gt; <span class='message'>    pmmeans, pmmip, pmmobj, pmtrends, recover.data, ref.grid, regrid,</span>
-#&gt; <span class='message'>    test</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:devtools’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    test</span></div><div class='input'><span class='fu'>library</span>(<span class='no'>lme4</span>)
+<span class='fu'>library</span>(<span class='no'>emmeans</span>)
+<span class='fu'>library</span>(<span class='no'>lme4</span>)
 <span class='no'>fm8.8</span><span class='kw'>&lt;-</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/lme4/topics/lmer'>lmer</a></span>(<span class='kw'>formula</span><span class='kw'>=</span>
      <span class='no'>Dbh</span>~<span class='fl'>1</span>+<span class='no'>Replication</span>+<span class='no'>Column</span>+<span class='no'>Province</span>+(<span class='fl'>1</span><span class='kw'>|</span><span class='no'>Replication</span>:<span class='no'>Row</span>)+(<span class='fl'>1</span><span class='kw'>|</span><span class='no'>Replication</span>:<span class='no'>Column</span>)
     ,<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>DataExam8.1</span>

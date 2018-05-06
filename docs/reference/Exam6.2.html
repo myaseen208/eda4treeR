@@ -124,10 +124,8 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>data</span>(<span class='no'>DataExam6.2</span>)
 <span class='fu'>library</span>(<span class='no'>tidyverse</span>)
-<span class='fu'>library</span>(<span class='no'>lme4</span>)</div><div class='output co'>#&gt; <span class='message'>Loading required package: Matrix</span></div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: ‘Matrix’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:tidyr’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    expand</span></div><div class='input'>
+<span class='fu'>library</span>(<span class='no'>lme4</span>)
+
 <span class='no'>DataExam6.2.1</span> <span class='kw'>&lt;-</span> <span class='no'>DataExam6.2</span>[<span class='no'>DataExam6.2</span>$<span class='no'>Province</span><span class='kw'>==</span><span class='st'>"PNG"</span>,]
 <span class='no'>fm6.3</span> <span class='kw'>&lt;-</span> <span class='fu'>lm</span>(<span class='kw'>formula</span>      <span class='kw'>=</span>
         <span class='no'>Dbh.mean</span>        ~ <span class='no'>Replication</span>+<span class='no'>Family</span>

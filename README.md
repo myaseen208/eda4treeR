@@ -8,7 +8,7 @@ Use **devtools** to install the development version from Github:
 
 ```{r}
 if(!require("devtools")) install.packages("devtools")
-devtools::install_github('MYaseen208/eda4treeR', build_vignettes = TRUE)
+devtools::install_github('myaseen208/eda4treeR', build_vignettes = TRUE)
 ```
 
 ## License
