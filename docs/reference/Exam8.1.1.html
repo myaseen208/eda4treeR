@@ -129,7 +129,13 @@
     <pre class="examples"><div class='input'><span class='fu'>data</span>(<span class='no'>DataExam8.1</span>)
 <span class='fu'>library</span>(<span class='no'>tidyverse</span>)
 <span class='fu'>library</span>(<span class='no'>emmeans</span>)</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: ‘emmeans’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:devtools’:</span>
+#&gt; <span class='message'>Attaching package: ‘emmeans’</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:lsmeans’:</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>    .all.vars, .aovlist.dffun, .diag, .get.offset, .my.vcov,</span>
+#&gt; <span class='message'>    add_grouping, as.glht, contrast, get.lsm.option, lsm, lsm.basis,</span>
+#&gt; <span class='message'>    lsm.options, lsmeans, lsmip, lsmobj, lstrends, make.tran, pmm,</span>
+#&gt; <span class='message'>    pmmeans, pmmip, pmmobj, pmtrends, recover.data, ref.grid, regrid,</span>
+#&gt; <span class='message'>    test</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:devtools’:</span>
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>    test</span></div><div class='input'><span class='fu'>library</span>(<span class='no'>lme4</span>)
 <span class='no'>fm8.8</span><span class='kw'>&lt;-</span> <span class='fu'><a href='http://www.rdocumentation.org/packages/lme4/topics/lmer'>lmer</a></span>(<span class='kw'>formula</span><span class='kw'>=</span>
@@ -145,14 +151,11 @@
    <span class='co'>#,offset</span>
     , <span class='kw'>contrasts</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
     , <span class='kw'>devFunOnly</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-  <span class='fu'>anova</span>(<span class='no'>fm8.8</span>)</div><div class='output co'>#&gt; Type III Analysis of Variance Table with Satterthwaite's method
-#&gt;             Sum Sq Mean Sq NumDF   DenDF F value    Pr(&gt;F)    
-#&gt; Replication  2.695 0.89819     3  21.422  4.5587   0.01281 *  
-#&gt; Column      24.882 2.76470     9  23.702 14.0321 1.652e-07 ***
-#&gt; Province    55.316 0.95372    58 137.058  4.8406 1.916e-14 ***
-#&gt; ---
-#&gt; Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</div><div class='input'>  <span class='fu'>summary</span>(<span class='no'>fm8.8</span>)</div><div class='output co'>#&gt; Linear mixed model fit by REML. t-tests use Satterthwaite's method [
-#&gt; lmerModLmerTest]
+  <span class='fu'>anova</span>(<span class='no'>fm8.8</span>)</div><div class='output co'>#&gt; Analysis of Variance Table
+#&gt;             Df Sum Sq Mean Sq F value
+#&gt; Replication  3  2.604 0.86799  4.4054
+#&gt; Column       9 28.199 3.13325 15.9027
+#&gt; Province    58 55.316 0.95372  4.8406</div><div class='input'>  <span class='fu'>summary</span>(<span class='no'>fm8.8</span>)</div><div class='output co'>#&gt; Linear mixed model fit by REML ['lmerMod']
 #&gt; Formula: Dbh ~ 1 + Replication + Column + Province + (1 | Replication:Row) +  
 #&gt;     (1 | Replication:Column)
 #&gt;    Data: DataExam8.1
@@ -171,89 +174,85 @@
 #&gt; Number of obs: 236, groups:  Replication:Column, 40; Replication:Row, 24
 #&gt; 
 #&gt; Fixed effects:
-#&gt;               Estimate Std. Error        df t value Pr(&gt;|t|)    
-#&gt; (Intercept)    2.19693    0.31958 117.21304   6.874 3.21e-10 ***
-#&gt; Replication1   0.25290    0.18945  21.42648   1.335 0.195907    
-#&gt; Replication2  -0.37215    0.18945  21.42615  -1.964 0.062587 .  
-#&gt; Replication3  -0.29173    0.18944  21.42572  -1.540 0.138205    
-#&gt; Column1        1.57267    0.20944  23.92708   7.509 9.69e-08 ***
-#&gt; Column2        1.57611    0.21140  24.73585   7.456 8.86e-08 ***
-#&gt; Column3        1.92846    0.20872  23.49317   9.239 2.74e-09 ***
-#&gt; Column4        1.89916    0.21162  24.87311   8.974 2.84e-09 ***
-#&gt; Column5        1.66722    0.20932  23.77696   7.965 3.65e-08 ***
-#&gt; Column6        1.85837    0.21406  25.93299   8.682 3.77e-09 ***
-#&gt; Column7        1.37220    0.20864  23.55610   6.577 9.21e-07 ***
-#&gt; Column8        1.58176    0.21001  24.09210   7.532 8.80e-08 ***
-#&gt; Column9        1.24688    0.20969  23.92387   5.946 3.94e-06 ***
-#&gt; Province1     -1.12086    0.35735 154.53827  -3.137 0.002047 ** 
-#&gt; Province2     -0.41064    0.35091 154.45825  -1.170 0.243718    
-#&gt; Province3     -0.69195    0.35421 154.33820  -1.953 0.052570 .  
-#&gt; Province4     -1.29899    0.35083 150.33646  -3.703 0.000299 ***
-#&gt; Province5      0.17844    0.34835 149.17459   0.512 0.609227    
-#&gt; Province6     -0.02596    0.34766 148.58375  -0.075 0.940575    
-#&gt; Province7      0.37005    0.35561 157.41215   1.041 0.299652    
-#&gt; Province8     -0.84757    0.35539 156.70248  -2.385 0.018279 *  
-#&gt; Province10    -0.88853    0.35717 153.46108  -2.488 0.013926 *  
-#&gt; Province11    -1.52576    0.35331 154.63600  -4.318 2.80e-05 ***
-#&gt; Province12    -0.79366    0.35739 156.42296  -2.221 0.027810 *  
-#&gt; Province13    -0.60219    0.35151 154.55947  -1.713 0.088695 .  
-#&gt; Province14    -0.90698    0.34931 151.37705  -2.596 0.010347 *  
-#&gt; Province15    -0.11556    0.34319 145.71860  -0.337 0.736819    
-#&gt; Province16     0.30314    0.35043 153.31750   0.865 0.388360    
-#&gt; Province17    -0.11992    0.34866 150.15821  -0.344 0.731374    
-#&gt; Province18    -0.20348    0.34912 151.06169  -0.583 0.560872    
-#&gt; Province19     0.09508    0.35538 154.14076   0.268 0.789403    
-#&gt; Province20    -0.19568    0.34382 147.41694  -0.569 0.570140    
-#&gt; Province21    -0.32921    0.34948 151.45568  -0.942 0.347695    
-#&gt; Province22    -0.23595    0.35221 150.95625  -0.670 0.503927    
-#&gt; Province23    -0.31275    0.34417 146.82385  -0.909 0.365003    
-#&gt; Province24     0.13075    0.35529 153.65008   0.368 0.713367    
-#&gt; Province25     0.27888    0.34821 152.39529   0.801 0.424440    
-#&gt; Province26    -0.03421    0.35352 154.95324  -0.097 0.923024    
-#&gt; Province27    -0.06068    0.35430 155.80622  -0.171 0.864232    
-#&gt; Province28    -0.45935    0.34505 145.58738  -1.331 0.185181    
-#&gt; Province29     0.34293    0.35097 151.58973   0.977 0.330089    
-#&gt; Province30    -0.01842    0.34283 147.90853  -0.054 0.957234    
-#&gt; Province31     0.55346    0.33729 139.92467   1.641 0.103060    
-#&gt; Province32     0.72292    0.35515 156.14791   2.036 0.043488 *  
-#&gt; Province33     0.15425    0.34248 147.07132   0.450 0.653094    
-#&gt; Province34     0.32147    0.35687 155.74988   0.901 0.369083    
-#&gt; Province35     0.52786    0.35287 155.74380   1.496 0.136698    
-#&gt; Province36     0.29020    0.33781 140.07119   0.859 0.391768    
-#&gt; Province37    -0.13355    0.35416 155.74062  -0.377 0.706613    
-#&gt; Province38    -0.49737    0.35522 154.03904  -1.400 0.163477    
-#&gt; Province39    -0.05274    0.35110 149.70613  -0.150 0.880799    
-#&gt; Province40     0.17266    0.33664 138.56291   0.513 0.608847    
-#&gt; Province41     0.19330    0.35472 155.41907   0.545 0.586566    
-#&gt; Province42     0.31487    0.34986 151.69504   0.900 0.369559    
-#&gt; Province45     0.64922    0.35654 153.87195   1.821 0.070567 .  
-#&gt; Province46    -0.08428    0.34899 153.31145  -0.241 0.809492    
-#&gt; Province47     0.89895    0.34659 146.61101   2.594 0.010459 *  
-#&gt; Province48     0.22176    0.35701 153.25391   0.621 0.535417    
-#&gt; Province50    -1.02933    0.34405 147.39872  -2.992 0.003252 ** 
-#&gt; Province51    -0.10233    0.35614 157.37349  -0.287 0.774233    
-#&gt; Province52    -0.21689    0.35752 154.47563  -0.607 0.544963    
-#&gt; Province53     0.02792    0.34993 151.24031   0.080 0.936515    
-#&gt; Province54    -0.03048    0.35069 150.46682  -0.087 0.930849    
-#&gt; Province55    -0.82604    0.34750 149.08183  -2.377 0.018718 *  
-#&gt; Province56    -0.80252    0.35760 159.29520  -2.244 0.026196 *  
-#&gt; Province57     0.41416    0.34465 148.24441   1.202 0.231407    
-#&gt; Province58    -0.57308    0.34933 151.99835  -1.641 0.102961    
-#&gt; Province59    -0.15991    0.34991 150.70782  -0.457 0.648324    
-#&gt; Province60    -0.55456    0.35511 156.64863  -1.562 0.120388    
-#&gt; Province61    -0.37363    0.35135 152.46814  -1.063 0.289281    
-#&gt; Province62    -0.30828    0.34095 140.16835  -0.904 0.367448    
-#&gt; ---
-#&gt; Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</div><div class='output co'>#&gt; <span class='message'></span>
+#&gt;               Estimate Std. Error t value
+#&gt; (Intercept)   2.901640   0.305602   9.495
+#&gt; Replication2 -0.625047   0.189413  -3.300
+#&gt; Replication3 -0.544633   0.189411  -2.875
+#&gt; Replication4 -0.252900   0.189447  -1.335
+#&gt; Column2       0.003435   0.211350   0.016
+#&gt; Column3       0.355786   0.207659   1.713
+#&gt; Column4       0.326485   0.208629   1.565
+#&gt; Column5       0.094549   0.207378   0.456
+#&gt; Column6       0.285696   0.210291   1.359
+#&gt; Column7      -0.200472   0.206776  -0.970
+#&gt; Column8       0.009088   0.208545   0.044
+#&gt; Column9      -0.325797   0.210140  -1.550
+#&gt; Column10     -1.572672   0.209442  -7.509
+#&gt; Province2     0.710229   0.354793   2.002
+#&gt; Province3     0.428916   0.345468   1.242
+#&gt; Province4    -0.178124   0.354409  -0.503
+#&gt; Province5     1.299307   0.338097   3.843
+#&gt; Province6     1.094903   0.355427   3.081
+#&gt; Province7     1.490913   0.347099   4.295
+#&gt; Province8     0.273295   0.349186   0.783
+#&gt; Province10    0.232337   0.351343   0.661
+#&gt; Province11   -0.404897   0.347119  -1.166
+#&gt; Province12    0.327206   0.343284   0.953
+#&gt; Province13    0.518675   0.354027   1.465
+#&gt; Province14    0.213883   0.348989   0.613
+#&gt; Province15    1.005307   0.347914   2.890
+#&gt; Province16    1.424008   0.348833   4.082
+#&gt; Province17    1.000948   0.348453   2.873
+#&gt; Province18    0.917381   0.353613   2.594
+#&gt; Province19    1.215946   0.341866   3.557
+#&gt; Province20    0.925186   0.354913   2.607
+#&gt; Province21    0.791654   0.347596   2.278
+#&gt; Province22    0.884909   0.353644   2.502
+#&gt; Province23    0.808116   0.349819   2.310
+#&gt; Province24    1.251617   0.353276   3.543
+#&gt; Province25    1.399741   0.355797   3.934
+#&gt; Province26    1.086650   0.353742   3.072
+#&gt; Province27    1.060182   0.353456   2.999
+#&gt; Province28    0.661512   0.339238   1.950
+#&gt; Province29    1.463792   0.346371   4.226
+#&gt; Province30    1.102448   0.354548   3.109
+#&gt; Province31    1.674326   0.354615   4.722
+#&gt; Province32    1.843787   0.348492   5.291
+#&gt; Province33    1.275113   0.356381   3.578
+#&gt; Province34    1.442338   0.343664   4.197
+#&gt; Province35    1.648722   0.352634   4.675
+#&gt; Province36    1.411066   0.348875   4.045
+#&gt; Province37    0.987311   0.349879   2.822
+#&gt; Province38    0.623495   0.343593   1.815
+#&gt; Province39    1.068125   0.348690   3.063
+#&gt; Province40    1.293523   0.349723   3.699
+#&gt; Province41    1.314169   0.355238   3.699
+#&gt; Province42    1.435733   0.349513   4.108
+#&gt; Province45    1.770082   0.346258   5.112
+#&gt; Province46    1.036583   0.344447   3.009
+#&gt; Province47    2.019815   0.348256   5.800
+#&gt; Province48    1.342624   0.337249   3.981
+#&gt; Province50    0.091536   0.345515   0.265
+#&gt; Province51    1.018531   0.346239   2.942
+#&gt; Province52    0.903969   0.342882   2.636
+#&gt; Province53    1.148782   0.350055   3.282
+#&gt; Province54    1.090382   0.354716   3.074
+#&gt; Province55    0.294825   0.353085   0.835
+#&gt; Province56    0.318341   0.352053   0.904
+#&gt; Province57    1.535019   0.342900   4.477
+#&gt; Province58    0.547779   0.353748   1.549
+#&gt; Province59    0.960952   0.343013   2.801
+#&gt; Province60    0.566299   0.350254   1.617
+#&gt; Province61    0.747235   0.353647   2.113
+#&gt; Province62    0.812583   0.348005   2.335
+#&gt; Province63    1.120864   0.357348   3.137</div><div class='output co'>#&gt; <span class='message'></span>
 #&gt; <span class='message'>Correlation matrix not shown by default, as p = 71 &gt; 12.</span>
 #&gt; <span class='message'>Use print(x, correlation=TRUE)  or</span>
-#&gt; <span class='message'>	 vcov(x)	 if you need it</span></div><div class='input'>  <span class='fu'>anova</span>(<span class='no'>fm8.8</span>, <span class='kw'>ddf</span> <span class='kw'>=</span> <span class='st'>"Kenward-Roger"</span>)</div><div class='output co'>#&gt; Type III Analysis of Variance Table with Kenward-Roger's method
-#&gt;             Sum Sq Mean Sq NumDF   DenDF F value    Pr(&gt;F)    
-#&gt; Replication  2.694 0.89811     3  22.453  4.5583   0.01226 *  
-#&gt; Column      24.809 2.75650     9  22.986 13.9898 2.268e-07 ***
-#&gt; Province    54.691 0.94295    58 134.064  4.7842 4.195e-14 ***
-#&gt; ---
-#&gt; Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</div><div class='input'>  <span class='kw pkg'>emmeans</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/emmeans/topics/emmeans'>emmeans</a></span>(<span class='no'>fm8.8</span>,<span class='kw'>specs</span> <span class='kw'>=</span><span class='st'>"Replication"</span>)</div><div class='output co'>#&gt;  Replication   emmean        SE    df lower.CL upper.CL
+#&gt; <span class='message'>	 vcov(x)	 if you need it</span></div><div class='input'>  <span class='fu'>anova</span>(<span class='no'>fm8.8</span>, <span class='kw'>ddf</span> <span class='kw'>=</span> <span class='st'>"Kenward-Roger"</span>)</div><div class='output co'>#&gt; Analysis of Variance Table
+#&gt;             Df Sum Sq Mean Sq F value
+#&gt; Replication  3  2.604 0.86799  4.4054
+#&gt; Column       9 28.199 3.13325 15.9027
+#&gt; Province    58 55.316 0.95372  4.8406</div><div class='input'>  <span class='kw pkg'>emmeans</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/emmeans/topics/emmeans'>emmeans</a></span>(<span class='no'>fm8.8</span>,<span class='kw'>specs</span> <span class='kw'>=</span><span class='st'>"Replication"</span>)</div><div class='output co'>#&gt;  Replication   emmean        SE    df lower.CL upper.CL
 #&gt;  1           3.754334 0.1339419 22.45 3.476876 4.031791
 #&gt;  2           3.129287 0.1339432 22.45 2.851827 3.406746
 #&gt;  3           3.209701 0.1339369 22.45 2.932253 3.487148
@@ -268,7 +267,7 @@
 #&gt;  4      3.827564 0.1549569 26.79 3.509504 4.145624
 #&gt;  5      3.595628 0.1549173 26.76 3.277633 3.913622
 #&gt;  6      3.786775 0.1573353 28.23 3.464606 4.108943
-#&gt;  7      3.300607 0.1548100 26.71 2.982802 3.618411
+#&gt;  7      3.300607 0.1548099 26.71 2.982802 3.618411
 #&gt;  8      3.510167 0.1569450 28.04 3.188699 3.831635
 #&gt;  9      3.175282 0.1548719 26.75 2.857371 3.493194
 #&gt;  10     1.928407 0.1572168 28.25 1.606492 2.250321

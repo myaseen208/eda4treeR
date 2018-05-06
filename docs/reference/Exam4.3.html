@@ -168,12 +168,12 @@
 #&gt; 1 Control  Control       6.44    18
 #&gt; 2 Treated  B1M          76.2     18
 #&gt; 3 Treated  BWS          65.8     18
-#&gt; 4 Treated  Nick         54.0     18</div><div class='input'> <span class='no'>DataExam4.3</span> <span class='kw'>%&gt;%</span>
+#&gt; 4 Treated  Nick         54       18</div><div class='input'> <span class='no'>DataExam4.3</span> <span class='kw'>%&gt;%</span>
    <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='http://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span>(<span class='no'>SeedLot</span>) <span class='kw'>%&gt;%</span>
    <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='http://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span>(<span class='kw'>Mean</span><span class='kw'>=</span><span class='fu'>mean</span>(<span class='no'>Percent</span>))</div><div class='output co'>#&gt; # A tibble: 6 x 2
 #&gt;   SeedLot  Mean
 #&gt;     &lt;int&gt; &lt;dbl&gt;
-#&gt; 1   18211  58.0
+#&gt; 1   18211  58  
 #&gt; 2   18212  52.3
 #&gt; 3   18217  44.7
 #&gt; 4   18248  40.7
@@ -184,12 +184,12 @@
 #&gt; # Groups:   Contcomp [?]
 #&gt;    Contcomp SeedLot  Mean
 #&gt;    &lt;fct&gt;      &lt;int&gt; &lt;dbl&gt;
-#&gt;  1 Control    18211  0.  
+#&gt;  1 Control    18211  0   
 #&gt;  2 Control    18212  1.33
 #&gt;  3 Control    18217  6.67
 #&gt;  4 Control    18248  2.67
-#&gt;  5 Control    18249  0.  
-#&gt;  6 Control    18265 28.0 
+#&gt;  5 Control    18249  0   
+#&gt;  6 Control    18265 28   
 #&gt;  7 Treated    18211 77.3 
 #&gt;  8 Treated    18212 69.3 
 #&gt;  9 Treated    18217 57.3 
@@ -201,16 +201,16 @@
 #&gt; # Groups:   Pretreatment, Contcomp [?]
 #&gt;    Pretreatment Contcomp SeedLot  Mean
 #&gt;    &lt;fct&gt;        &lt;fct&gt;      &lt;int&gt; &lt;dbl&gt;
-#&gt;  1 B1M          Treated    18211  88.0
+#&gt;  1 B1M          Treated    18211  88  
 #&gt;  2 B1M          Treated    18212  85.3
 #&gt;  3 B1M          Treated    18217  77.3
-#&gt;  4 B1M          Treated    18248  68.0
-#&gt;  5 B1M          Treated    18249  56.0
+#&gt;  4 B1M          Treated    18248  68  
+#&gt;  5 B1M          Treated    18249  56  
 #&gt;  6 B1M          Treated    18265  82.7
 #&gt;  7 BWS          Treated    18211  78.7
-#&gt;  8 BWS          Treated    18212  68.0
+#&gt;  8 BWS          Treated    18212  68  
 #&gt;  9 BWS          Treated    18217  54.7
-#&gt; 10 BWS          Treated    18248  52.0
+#&gt; 10 BWS          Treated    18248  52  
 #&gt; # ... with 14 more rows</div><div class='input'>   <span class='no'>RESFIT</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>residualvalue</span><span class='kw'>=</span><span class='fu'>residuals</span>(<span class='no'>fm4.2</span>),<span class='kw'>fittedvalue</span><span class='kw'>=</span><span class='fu'>fitted.values</span>(<span class='no'>fm4.2</span>))
    <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/ggplot'>ggplot</a></span>(<span class='no'>RESFIT</span>,<span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/aes'>aes</a></span>(<span class='kw'>x</span><span class='kw'>=</span><span class='no'>fittedvalue</span>,<span class='kw'>y</span><span class='kw'>=</span><span class='no'>residualvalue</span>))+
      <span class='fu'><a href='http://www.rdocumentation.org/packages/ggplot2/topics/geom_point'>geom_point</a></span>(<span class='kw'>size</span><span class='kw'>=</span><span class='fl'>2</span>)+
@@ -247,10 +247,10 @@
 #&gt; 1 B1M          76.2 
 #&gt; 2 BWS          65.8 
 #&gt; 3 Control       6.44
-#&gt; 4 Nick         54.0 </div><div class='input'>     <span class='no'>DataExam4.3</span><span class='kw'>%&gt;%</span><span class='fu'>group_by</span>(<span class='no'>SeedLot</span>)<span class='kw'>%&gt;%</span><span class='fu'>summarize</span>(<span class='kw'>Mean</span><span class='kw'>=</span><span class='fu'>mean</span>(<span class='no'>Percent</span>))</div><div class='output co'>#&gt; # A tibble: 6 x 2
+#&gt; 4 Nick         54   </div><div class='input'>     <span class='no'>DataExam4.3</span><span class='kw'>%&gt;%</span><span class='fu'>group_by</span>(<span class='no'>SeedLot</span>)<span class='kw'>%&gt;%</span><span class='fu'>summarize</span>(<span class='kw'>Mean</span><span class='kw'>=</span><span class='fu'>mean</span>(<span class='no'>Percent</span>))</div><div class='output co'>#&gt; # A tibble: 6 x 2
 #&gt;   SeedLot  Mean
 #&gt;     &lt;int&gt; &lt;dbl&gt;
-#&gt; 1   18211  58.0
+#&gt; 1   18211  58  
 #&gt; 2   18212  52.3
 #&gt; 3   18217  44.7
 #&gt; 4   18248  40.7
@@ -259,16 +259,16 @@
 #&gt; # Groups:   Pretreatment [?]
 #&gt;    Pretreatment SeedLot  Mean
 #&gt;    &lt;fct&gt;          &lt;int&gt; &lt;dbl&gt;
-#&gt;  1 B1M            18211  88.0
+#&gt;  1 B1M            18211  88  
 #&gt;  2 B1M            18212  85.3
 #&gt;  3 B1M            18217  77.3
-#&gt;  4 B1M            18248  68.0
-#&gt;  5 B1M            18249  56.0
+#&gt;  4 B1M            18248  68  
+#&gt;  5 B1M            18249  56  
 #&gt;  6 B1M            18265  82.7
 #&gt;  7 BWS            18211  78.7
-#&gt;  8 BWS            18212  68.0
+#&gt;  8 BWS            18212  68  
 #&gt;  9 BWS            18217  54.7
-#&gt; 10 BWS            18248  52.0
+#&gt; 10 BWS            18248  52  
 #&gt; # ... with 14 more rows</div><div class='input'>
 </div></pre>
   </div>

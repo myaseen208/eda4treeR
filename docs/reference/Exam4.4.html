@@ -128,10 +128,7 @@
 <span class='fu'>library</span>(<span class='no'>tidyverse</span>)
 <span class='fu'>library</span>(<span class='no'>ggplot2</span>)
 <span class='fu'>library</span>(<span class='no'>dae</span>)</div><div class='output co'>#&gt; <span class='message'>For versions between CRAN releases (and more) go to</span>
-#&gt; <span class='message'>http://chris.brien.name/rpackages.</span></div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: ‘dae’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:mvtnorm’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    rmvnorm</span></div><div class='input'>
+#&gt; <span class='message'>http://chris.brien.name/rpackages.</span></div><div class='input'>
 <span class='no'>fm4.6</span>    <span class='kw'>&lt;-</span> <span class='fu'>aov</span>(
       <span class='kw'>formula</span>     <span class='kw'>=</span> <span class='no'>Height</span>~<span class='no'>Rep</span>+<span class='no'>Irrig</span>*<span class='no'>Ferti</span>*<span class='no'>SeedDLot</span>+<span class='fu'>Error</span>(<span class='no'>Rep</span>/<span class='no'>Irrig</span>:<span class='no'>Ferti</span>)
     , <span class='kw'>data</span>        <span class='kw'>=</span> <span class='no'>DataExam4.4</span>
@@ -243,7 +240,7 @@
 #&gt;  6 none  plus  Coffs Harbour seed orchard 16.2 
 #&gt;  7 none  plus  Pomona Plantation          14.5 
 #&gt;  8 none  plus  Atherton                   11.5 
-#&gt;  9 plus  none  Bulahdelah                  6.10
+#&gt;  9 plus  none  Bulahdelah                  6.1 
 #&gt; 10 plus  none  Coffs Harbour seed orchard  6.46
 #&gt; 11 plus  none  Pomona Plantation           5.20
 #&gt; 12 plus  none  Atherton                    5.38
