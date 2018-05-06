@@ -1,4 +1,4 @@
-# eda4treeR : Experimental Design and Analysis for Tree Improvement
+# eda4treeR: Experimental Design and Analysis for Tree Improvement
 ## Introduction
 
 **eda4treeR** contains data sets and R Codes for Williams, E.R., Matheson, A.C. and Harwood, C.E. (2002). Experimental Design and Analysis for Tree Improvement, CSIRO Publishing.
