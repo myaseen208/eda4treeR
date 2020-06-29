@@ -1,0 +1,49 @@
+url: https://myaseen208.github.io/eda4treeR/
+
+home:
+  title: eda4treeR
+  description: Experimental Design and Analysis for Tree Improvement
+
+template:
+  params:
+    bootswatch: united
+    ganalytics: UA-116716530-2
+    docsearch:
+      api_key: bdafb7ea4490644e670f470ee3ef537f
+      index_name: eda4treeR
+
+toc:
+  depth: 3
+
+authors:
+  Muhammmad Yaseen:
+    href: https://www.researchgate.net/profile/Muhammad_Yaseen10
+  Sami Ullah:
+    href: https://www.researchgate.net/profile/Sami_Ullah12
+
+development:
+  mode: unreleased
+
+
+navbar:
+  title: eda4treeR
+  type: default
+  left:
+    - icon: fa-home fa-lg
+      text: Home
+      href: index.html
+    - icon: fa-code
+      text: Reference
+      href: reference/index.html
+    - icon: fa-newspaper-o
+      text: News
+      href: news/index.html
+  right:
+    - icon: "fa-github"
+      href: https://github.com/myaseen208/eda4treeR
+    - text: "RG"
+      href: https://www.researchgate.net/profile/Muhammad_Yaseen10
+    - icon: "fab fa-twitter"
+      href: https://twitter.com/myaseen208
+
+reference:

@@ -4,7 +4,8 @@
 \name{DataExam6.2}
 \alias{DataExam6.2}
 \title{Data for Example 6.2 from Experimental Design & Analysis for Tree Improvement}
-\format{A \code{data.frame} with 192 rows and 7 variables.
+\format{
+A \code{data.frame} with 192 rows and 7 variables.
 \describe{
        \item{\code{Replication}}{Replication number of different Families}
        \item{\code{Plot.number}}{Plot number of differnt Trees}
@@ -13,7 +14,8 @@
        \item{\code{Dbh.mean}}{Average Diameter at breast height of trees within plot}
        \item{\code{Dbh.variance}}{Variance of Diameter at breast height of trees within plot}
        \item{\code{Dbh.count}}{Number of trees within plot}
-         }}
+         }
+}
 \usage{
 data(DataExam6.2)
 }

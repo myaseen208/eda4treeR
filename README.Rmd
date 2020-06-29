@@ -1,0 +1,119 @@
+---
+output: rmarkdown::github_document
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "",
+  fig.path = "inst/extdata/"
+)
+```
+
+## `eda4treeR`: Experimental Design and Analysis for Tree Improvement
+
+```{r,echo = FALSE, message = FALSE}
+devtools::load_all(".")
+```
+
+###### Version : [`r getNamespaceVersion("eda4treeR")`](https://myaseen208.github.io/eda4treeR/);  License: [GPL-2|GPL-3](https://www.r-project.org/Licenses/)
+
+
+##### *Muhammad Yaseen^1^, Sami Ullah^2^*
+
+1. Department of Mathematics and Statistics, University of Agriculture Faisalabad, Pakistan.
+
+2. College of Agriculutre, University of Sargodha, Pakistan.
+
+
+***
+
+[![minimal R version](https://img.shields.io/badge/R>%3D-2.10.0-6666ff.svg)](https://cran.r-project.org/)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version-last-release/eda4treeR)](https://cran.r-project.org/package=eda4treeR)
+[![rstudio mirror downloads](https://cranlogs.r-pkg.org/badges/grand-total/eda4treeR?color=green)](https://CRAN.R-project.org/package=eda4treeR)
+<!-- [![packageversion](https://img.shields.io/badge/Package%20version-0.2.3.3-orange.svg)](https://github.com/myaseen208/eda4treeR) -->
+
+```{r, results='asis', echo=FALSE}
+dver <- ifelse(test = gsub("(.\\.)(\\d+)(\\..)", "", getNamespaceVersion("eda4treeR")) != "",
+               yes = getNamespaceVersion("eda4treeR"),
+               no = gsub("Version:\\s*", "", readLines(paste0("https://raw.githubusercontent.com/", "myaseen208/eda4treeR", "/master/DESCRIPTION"))[grep("Version:", readLines(paste0("https://raw.githubusercontent.com/", "myaseen208/eda4treeR", "/master/DESCRIPTION")))]))
+cat(paste("[![develVersion](https://img.shields.io/badge/devel%20version-", dver, "-orange.svg)](https://github.com/myaseen208/eda4treeR)", sep = ""))
+```
+
+<!-- [![GitHub Download Count](https://github-basic-badges.herokuapp.com/downloads/myaseen208/eda4treeR/total.svg)] -->
+[![Project Status: WIP](http://www.repostatus.org/badges/latest/inactive.svg)](http://www.repostatus.org/#inactive)
+[![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+[![Last-changedate](https://img.shields.io/badge/last%20change-`r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](https://github.com/myaseen208/eda4treeR)
+[![Rdoc](http://www.rdocumentation.org/badges/version/eda4treeR)](http://www.rdocumentation.org/packages/eda4treeR)
+
+***
+
+## Description
+`r gsub("(<doi:)(.+)(>)", "[doi:\\2](https://doi.org/\\2)", gsub("\\n", " ", packageDescription("eda4treeR", fields = "Description")))`
+
+&nbsp;
+&nbsp;
+
+
+## Installation
+The package can be installed from CRAN as follows:
+
+```{r, eval=FALSE}
+install.packages("eda4treeR", dependencies = TRUE)
+```
+
+
+&nbsp;
+
+
+The development version can be installed from github as follows:
+
+```{r, eval=FALSE}
+if (!require("remotes")) install.packages("remotes")
+remotes::install_github("myaseen208/eda4treeR")
+```
+
+&nbsp;
+&nbsp;
+
+
+
+## What's new
+To know whats new in this version type:
+
+```{r, eval=FALSE}
+news(package = "eda4treeR")
+```
+
+## Links
+
+[CRAN page](https://cran.r-project.org/package=eda4treeR)
+
+[Github page](https://github.com/myaseen208/eda4treeR)
+
+[Documentation website](https://myaseen208.github.io/eda4treeR/)
+
+
+
+## Citing `eda4treeR`
+To cite the R package `eda4treeR` in publications use:
+
+```{r, eval = FALSE}
+citation("eda4treeR")
+```
+
+```{r, echo = FALSE}
+detach("package:eda4treeR", unload=TRUE)
+suppressPackageStartupMessages(library(eda4treeR))
+cit <- citation("eda4treeR")
+# yr <- format(Sys.Date(), "%Y")
+# cit[1]$year <- yr
+# oc <- class(cit)
+# 
+# cit <- unclass(cit)
+# attr(cit[[1]],"textVersion") <- gsub("\\(\\)",
+#                                      paste("\\(", yr, "\\)", sep = ""),
+#                                      attr(cit[[1]],"textVersion"))
+# class(cit) <- oc
+cit
