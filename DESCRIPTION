@@ -16,6 +16,11 @@ Authors@R:
         , role = c("aut", "ctb")
         )
       , person(
+          c("Kent", "M.", "Eskridge")
+        , email = "keskridge1@unl.edu"
+        , role = c("aut", "ctb")
+        )
+      , person(
           c("Emlyn", "Williams")
         , email = "emlyn@alphastat.net"
         , role = c("aut", "ctb")
