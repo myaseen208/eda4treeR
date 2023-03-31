@@ -19,6 +19,8 @@
 #' @import ggplot2
 #' @importFrom magrittr %>%
 #' @importFrom stats lm anova
+#' @importFrom supernova supernova
+#' @importFrom emmeans emmeans emmip
 #'
 #' @examples
 #'

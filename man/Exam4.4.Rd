@@ -4,7 +4,7 @@
 \alias{Exam4.4}
 \title{Example 4.4 from Experimental Design & Analysis for Tree Improvement}
 \description{
-Exam4.4 presents the height means for 4 seedlots under factorial arrangement for two 
+Exam4.4 presents the height means for 4 seedlots under factorial arrangement for two
              levels of Fertilizer and two levels of Irrigation.
 }
 \examples{
@@ -14,11 +14,12 @@ library(ggplot2)
 library(dae)
 
 fm4.6    <- aov(
-      formula     = Height~Rep+Irrig*Ferti*SeedDLot+Error(Rep/Irrig:Ferti)
+      formula     = Height ~ Rep + Irrig*Ferti*SeedDLot +
+                             Error(Rep/Irrig:Ferti)
     , data        = DataExam4.4
-    #, subset
-    #, weights
-    #, na.action
+  # , subset
+  # , weights
+  # , na.action
     , method      = "qr"
     , model       = TRUE
     , x           = FALSE
@@ -29,43 +30,92 @@ fm4.6    <- aov(
     )
  summary(fm4.6)
 
-    DataExam4.4 \%>\%
-      dplyr::group_by(Irrig) \%>\%
-      dplyr::summarize(Mean=mean(Height))
+   library(supernova)
 
-    DataExam4.4 \%>\%
-      dplyr::group_by(Ferti) \%>\%
-      dplyr::summarize(Mean=mean(Height))
+   supernova(fm4.6)
 
-    DataExam4.4 \%>\%
-      dplyr::group_by(SeedDLot) \%>\%
-      dplyr::summarize(Mean=mean(Height))
 
-    DataExam4.4 \%>\%
-      dplyr::group_by(Irrig,Ferti) \%>\%
-      dplyr::summarize(Mean=mean(Height))
+   emmeans(
+       object     = fm4.6
+     , specs      = ~ Irrig
+     , by         = NULL
+     , fac.reduce = function(coefs) apply(coefs, 2, mean)
+     , contr      =
+     , options    = get_emm_option("emmeans")
+     , weights    =
+     , offset     =
+     , tran       =
+     )
 
-    DataExam4.4 \%>\%
-      dplyr::group_by(Irrig,SeedDLot) \%>\%
-      dplyr::summarize(Mean=mean(Height))
+  emmip(
+      object        = fm4.6
+    , formula       = ~ Irrig
+    , type          = c("link", "response", "predict.type")[1]
+    , CIs           = c(TRUE, FALSE)[1]
+    , PIs           = c(TRUE, FALSE)[2]
+    , style         =
+    , engine        = get_emm_option("graphics.engine")
+    , plotit        = TRUE
+    , nesting.order = FALSE
+    ) +
+    theme_classic()
 
-    DataExam4.4 \%>\%
-      dplyr::group_by(Ferti,SeedDLot) \%>\%
-      dplyr::summarize(Mean=mean(Height))
 
-    DataExam4.4 \%>\%
-      dplyr::group_by(Irrig,Ferti,SeedDLot) \%>\%
-      dplyr::summarize(Mean=mean(Height))
-RESFIT <- data.frame(residualvalue=residuals(fm4.6),fittedvalue=fitted.values(fm4.6))
-ggplot(RESFIT,aes(x=fittedvalue,y=residualvalue))+
- geom_point(size=2)+
- labs(x="Residual vs Fitted Values",y="")+
- theme_bw()
+   emmeans(
+         object     = fm4.6
+       , specs      = ~ Ferti
+       , by         = NULL
+       , fac.reduce = function(coefs) apply(coefs, 2, mean)
+       , contr      =
+       , options    = get_emm_option("emmeans")
+       , weights    =
+       , offset     =
+       , tran       =
+       )
+
+  emmip(
+      object        = fm4.4
+    , formula       = ~ Ferti
+    , type          = c("link", "response", "predict.type")[1]
+    , CIs           = c(TRUE, FALSE)[1]
+    , PIs           = c(TRUE, FALSE)[2]
+    , style         =
+    , engine        = get_emm_option("graphics.engine")
+    , plotit        = TRUE
+    , nesting.order = FALSE
+    ) +
+    theme_classic()
+
+   emmeans(
+         object     = fm4.6
+       , specs      = ~ SeedLot
+       , by         = NULL
+       , fac.reduce = function(coefs) apply(coefs, 2, mean)
+       , contr      =
+       , options    = get_emm_option("emmeans")
+       , weights    =
+       , offset     =
+       , tran       =
+       )
+
+  emmip(
+      object        = fm4.4
+    , formula       = ~ SeedLot
+    , type          = c("link", "response", "predict.type")[1]
+    , CIs           = c(TRUE, FALSE)[1]
+    , PIs           = c(TRUE, FALSE)[2]
+    , style         =
+    , engine        = get_emm_option("graphics.engine")
+    , plotit        = TRUE
+    , nesting.order = FALSE
+    ) +
+    theme_classic()
+
 }
 \references{
 \enumerate{
-         \item Williams, E.R., Matheson, A.C. and Harwood, C.E. (2002).\emph{Experimental Design and Analysis for Tree Improvement}.
-               CSIRO Publishing.
+         \item Williams, E. R., Matheson, A. C. and Harwood, C. E. (2023). \emph{Experimental Design and Analysis for Tree Improvement}.
+               CSIRO Publishing (\href{https://www.publish.csiro.au/book/3145/}{https://www.publish.csiro.au/book/3145/}).
              }
 }
 \seealso{

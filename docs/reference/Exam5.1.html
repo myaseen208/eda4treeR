@@ -91,8 +91,8 @@
     <div id="references">
     <h2>References</h2>
     
-<ol><li><p>Williams, E.R., Matheson, A.C. and Harwood, C.E. (2002).<em>Experimental Design and Analysis for Tree Improvement</em>.
-               CSIRO Publishing.</p></li>
+<ol><li><p>Williams, E. R., Matheson, A. C. and Harwood, C. E. (2023). <em>Experimental Design and Analysis for Tree Improvement</em>.
+               CSIRO Publishing (<a href="https://www.publish.csiro.au/book/3145/" class="external-link">https://www.publish.csiro.au/book/3145/</a>).</p></li>
 </ol></div>
     <div id="see-also">
     <h2>See also</h2>
@@ -111,19 +111,21 @@
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">fm5.4</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">Ht</span><span class="op">~</span><span class="va">Site</span><span class="op">*</span><span class="va">SeedLot</span></span></span>
-<span class="r-in"><span>  ,data    <span class="op">=</span> <span class="va">DataExam5.1</span></span></span>
-<span class="r-in"><span>   <span class="co">#, subset</span></span></span>
-<span class="r-in"><span>   <span class="co">#, weights</span></span></span>
-<span class="r-in"><span>   <span class="co">#, na.action</span></span></span>
-<span class="r-in"><span>   , method <span class="op">=</span> <span class="st">"qr"</span></span></span>
-<span class="r-in"><span>   , model <span class="op">=</span> <span class="cn">TRUE</span></span></span>
-<span class="r-in"><span>   , x <span class="op">=</span> <span class="cn">FALSE</span></span></span>
-<span class="r-in"><span>   , y <span class="op">=</span> <span class="cn">FALSE</span></span></span>
-<span class="r-in"><span>   , qr <span class="op">=</span> <span class="cn">TRUE</span></span></span>
-<span class="r-in"><span>   , singular.ok <span class="op">=</span> <span class="cn">TRUE</span></span></span>
-<span class="r-in"><span>   , contrasts <span class="op">=</span> <span class="cn">NULL</span></span></span>
-<span class="r-in"><span>   <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">fm5.4</span> <span class="op">&lt;-</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      formula <span class="op">=</span> <span class="va">Ht</span><span class="op">~</span><span class="va">Site</span><span class="op">*</span><span class="va">SeedLot</span></span></span>
+<span class="r-in"><span>    , data        <span class="op">=</span> <span class="va">DataExam5.1</span></span></span>
+<span class="r-in"><span>  <span class="co"># , subset</span></span></span>
+<span class="r-in"><span>  <span class="co"># , weights</span></span></span>
+<span class="r-in"><span>  <span class="co"># , na.action</span></span></span>
+<span class="r-in"><span>    , method      <span class="op">=</span> <span class="st">"qr"</span></span></span>
+<span class="r-in"><span>    , model       <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span>    , x           <span class="op">=</span> <span class="cn">FALSE</span></span></span>
+<span class="r-in"><span>    , y           <span class="op">=</span> <span class="cn">FALSE</span></span></span>
+<span class="r-in"><span>    , qr          <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span>    , singular.ok <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span>    , contrasts   <span class="op">=</span> <span class="cn">NULL</span></span></span>
+<span class="r-in"><span>       <span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>   <span class="fu"><a href="https://rdrr.io/r/stats/anova.html" class="external-link">anova</a></span><span class="op">(</span><span class="va">fm5.4</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>ANOVA F-tests on an essentially perfect fit are unreliable</span>
@@ -136,35 +138,129 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> Site:SeedLot 78  707957    9076     NaN    NaN</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Residuals     0       0     NaN               </span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/UCLATALL/supernova" class="external-link">supernova</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span>   <span class="va">DataExam5.1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>     <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">Site</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>     <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span><span class="op">(</span>Mean<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">Ht</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 4 × 2</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Site       Mean</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Rathaburi  462.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> Sai Thong  628.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> Si Sa Ket  494.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> Sakaerat   370.</span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/supernova/man/supernova.html" class="external-link">supernova</a></span><span class="op">(</span><span class="va">fm5.4</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Analysis of Variance Table (Type III SS)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Model: Ht ~ Site * SeedLot</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                          SS  df        MS   F   PRE  p</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ------------ --------------- | ----------- --- --------- --- ----- --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         Model (error reduced) | 4803830.852 107 44895.615 NaN .0000 aN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          Site                 |   25934.750   3  8644.917 NaN .0000 aN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       SeedLot                 |  506268.296  26 19471.858 NaN .0000 aN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Site:SeedLot                 |  707956.778  78  9076.369 NaN .0000 aN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         Error (from model)    |       0.000   0       NaN             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  ------------ --------------- | ----------- --- --------- --- ----- --</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         Total (empty model)   | 4803830.852 107 44895.615             </span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span>   <span class="va">DataExam5.1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>     <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">SeedLot</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>     <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span><span class="op">(</span>Mean<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">Ht</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 27 × 2</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    SeedLot  Mean</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 13877    365.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 13866    353.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 13689    559.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 13688    546.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 13861    627.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 13854    628 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 13684    660 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 13864    422.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 13863    586.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 13683    770.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 17 more rows</span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rvlenth/emmeans" class="external-link">emmeans</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html" class="external-link">emmeans</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      object     <span class="op">=</span> <span class="va">fm5.4</span></span></span>
+<span class="r-in"><span>    , specs      <span class="op">=</span> <span class="op">~</span> <span class="va">Site</span></span></span>
+<span class="r-in"><span>    , by         <span class="op">=</span> <span class="cn">NULL</span></span></span>
+<span class="r-in"><span>    , fac.reduce <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">coefs</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply</a></span><span class="op">(</span><span class="va">coefs</span>, <span class="fl">2</span>, <span class="va">mean</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    , contr      <span class="op">=</span></span></span>
+<span class="r-in"><span>    , options    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emm_options.html" class="external-link">get_emm_option</a></span><span class="op">(</span><span class="st">"emmeans"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    , weights    <span class="op">=</span></span></span>
+<span class="r-in"><span>    , offset     <span class="op">=</span></span></span>
+<span class="r-in"><span>    , tran       <span class="op">=</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: Results may be misleading due to involvement in interactions</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>NaNs produced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Site      emmean  SE df lower.CL upper.CL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Rathaburi    462 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Sai Thong    628 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Si Sa Ket    494 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Sakaerat     370 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Results are averaged over the levels of: SeedLot </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Confidence level used: 0.95 </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmip.html" class="external-link">emmip</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>     object        <span class="op">=</span> <span class="va">fm5.4</span></span></span>
+<span class="r-in"><span>   , formula       <span class="op">=</span> <span class="op">~</span> <span class="va">Site</span></span></span>
+<span class="r-in"><span>   , type          <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"link"</span>, <span class="st">"response"</span>, <span class="st">"predict.type"</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span></span>
+<span class="r-in"><span>   , CIs           <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span></span>
+<span class="r-in"><span>   , PIs           <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span></span>
+<span class="r-in"><span>   , style         <span class="op">=</span></span></span>
+<span class="r-in"><span>   , engine        <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emm_options.html" class="external-link">get_emm_option</a></span><span class="op">(</span><span class="st">"graphics.engine"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>   , plotit        <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span>   , nesting.order <span class="op">=</span> <span class="cn">FALSE</span></span></span>
+<span class="r-in"><span>   <span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: Results may be misleading due to involvement in interactions</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>NaNs produced</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 4 rows containing missing values (`geom_segment()`).</span>
+<span class="r-plt img"><img src="Exam5.1-1.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html" class="external-link">emmeans</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      object     <span class="op">=</span> <span class="va">fm5.4</span></span></span>
+<span class="r-in"><span>    , specs      <span class="op">=</span> <span class="op">~</span> <span class="va">SeedLot</span></span></span>
+<span class="r-in"><span>    , by         <span class="op">=</span> <span class="cn">NULL</span></span></span>
+<span class="r-in"><span>    , fac.reduce <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">coefs</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply</a></span><span class="op">(</span><span class="va">coefs</span>, <span class="fl">2</span>, <span class="va">mean</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    , contr      <span class="op">=</span></span></span>
+<span class="r-in"><span>    , options    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emm_options.html" class="external-link">get_emm_option</a></span><span class="op">(</span><span class="st">"emmeans"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    , weights    <span class="op">=</span></span></span>
+<span class="r-in"><span>    , offset     <span class="op">=</span></span></span>
+<span class="r-in"><span>    , tran       <span class="op">=</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: Results may be misleading due to involvement in interactions</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>NaNs produced</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  SeedLot emmean  SE df lower.CL upper.CL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  13877      365 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  13866      353 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  13689      559 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  13688      546 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  13861      627 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  13854      628 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  13684      660 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  13864      422 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  13863      586 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  13683      770 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  13681      695 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  14175      438 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  14660      521 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  13653      592 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  13846      440 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  13621      384 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  13871      272 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  13519      422 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  13514      369 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  13148      273 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  13990      282 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  14537      780 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  14106      772 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  12013      616 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  14130      422 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  14485      123 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  11935      273 NaN  0      NaN      NaN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Results are averaged over the levels of: Site </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Confidence level used: 0.95 </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmip.html" class="external-link">emmip</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>     object        <span class="op">=</span> <span class="va">fm5.4</span></span></span>
+<span class="r-in"><span>   , formula       <span class="op">=</span> <span class="op">~</span> <span class="va">SeedLot</span></span></span>
+<span class="r-in"><span>   , type          <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"link"</span>, <span class="st">"response"</span>, <span class="st">"predict.type"</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span></span>
+<span class="r-in"><span>   , CIs           <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span></span>
+<span class="r-in"><span>   , PIs           <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span></span>
+<span class="r-in"><span>   , style         <span class="op">=</span></span></span>
+<span class="r-in"><span>   , engine        <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emm_options.html" class="external-link">get_emm_option</a></span><span class="op">(</span><span class="st">"graphics.engine"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>   , plotit        <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span>   , nesting.order <span class="op">=</span> <span class="cn">FALSE</span></span></span>
+<span class="r-in"><span>   <span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: Results may be misleading due to involvement in interactions</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>NaNs produced</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Removed 27 rows containing missing values (`geom_segment()`).</span>
+<span class="r-plt img"><img src="Exam5.1-2.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>     <span class="va">b</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html" class="external-link">anova</a></span><span class="op">(</span><span class="va">fm5.4</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>ANOVA F-tests on an essentially perfect fit are unreliable</span>
@@ -187,8 +283,8 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> Residuals    208  216320    1040                       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
-<span class="r-in"><span>     </span></span>
-<span class="r-in"><span>     </span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span>     <span class="va">RegCoeff</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">DataExam5.1</span><span class="op">)</span></span></span>
 <span class="r-in"><span>     <span class="op">{</span></span></span>
 <span class="r-in"><span>     <span class="va">fm</span>     <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">Ht</span> <span class="op">~</span> <span class="va">SiteMean</span></span></span>
@@ -201,21 +297,21 @@
 <span class="r-in"><span>   <span class="va">X3</span>       <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">DataExam5.1</span>, <span class="va">SeedLot</span><span class="op">==</span><span class="st">"13871"</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="va">dffig5.1</span> <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/merge.html" class="external-link">merge</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="va">X2</span>,<span class="va">X3</span><span class="op">)</span>,<span class="va">X1</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">dffig5.1</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">sitemean</span>, y<span class="op">=</span><span class="va">Ht</span>, color<span class="op">=</span><span class="va">SeedLot</span>, shape<span class="op">=</span><span class="va">SeedLot</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html" class="external-link">geom_smooth</a></span><span class="op">(</span>method<span class="op">=</span><span class="va">lm</span>, se<span class="op">=</span><span class="cn">FALSE</span>, fullrange<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>y<span class="op">=</span><span class="st">"Seedlot mean"</span>,x<span class="op">=</span><span class="st">"Sitemean"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> `geom_smooth()` using formula = 'y ~ x'</span>
-<span class="r-plt img"><img src="Exam5.1-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span>  </span></span>
+<span class="r-plt img"><img src="Exam5.1-3.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span>     <span class="va">RegCoeff</span>     <span class="op">&lt;-</span> <span class="va">DataExam5.1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">SeedLot</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/do.html" class="external-link">do</a></span><span class="op">(</span><span class="fu">RegCoeff</span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span>     </span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span>     <span class="va">SeedLot.Mean</span> <span class="op">&lt;-</span> <span class="va">DataExam5.1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">SeedLot</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>     <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">Ht</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span>     </span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span>     <span class="va">Tab5.10</span>    <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">RegCoeff</span>,Mean<span class="op">=</span><span class="va">SeedLot.Mean</span><span class="op">$</span><span class="st">'mean(Ht)'</span><span class="op">)</span></span></span>
 <span class="r-in"><span>     <span class="va">Tab5.10</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    SeedLot  intercept      slope   Mean</span>
@@ -250,7 +346,7 @@
 <span class="r-in"><span>     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>size<span class="op">=</span><span class="fl">2</span><span class="op">)</span><span class="op">+</span></span></span>
 <span class="r-in"><span>     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_bw</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span></span>
 <span class="r-in"><span>     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>x<span class="op">=</span><span class="st">"Seed Lot Mean"</span>,y<span class="op">=</span><span class="st">"Regression Coefficient"</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="Exam5.1-2.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="Exam5.1-4.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
