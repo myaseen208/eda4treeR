@@ -1,7 +1,7 @@
 Package: eda4treeR
 Type: Package
 Title: Experimental Design and Analysis for Tree Improvement
-Version: 0.3.0
+Version: 0.5.0
 Authors@R: 
     c(
         person(
@@ -15,10 +15,15 @@ Authors@R:
         , email = "samiullahuos@gmail.com"
         , role = c("aut", "ctb")
         )
+      , person(
+          c("Emlyn", "Williams")
+        , email = "emlyn@alphastat.net"
+        , role = c("ctb")
+        )
         )
 Maintainer: Muhammad Yaseen <myaseen208@gmail.com>
 Description: Provides data sets and R Codes for Williams, E.R., Matheson, A.C. and Harwood, C.E. (2002). Experimental Design and Analysis for Tree Improvement, CSIRO Publishing.
-Depends: R (>= 3.2.3)
+Depends: R (>= 4.1.0)
 Imports: 
   dplyr,
   dae,
@@ -28,11 +33,15 @@ Imports:
   magrittr,
   pbkrtest,
   stats,
+  supernova,
   tidyverse
 License: GPL-3
 URL: https://github.com/MYaseen208/eda4treeR
 LazyData: TRUE
-RoxygenNote: 7.1.0
+RoxygenNote: 7.2.3
 Suggests: 
     testthat
-Note: Department of Mathematics and Statistics, University of Agriculture Faisalabad, Faisalabad-Pakistan.
+Note: 
+    1. Asian Development Bank (ADB), Islamabad, Pakistan.
+    2. Benazir Income Support Programme (BISP), Islamabad, Pakistan.
+    3. Department of Mathematics and Statistics, University of Agriculture Faisalabad, Pakistan.

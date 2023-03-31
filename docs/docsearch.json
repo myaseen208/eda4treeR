@@ -2,21 +2,21 @@
   "index_name": "eda4treeR",
   "start_urls": [
     {
-      "url": "https://myaseen208.github.io/eda4treeR//index.html",
+      "url": "https://myaseen208.github.io/eda4treeR/index.html",
       "selectors_key": "homepage",
       "tags": [
         "homepage"
       ]
     },
     {
-      "url": "https://myaseen208.github.io/eda4treeR//reference",
+      "url": "https://myaseen208.github.io/eda4treeR/reference",
       "selectors_key": "reference",
       "tags": [
         "reference"
       ]
     },
     {
-      "url": "https://myaseen208.github.io/eda4treeR//articles",
+      "url": "https://myaseen208.github.io/eda4treeR/articles",
       "selectors_key": "articles",
       "tags": [
         "articles"
@@ -30,7 +30,7 @@
     "/articles/index.html"
   ],
   "sitemap_urls": [
-    "https://myaseen208.github.io/eda4treeR//sitemap.xml"
+    "https://myaseen208.github.io/eda4treeR/sitemap.xml"
   ],
   "selectors": {
     "homepage": {

@@ -12,30 +12,62 @@ Exam3.1.1 is part of data from Australian Centre for Agricultural Research (ACIA
 library(tidyverse)
 data(DataExam3.1.1)
 
-fm3.8   <-     lm(
-   formula     = Mean~Repl+SeedLot
- , data        = DataExam3.1.1
- #, subset
- #, weights
- #, na.action
- , method      = "qr"
- , model       = TRUE
- , x           = FALSE
- , y           = FALSE
- , qr          = TRUE
- , singular.ok = TRUE
- , contrasts   = NULL
-  )
+fm3.8   <-
+  lm(
+     formula     = Mean ~ Repl + SeedLot
+   , data        = DataExam3.1.1
+ # , subset
+ # , weights
+ # , na.action
+   , method      = "qr"
+   , model       = TRUE
+   , x           = FALSE
+   , y           = FALSE
+   , qr          = TRUE
+   , singular.ok = TRUE
+   , contrasts   = NULL
+    )
 anova(fm3.8)
-DataExam3.1.1 \%>\%
-dplyr::ungroup() \%>\%
- dplyr::group_by(SeedLot) \%>\%
- dplyr::summarize(Mean=mean(Mean))
+
+
+ library(supernova)
+
+ supernova(fm3.8)
+
+ library(emmeans)
+
+
+ emmeans(
+     object     = fm3.8
+   , specs      = ~ SeedLot
+   , by         = NULL
+   , fac.reduce = function(coefs) apply(coefs, 2, mean)
+   , contr      =
+   , options    = get_emm_option("emmeans")
+   , weights    =
+   , offset     =
+   , tran       =
+   )
+
+
+ emmip(
+     object        = fm3.8
+   , formula       = ~ SeedLot
+   , type          = c("link", "response", "predict.type")[1]
+   , CIs           = c(TRUE, FALSE)[1]
+   , PIs           = c(TRUE, FALSE)[2]
+   , style         =
+   , engine        = get_emm_option("graphics.engine")
+   , plotit        = TRUE
+   , nesting.order = FALSE
+   ) +
+   theme_classic()
+
 }
 \references{
 \enumerate{
-         \item Williams, E.R., Matheson, A.C. and Harwood, C.E. (2002).\emph{Experimental Design and Analysis for Tree Improvement}.
-               CSIRO Publishing.
+         \item Williams, E. R., Matheson, A. C. and Harwood, C. E. (2023). \emph{Experimental Design and Analysis for Tree Improvement}.
+               CSIRO Publishing (\href{https://www.publish.csiro.au/book/3145/}{https://www.publish.csiro.au/book/3145/}).
              }
 }
 \seealso{
