@@ -3,7 +3,7 @@
 
 ###### Version : [0.5.0](https://myaseen208.github.io/eda4treeR/); License: [GPL-2\|GPL-3](https://www.r-project.org/Licenses/)
 
-##### *Muhammad Yaseen<sup>1,2,3</sup>, Sami Ullah<sup>4</sup>, Kent M. Eskridge^5, Emlyn Williams<sup>6</sup>*
+##### *Muhammad Yaseen<sup>1,2,3</sup>, Sami Ullah<sup>4</sup>, Kent M. Eskridge<sup>5</sup>, Emlyn Williams<sup>6</sup>*
 
 1.  Asian Development Bank (ADB), Islamabad, Pakistan.
 
