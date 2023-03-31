@@ -18,7 +18,7 @@ Authors@R:
       , person(
           c("Emlyn", "Williams")
         , email = "emlyn@alphastat.net"
-        , role = c("ctb")
+        , role = c("aut", "ctb")
         )
         )
 Maintainer: Muhammad Yaseen <myaseen208@gmail.com>

@@ -94,16 +94,16 @@ citation("eda4treeR")
 
     To cite the R package 'eda4treeR' in publications use:
 
-      Muhammad Yaseen, Sami Ullah, and Gulfam Haider (2023).  eda4treeR:
-      Detecting Structural Change with Heteroskedasticity.R package version
-      0.5.0 ,
+      Muhammad Yaseen, Sami Ullah, and Emlyn Williams (2023).  eda4treeR:
+      Experimental Design and Analysis for Tree Improvement.R package
+      version 0.5.0 ,
       https://myaseen208.github.io/eda4treeR/https://cran.r-project.org/package=eda4treeR.
 
     A BibTeX entry for LaTeX users is
 
       @Manual{,
-        title = {eda4treeR: Detecting Structural Change with Heteroskedasticity},
-        author = {{Muhammad Yaseen} and {Sami Ullah} and {Gulfam Haider}},
+        title = {eda4treeR: Experimental Design and Analysis for Tree Improvement},
+        author = {{Muhammad Yaseen} and {Sami Ullah} and {Emlyn Williams}},
         year = {2023},
         note = {R package version 0.5.0},
         note = {https://myaseen208.github.io/eda4treeR/ },

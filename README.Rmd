@@ -110,7 +110,7 @@ citation("eda4treeR")
 ```
 
 ```{r, echo = FALSE}
-detach("package:eda4treeR", unload=TRUE)
+detach("package:eda4treeR", unload = TRUE)
 suppressPackageStartupMessages(library(eda4treeR))
 cit <- citation("eda4treeR")
 # yr <- format(Sys.Date(), "%Y")

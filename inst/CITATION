@@ -12,17 +12,17 @@ vers <- paste("R package version", meta$Version)
 
 citEntry(
   entry  = "Manual"
-, title  = "eda4treeR: Detecting Structural Change with Heteroskedasticity"
+, title  = "eda4treeR: Experimental Design and Analysis for Tree Improvement"
 , author = personList(
   person(c("Muhammad", "Yaseen"),  email = "myaseen208@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-5923-1714"))
 , person(c("Sami", "Ullah"),  email = "samiullahuos@gmail.com", role = c("aut", "ctb"))
-, person(c("Gulfam", "Haider"),  email = "haider.gulfam786@gmail.com", role = c("aut", "ctb"))
+, person(c("Emlyn", "Williams"),  email = "emlyn@alphastat.net", role = c("aut", "ctb"))
             )
 , year = year
 , textVersion = paste(
-       "Muhammad Yaseen, Sami Ullah,  and Gulfam Haider ("
+       "Muhammad Yaseen, Sami Ullah,  and Emlyn Williams ("
       , year
-      , ").  eda4treeR: Detecting Structural Change with Heteroskedasticity."
+      , ").  eda4treeR: Experimental Design and Analysis for Tree Improvement."
       , vers
       , "
       , "
