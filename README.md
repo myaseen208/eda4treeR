@@ -3,7 +3,7 @@
 
 ###### Version : [0.5.0](https://myaseen208.github.io/eda4treeR/); License: [GPL-2\|GPL-3](https://www.r-project.org/Licenses/)
 
-##### *Muhammad Yaseen<sup>1,2,3</sup>, Sami Ullah<sup>4</sup>, Emlyn Williams<sup>5</sup>*
+##### *Muhammad Yaseen<sup>1,2,3</sup>, Sami Ullah<sup>4</sup>, Kent M. Eskridge^5, Emlyn Williams<sup>6</sup>*
 
 1.  Asian Development Bank (ADB), Islamabad, Pakistan.
 
@@ -14,7 +14,10 @@
 
 4.  College of Agriculutre, University of Sargodha, Pakistan.
 
-5.  Commonwealth Scientific and Industrial Research Organisation
+5.  Department of Statistics, University of Nebraska-Lincoln, Lincoln
+    NE, USA
+
+6.  Commonwealth Scientific and Industrial Research Organisation
     (CSIRO), Australia.
 
 ------------------------------------------------------------------------
@@ -94,16 +97,16 @@ citation("eda4treeR")
 
     To cite the R package 'eda4treeR' in publications use:
 
-      Muhammad Yaseen, Sami Ullah, and Emlyn Williams (2023).  eda4treeR:
-      Experimental Design and Analysis for Tree Improvement.R package
-      version 0.5.0 ,
+      Muhammad Yaseen, Sami Ullah, Kent M. Eskridge, and Emlyn Williams
+      (2023).  eda4treeR: Experimental Design and Analysis for Tree
+      Improvement.R package version 0.5.0 ,
       https://myaseen208.github.io/eda4treeR/https://cran.r-project.org/package=eda4treeR.
 
     A BibTeX entry for LaTeX users is
 
       @Manual{,
         title = {eda4treeR: Experimental Design and Analysis for Tree Improvement},
-        author = {{Muhammad Yaseen} and {Sami Ullah} and {Emlyn Williams}},
+        author = {{Muhammad Yaseen} and {Sami Ullah} and {Kent M. Eskridge} and {Emlyn Williams}},
         year = {2023},
         note = {R package version 0.5.0},
         note = {https://myaseen208.github.io/eda4treeR/ },
