@@ -3,7 +3,7 @@
 
 ###### Version : [0.5.0](https://myaseen208.github.io/eda4treeR/); License: [GPL-2\|GPL-3](https://www.r-project.org/Licenses/)
 
-##### *Muhammad Yaseen^1, 2, 3^, Sami Ullah<sup>4</sup>, Emlyn Williams<sup>5</sup>*
+##### *Muhammad Yaseen<sup>1,2,3</sup>, Sami Ullah<sup>4</sup>, Emlyn Williams<sup>5</sup>*
 
 1.  Asian Development Bank (ADB), Islamabad, Pakistan.
 
@@ -28,7 +28,7 @@ v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org
 downloads](https://cranlogs.r-pkg.org/badges/grand-total/eda4treeR?color=green)](https://CRAN.R-project.org/package=eda4treeR)
 <!-- [![packageversion](https://img.shields.io/badge/Package%20version-0.2.3.3-orange.svg)](https://github.com/myaseen208/eda4treeR) -->
 
-[![develVersion](https://img.shields.io/badge/devel%20version-0.3.0-orange.svg)](https://github.com/myaseen208/eda4treeR)
+[![develVersion](https://img.shields.io/badge/devel%20version-0.5.0-orange.svg)](https://github.com/myaseen208/eda4treeR)
 
 <!-- [![GitHub Download Count](https://github-basic-badges.herokuapp.com/downloads/myaseen208/eda4treeR/total.svg)] -->
 
