@@ -11,6 +11,8 @@ data(DataExam5.2)
 library(tidyverse)
 library(ggplot2)
 
+# Pg.75
+
 fm5.7 <- aov(formula = height~env*gen
    ,data    = DataExam5.2
    #, subset
@@ -25,11 +27,13 @@ fm5.7 <- aov(formula = height~env*gen
    , contrasts = NULL
    )
 
+ # Pg. 77
+ 
    anova(fm5.7)
 
 
-     fm5.9  <-    aov(formula = height~env*gen
-     ,data    = DataExam5.2
+     fm5.9 <- aov(formula = height~env*gen
+     ,data = DataExam5.2
      #, subset
      #, weights
      #, na.action
@@ -41,7 +45,11 @@ fm5.7 <- aov(formula = height~env*gen
      , singular.ok = TRUE
      , contrasts = NULL
      )
+     
+ # Pg. 77
+     
      anova(fm5.9)
+     
      b<-anova(fm5.9)
      Res                     <- length(b[["Sum Sq"]])
      df                      <- 384
@@ -51,7 +59,10 @@ fm5.7 <- aov(formula = height~env*gen
      b[["Mean Sq"]][Res]     <- b[["Sum Sq"]][Res]/b[["Df"]][Res]
      b[["F value"]][1:Res-1] <- b[["Mean Sq"]][1:Res-1]/b[["Mean Sq"]][Res]
      b[["Pr(>F)"]][Res-1]     <- df(b[["F value"]][Res-1],b[["Df"]][Res-1],b[["Df"]][Res])
-     b
+ 
+ # Pg. 77
+     
+ print(b)
 
      X1<- DataExam5.2 \%>\%
      group_by(env) \%>\%

@@ -25,6 +25,8 @@
 #' data(DataExam2.1)
 #' library(tidyverse)
 #'
+#' # Pg. 22
+#'
 #' fmtab2.3  <-
 #'   lm(
 #'     formula     = dbh ~ SeedLot
@@ -41,6 +43,8 @@
 #'   , contrasts   = NULL
 #'   )
 #'
+#' # Pg. 23
+#'
 #' anova(fmtab2.3)
 #'
 #' library(supernova)
@@ -49,6 +53,7 @@
 #'
 #' library(emmeans)
 #'
+#' # Pg. 23
 #'
 #' emmeans(
 #'     object     = fmtab2.3

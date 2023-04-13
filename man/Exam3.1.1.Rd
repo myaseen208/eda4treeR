@@ -12,6 +12,8 @@ Exam3.1.1 is part of data from Australian Centre for Agricultural Research (ACIA
 library(tidyverse)
 data(DataExam3.1.1)
 
+# Pg. 36
+
 fm3.8   <-
   lm(
      formula     = Mean ~ Repl + SeedLot
@@ -27,15 +29,16 @@ fm3.8   <-
    , singular.ok = TRUE
    , contrasts   = NULL
     )
+
+# Pg. 40
+
 anova(fm3.8)
 
 
- library(supernova)
-
- supernova(fm3.8)
 
  library(emmeans)
 
+ # Pg. 40
 
  emmeans(
      object     = fm3.8

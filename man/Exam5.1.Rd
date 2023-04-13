@@ -11,9 +11,11 @@ data(DataExam5.1)
 library(tidyverse)
 library(ggplot2)
 
+# Pg.68
+
 fm5.4 <-
   lm(
-      formula = Ht~Site*SeedLot
+      formula     = Ht~Site*SeedLot
     , data        = DataExam5.1
   # , subset
   # , weights
@@ -27,7 +29,9 @@ fm5.4 <-
     , contrasts   = NULL
        )
 
-   anova(fm5.4)
+  # Pg. 73
+
+  anova(fm5.4)
 
   library(supernova)
 
@@ -35,6 +39,7 @@ fm5.4 <-
 
   library(emmeans)
 
+  # Pg. 73
 
   emmeans(
       object     = fm5.4
@@ -47,6 +52,7 @@ fm5.4 <-
     , offset     =
     , tran       =
     )
+
 
  emmip(
      object        = fm5.4
@@ -61,7 +67,7 @@ fm5.4 <-
    ) +
    theme_classic()
 
-
+  # Pg. 73
 
   emmeans(
       object     = fm5.4
@@ -90,7 +96,7 @@ fm5.4 <-
 
 
 
-     b<-anova(fm5.4)
+     b <- anova(fm5.4)
      Res                     <- length(b[["Sum Sq"]])
      df                      <- 208
      MSS                     <- 1040
@@ -109,21 +115,26 @@ fm5.4 <-
                setNames(data.frame(t(coef(fm)))
               ,c("intercept", "slope"))
       }
-   X1       <- DataExam5.1\%>\%group_by(Site)\%>\%summarize(sitemean=mean(Ht))
+   X1       <- DataExam5.1 \%>\% group_by(Site) \%>\% summarize(sitemean=mean(Ht))
    X2       <- filter(DataExam5.1, SeedLot=="13653")
    X3       <- filter(DataExam5.1, SeedLot=="13871")
   dffig5.1 <-merge(rbind(X2,X3),X1)
+
+  # Pg. 80
+
   ggplot(dffig5.1, aes(x=sitemean, y=Ht, color=SeedLot, shape=SeedLot)) +
   geom_point() +
   geom_smooth(method=lm, se=FALSE, fullrange=TRUE)+
   theme_classic()+
   labs(y="Seedlot mean",x="Sitemean")
 
-     RegCoeff     <- DataExam5.1 \%>\%
+     RegCoeff     <-
+     DataExam5.1 \%>\%
      group_by(SeedLot) \%>\%
      do(RegCoeff(.))
 
-     SeedLot.Mean <- DataExam5.1 \%>\%
+     SeedLot.Mean <-
+     DataExam5.1 \%>\%
      group_by(SeedLot) \%>\%
      summarize(mean(Ht))
 

@@ -26,10 +26,16 @@
 #' library(tidyverse)
 #' library(lme4)
 #'
-#' DataExam6.2.1 <- DataExam6.2[DataExam6.2$Province=="PNG",]
-#'fm6.3 <- lm(formula      =
-#'         Dbh.mean        ~ Replication+Family
-#'         ,data           = DataExam6.2.1
+#' # Pg. 94
+#'
+#' DataExam6.2.1 <-
+#'     DataExam6.2 %>%
+#'     filter(Province == "PNG")
+#'
+#' fm6.3 <-
+#' lm(
+#'           formula     = Dbh.mean~ Replication+Family
+#'         , data        = DataExam6.2.1
 #'        #, subset
 #'        #, weights
 #'        #, na.action
@@ -41,36 +47,45 @@
 #'         , singular.ok = TRUE
 #'         , contrasts   = NULL
 #'        )
+#'
 #' b    <- anova(fm6.3)
-#' print(b)
+#'
+#'
 #' HM      <- function(x){length(x)/sum(1/x)}
 #' w       <- HM(DataExam6.2.1$Dbh.count)
 #' S2      <- b[["Mean Sq"]][length(b[["Mean Sq"]])]
-#'Sigma2t <- mean(DataExam6.2.1$Dbh.variance)
-#'sigma2m <- S2-(Sigma2t/w)
-#'fm6.3.1<- lmer(formula=
-#'      Dbh.mean ~ 1+Replication+(1|Family)
-#'     ,data = DataExam6.2.1
-#'     ,REML = TRUE
-#'     ,control = lmerControl()
-#'     ,start = NULL
-#'     , verbose = 0L
+#' Sigma2t <- mean(DataExam6.2.1$Dbh.variance)
+#' sigma2m <- S2-(Sigma2t/w)
+#'
+#' fm6.3.1 <-
+#' lmer(
+#'       formula   = Dbh.mean ~ 1 + Replication + (1|Family)
+#'     , data      = DataExam6.2.1
+#'     , REML      = TRUE
+#'     , control   = lmerControl()
+#'     , start     = NULL
+#'     , verbose   = 0L
 #'    #, subset
 #'    #, weights
 #'    #, na.action
-#'    #,offset
-#'     , contrasts = NULL
-#'     , devFunOnly = FALSE)
+#'    #, offset
+#'     , contrasts  = NULL
+#'     , devFunOnly = FALSE
+#'     )
+#'
+#'  # Pg. 104
+#'
 #' summary(fm6.3.1)
 #' print(VarCorr(fm6.3.1),comp=c("Variance"))
 #' sigma2f <- 0.2584
 #' h2 <- (sigma2f/(0.3))/(Sigma2t+sigma2m+sigma2f)
-#' cbind(w,Sigma2t,sigma2m,sigma2f,h2)
+#' cbind(hmean=w,Sigma2t,sigma2m,sigma2f,h2)
 #'
-#'print("Dbh Heritability for all the Provinces")
-#'fm6.4 <- lm(formula      =
-#'         Dbh.mean        ~ Replication+Family
-#'         ,data           = DataExam6.2
+#' print("Dbh Heritability for all the Provinces")
+#' fm6.4 <-
+#' lm(
+#'           formula     = Dbh.mean ~ Replication+Family
+#'         , data        = DataExam6.2
 #'        #, subset
 #'        #, weights
 #'        #, na.action
@@ -82,79 +97,103 @@
 #'         , singular.ok = TRUE
 #'         , contrasts   = NULL
 #'        )
+#'
 #' b    <- anova(fm6.4)
-#' print(b)
+#'
+#'
 #' HM      <- function(x){length(x)/sum(1/x)}
 #' w       <- HM(DataExam6.2$Dbh.count)
 #' S2      <- b[["Mean Sq"]][length(b[["Mean Sq"]])]
-#'Sigma2t <- mean(DataExam6.2$Dbh.variance)
-#'sigma2m <- S2-(Sigma2t/w)
-#'fm6.4.1<- lmer(formula=
-#'      Dbh.mean ~ 1+Replication+Province+(1|Family)
-#'     ,data = DataExam6.2
-#'     ,REML = TRUE
-#'     ,control = lmerControl()
-#'     ,start = NULL
-#'     , verbose = 0L
+#' Sigma2t <- mean(DataExam6.2$Dbh.variance)
+#' sigma2m <- S2-(Sigma2t/w)
+#'
+#' fm6.4.1 <-
+#' lmer(
+#'       formula   = Dbh.mean ~ 1 + Replication + Province + (1|Family)
+#'     , data      = DataExam6.2
+#'     , REML      = TRUE
+#'     , control   = lmerControl()
+#'     , start     = NULL
+#'     , verbose   = 0L
 #'    #, subset
 #'    #, weights
 #'    #, na.action
-#'    #,offset
-#'     , contrasts = NULL
-#'     , devFunOnly = FALSE)
+#'    #, offset
+#'     , contrasts  = NULL
+#'     , devFunOnly = FALSE
+#'     )
+#'
+#' # Pg. 107
+#'
 #' summary(fm6.4.1)
 #' print(VarCorr(fm6.4.1),comp=c("Variance"))
 #' sigma2f <- 0.3514
 #' h2 <- (sigma2f/(0.3))/(Sigma2t+sigma2m+sigma2f)
-#' cbind(w,Sigma2t,sigma2m,sigma2f,h2)
+#' cbind(hmean=w,Sigma2t,sigma2m,sigma2f,h2)
 #' print("Genetic Correlation Between Dbh and Height for PNG Province")
-#'fm6.7.1<- lmer(formula=
-#'      Dbh.mean ~ 1+Replication+(1|Family)
-#'     ,data = DataExam6.2.1
-#'     ,REML = TRUE
-#'     ,control = lmerControl()
-#'     ,start = NULL
-#'     , verbose = 0L
+#'
+#' fm6.7.1 <-
+#' lmer(
+#'       formula   = Dbh.mean ~ 1+Replication+(1|Family)
+#'     , data      = DataExam6.2.1
+#'     , REML      = TRUE
+#'     , control   = lmerControl()
+#'     , start     = NULL
+#'     , verbose   = 0L
 #'    #, subset
 #'    #, weights
 #'    #, na.action
 #'    #,offset
-#'     , contrasts = NULL
-#'     , devFunOnly = FALSE)
+#'     , contrasts  = NULL
+#'     , devFunOnly = FALSE
+#'     )
+#'
+#' # Pg. 116
+#'
 #' summary(fm6.7.1)
 #' print(VarCorr(fm6.7.1),comp=c("Variance"))
 #' sigma2f[1] <- 0.2584
 #'
-#'fm6.7.2<- lmer(formula=
-#'      Ht.mean ~ 1+Replication+(1|Family)
-#'     ,data = DataExam6.2.1
-#'     ,REML = TRUE
-#'     ,control = lmerControl()
-#'     ,start = NULL
-#'     , verbose = 0L
+#' fm6.7.2<-
+#'  lmer(
+#'       formula   = Ht.mean ~ 1 + Replication + (1|Family)
+#'     , data      = DataExam6.2.1
+#'     , REML      = TRUE
+#'     , control   = lmerControl()
+#'     , start     = NULL
+#'     , verbose   = 0L
 #'    #, subset
 #'    #, weights
 #'    #, na.action
-#'    #,offset
-#'     , contrasts = NULL
-#'     , devFunOnly = FALSE)
+#'    #, offset
+#'     , contrasts  = NULL
+#'     , devFunOnly = FALSE
+#'     )
+#'
+#' # Pg. 116
+#'
 #' summary(fm6.7.2)
 #' print(VarCorr(fm6.7.2),comp=c("Variance"))
 #' sigma2f[2] <- 0.2711
 #'
-#'fm6.7.3<- lmer(formula=
-#'      Sum.means ~ 1+Replication+(1|Family)
-#'     ,data = DataExam6.2.1
-#'     ,REML = TRUE
-#'     ,control = lmerControl()
-#'     ,start = NULL
-#'     , verbose = 0L
+#' fm6.7.3 <-
+#' lmer(
+#'       formula   = Sum.means ~ 1 + Replication + (1|Family)
+#'     , data      = DataExam6.2.1
+#'     , REML      = TRUE
+#'     , control   = lmerControl()
+#'     , start     = NULL
+#'     , verbose   = 0L
 #'    #, subset
 #'    #, weights
 #'    #, na.action
-#'    #,offset
-#'     , contrasts = NULL
-#'     , devFunOnly = FALSE)
+#'    #, offset
+#'     , contrasts  = NULL
+#'     , devFunOnly = FALSE
+#'     )
+#'
+#' # Pg. 116
+#'
 #' summary(fm6.7.3)
 #' print(VarCorr(fm6.7.3),comp=c("Variance"))
 #' sigma2f[3] <- 0.873

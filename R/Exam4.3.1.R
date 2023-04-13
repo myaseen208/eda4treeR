@@ -28,10 +28,13 @@
 #' library(tidyverse)
 #' library(ggplot2)
 #'
+#' # Pg. 51
+#'
 #' fm4.4    <-
 #'   aov(
-#'    formula     = Percent ~ Replication + Pretreatment*SeedLot
-#'     , data      = DataExam4.3.1
+#'       formula     = Percent ~ Replication + Pretreatment*SeedLot
+#'     , data        = DataExam4.3.1 %>%
+#'                     filter(Pretreatment != "Control")
 #'   # , subset
 #'   # , weights
 #'   # , na.action
@@ -43,11 +46,14 @@
 #'     , singular.ok = TRUE
 #'     , contrasts   = NULL
 #'    )
+#'
+#'
+#'  # Pg. 54
 #'  anova(fm4.4)
 #'
-#'   library(supernova)
+#'  library(supernova)
 #'
-#'   supernova(fm4.4)
+#'  supernova(fm4.4)
 #'
 #'   library(emmeans)
 #'

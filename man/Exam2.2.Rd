@@ -10,6 +10,8 @@ Exam2.2 is used to  compare two seed lots by using ANOVA under RCB Design.
 library(tidyverse)
 data(DataExam2.2)
 
+# Pg. 24
+
 fmtab2.5  <-
  lm(
       formula       = dbh ~ Blk + SeedLot
@@ -26,6 +28,8 @@ fmtab2.5  <-
     , contrasts   = NULL
   )
 
+# Pg. 26
+
 anova(fmtab2.5)
 
 library(supernova)
@@ -34,6 +38,7 @@ supernova(fmtab2.5)
 
 library(emmeans)
 
+# Pg. 26
 
 emmeans(
     object     = fmtab2.5

@@ -11,6 +11,9 @@ data(DataExam4.3)
 library(tidyverse)
 library(ggplot2)
 
+
+ # Pg.
+
  fm4.2    <-
    aov(
        formula     = Percent ~ Replication + Contcomp + SeedLot +
@@ -147,7 +150,7 @@ library(ggplot2)
    labs(
        x = "Fitted Values"
      , y = "Residuals"
-     )+
+     ) +
      theme_classic()
 
 }

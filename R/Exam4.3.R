@@ -27,6 +27,9 @@
 #' library(tidyverse)
 #' library(ggplot2)
 #'
+#'
+#'  # Pg.
+#'
 #'  fm4.2    <-
 #'    aov(
 #'        formula     = Percent ~ Replication + Contcomp + SeedLot +
@@ -163,7 +166,7 @@
 #'    labs(
 #'        x = "Fitted Values"
 #'      , y = "Residuals"
-#'      )+
+#'      ) +
 #'      theme_classic()
 #'
 NULL

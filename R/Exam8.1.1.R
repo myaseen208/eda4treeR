@@ -11,14 +11,13 @@
 #'
 #' @references
 #' \enumerate{
-#'          \item Williams, E.R., Matheson, A.C. and Harwood, C.E. (2002).\emph{Experimental Design and Analysis for Tree Improvement}.
+#'          \item Williams, E.R., Matheson, A.C. and Harwood, C.E. (2023).\emph{Experimental Design and Analysis for Tree Improvement}.
 #'                CSIRO Publishing.
 #'              }
 #'
 #' @seealso
 #'    \code{\link{DataExam8.1}}
 #'
-#' @import tidyverse
 #' @import ggplot2
 #' @importFrom magrittr %>%
 #' @importFrom stats lm anova
@@ -30,31 +29,50 @@
 #' data(DataExam8.1)
 #' library(tidyverse)
 #' library(emmeans)
+#' library(lmerTest)
 #' library(lme4)
-#' fm8.8<- lmer(formula=
-#'      Dbh~1+Replication+Column+Province+(1|Replication:Row)+(1|Replication:Column)
-#'     ,data = DataExam8.1
-#'     ,REML = TRUE
-#'     ,control = lmerControl()
-#'     ,start = NULL
-#'     , verbose = 0L
-#'    #, subset
-#'    #, weights
-#'    #, na.action
-#'    #,offset
-#'     , contrasts = NULL
-#'     , devFunOnly = FALSE)
-#'   anova(fm8.8)
+#'
+#' # Pg. 155
+#' fm8.8 <-
+#'     lmerTest::lmer(
+#'             formula    = Dbh ~ 1 + Replication + Column + Province + (1|Replication:Row) + (1|Replication:Column)
+#'           , data       = DataExam8.1
+#'           , REML       = TRUE
+#'           , control    = lmerControl()
+#'           , start      = NULL
+#'           , verbose    = 0L
+#'         # , subset
+#'         # , weights
+#'         # , na.action
+#'         # , offset
+#'           , contrasts  = NULL
+#'           , devFunOnly = FALSE
+#'           )
+#'
+#'  # Pg. 157
+#'
 #'   summary(fm8.8)
+#'   summary(fm8.8)$varcor
+#'
+#'   anova(fm8.8)
 #'   anova(fm8.8, ddf = "Kenward-Roger")
-#'   emmeans::emmeans(fm8.8,specs ="Replication")
-#'   emmeans::emmeans(fm8.8,specs ="Column")
-#'   emmeans::emmeans(fm8.8,specs ="Province")
-#'   RCB1<- aov(Dbh~Province+Replication,data = DataExam8.1)
-#'   RCB<- emmeans::emmeans(RCB1,specs="Province")
-#'   Mixed<- emmeans::emmeans(fm8.8,specs ="Province")
-#'   table8.9<-data.frame(as.data.frame(summary(RCB))[c('emmean', 'SE')],
-#'   as.data.frame(summary(Mixed))[c('emmean', 'SE')])
-#'   colnames(table8.9)<- c("RCB(Mean)","RCB(SE)", "Mixed(Mean)", "Mixed(SE)")
+#'
+#'   library(car)
+#'   Anova(fm8.8, type = "II", test.statistic = "Chisq")
+#'
+#'   emmeans(fm8.8, specs = "Replication")
+#'   emmeans(fm8.8, specs = "Column")
+#'   emmeans(fm8.8, specs = "Province")
+#'
+#'  # Pg. 161
+#'   RCB1  <- aov(Dbh~Province+Replication,data = DataExam8.1)
+#'   RCB   <-
+#'           emmeans(RCB1, specs = "Province") %>%
+#'           as_tibble()
+#'   Mixed <-
+#'           emmeans(fm8.8, specs = "Province") %>%
+#'           as_tibble()
+#'
+#'   table8.9 <- left_join(RCB, Mixed, by = "Province", suffix = c(".RCBD", ".Mixed"))
 #'   print(table8.9)
 NULL

@@ -11,6 +11,8 @@ Exam3.1 is part of data from Australian Centre for Agricultural Research (ACIAR)
 data(DataExam3.1)
 library(tidyverse)
 
+# Pg. 28
+
 fmtab3.3     <-
   lm(
      formula     = Ht ~ Repl*SeedLot
@@ -27,14 +29,24 @@ fmtab3.3     <-
    , contrasts   = NULL
     )
 
+ # Pg. 33
+
  anova(fmtab3.3)
 
- library(supernova)
+fmtab3.3ANOVA1 <-
+  anova(fmtab3.3) \%>\%
+  mutate("F value" = c(anova(fmtab3.3)[1:2, 3]/anova(fmtab3.3)[3, 3], anova(fmtab3.3)[3, 3], NA))
+
+fmtab3.3ANOVA1 \%>\%
+  mutate("Pr(>F)"  = pf(q = fmtab3.3ANOVA1[ ,4], df1 = fmtab3.3ANOVA1[ ,1], df2 = fmtab3.3ANOVA1[4,1], lower.tail = FALSE))
+
+library(supernova)
 
  supernova(fmtab3.3)
 
  library(emmeans)
 
+ # Pg. 33
 
  emmeans(
      object     = fmtab3.3
@@ -47,7 +59,7 @@ fmtab3.3     <-
    , offset     =
    , tran       =
    )
-
+ # Pg. 34
  library(ggplot2)
  ggplot(mapping = aes(x = fitted.values(fmtab3.3), y = residuals(fmtab3.3)))+
  geom_point(size = 2) +
