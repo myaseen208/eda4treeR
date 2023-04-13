@@ -111,6 +111,8 @@
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Pg.75</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">fm5.7</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html" class="external-link">aov</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">height</span><span class="op">~</span><span class="va">env</span><span class="op">*</span><span class="va">gen</span></span></span>
 <span class="r-in"><span>   ,data    <span class="op">=</span> <span class="va">DataExam5.2</span></span></span>
 <span class="r-in"><span>   <span class="co">#, subset</span></span></span>
@@ -125,6 +127,8 @@
 <span class="r-in"><span>   , contrasts <span class="op">=</span> <span class="cn">NULL</span></span></span>
 <span class="r-in"><span>   <span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span> <span class="co"># Pg. 77</span></span></span>
+<span class="r-in"><span> </span></span>
 <span class="r-in"><span>   <span class="fu"><a href="https://rdrr.io/r/stats/anova.html" class="external-link">anova</a></span><span class="op">(</span><span class="va">fm5.7</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>ANOVA F-tests on an essentially perfect fit are unreliable</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Analysis of Variance Table</span>
@@ -137,8 +141,8 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> Residuals   0       0     NaN               </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span>     <span class="va">fm5.9</span>  <span class="op">&lt;-</span>    <span class="fu"><a href="https://rdrr.io/r/stats/aov.html" class="external-link">aov</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">height</span><span class="op">~</span><span class="va">env</span><span class="op">*</span><span class="va">gen</span></span></span>
-<span class="r-in"><span>     ,data    <span class="op">=</span> <span class="va">DataExam5.2</span></span></span>
+<span class="r-in"><span>     <span class="va">fm5.9</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html" class="external-link">aov</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">height</span><span class="op">~</span><span class="va">env</span><span class="op">*</span><span class="va">gen</span></span></span>
+<span class="r-in"><span>     ,data <span class="op">=</span> <span class="va">DataExam5.2</span></span></span>
 <span class="r-in"><span>     <span class="co">#, subset</span></span></span>
 <span class="r-in"><span>     <span class="co">#, weights</span></span></span>
 <span class="r-in"><span>     <span class="co">#, na.action</span></span></span>
@@ -150,6 +154,9 @@
 <span class="r-in"><span>     , singular.ok <span class="op">=</span> <span class="cn">TRUE</span></span></span>
 <span class="r-in"><span>     , contrasts <span class="op">=</span> <span class="cn">NULL</span></span></span>
 <span class="r-in"><span>     <span class="op">)</span></span></span>
+<span class="r-in"><span>     </span></span>
+<span class="r-in"><span> <span class="co"># Pg. 77</span></span></span>
+<span class="r-in"><span>     </span></span>
 <span class="r-in"><span>     <span class="fu"><a href="https://rdrr.io/r/stats/anova.html" class="external-link">anova</a></span><span class="op">(</span><span class="va">fm5.9</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>ANOVA F-tests on an essentially perfect fit are unreliable</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Analysis of Variance Table</span>
@@ -160,6 +167,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> gen        36 4425296  122925     NaN    NaN</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> env:gen   150 1351054    9007     NaN    NaN</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Residuals   0       0     NaN               </span>
+<span class="r-in"><span>     </span></span>
 <span class="r-in"><span>     <span class="va">b</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html" class="external-link">anova</a></span><span class="op">(</span><span class="va">fm5.9</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>ANOVA F-tests on an essentially perfect fit are unreliable</span>
 <span class="r-in"><span>     <span class="va">Res</span>                     <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">b</span><span class="op">[[</span><span class="st">"Sum Sq"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></span>
@@ -170,7 +178,10 @@
 <span class="r-in"><span>     <span class="va">b</span><span class="op">[[</span><span class="st">"Mean Sq"</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="va">Res</span><span class="op">]</span>     <span class="op">&lt;-</span> <span class="va">b</span><span class="op">[[</span><span class="st">"Sum Sq"</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="va">Res</span><span class="op">]</span><span class="op">/</span><span class="va">b</span><span class="op">[[</span><span class="st">"Df"</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="va">Res</span><span class="op">]</span></span></span>
 <span class="r-in"><span>     <span class="va">b</span><span class="op">[[</span><span class="st">"F value"</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="va">Res</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">b</span><span class="op">[[</span><span class="st">"Mean Sq"</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="va">Res</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">/</span><span class="va">b</span><span class="op">[[</span><span class="st">"Mean Sq"</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="va">Res</span><span class="op">]</span></span></span>
 <span class="r-in"><span>     <span class="va">b</span><span class="op">[[</span><span class="st">"Pr(&gt;F)"</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="va">Res</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span>     <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Fdist.html" class="external-link">df</a></span><span class="op">(</span><span class="va">b</span><span class="op">[[</span><span class="st">"F value"</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="va">Res</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span>,<span class="va">b</span><span class="op">[[</span><span class="st">"Df"</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="va">Res</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span>,<span class="va">b</span><span class="op">[[</span><span class="st">"Df"</span><span class="op">]</span><span class="op">]</span><span class="op">[</span><span class="va">Res</span><span class="op">]</span><span class="op">)</span></span></span>
-<span class="r-in"><span>     <span class="va">b</span></span></span>
+<span class="r-in"><span> </span></span>
+<span class="r-in"><span> <span class="co"># Pg. 77</span></span></span>
+<span class="r-in"><span>     </span></span>
+<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">b</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Analysis of Variance Table</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response: height</span>

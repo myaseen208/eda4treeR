@@ -112,6 +112,8 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">DataExam3.1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Pg. 28</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">fmtab3.3</span>     <span class="op">&lt;-</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>     formula     <span class="op">=</span> <span class="va">Ht</span> <span class="op">~</span> <span class="va">Repl</span><span class="op">*</span><span class="va">SeedLot</span></span></span>
@@ -128,6 +130,8 @@
 <span class="r-in"><span>   , contrasts   <span class="op">=</span> <span class="cn">NULL</span></span></span>
 <span class="r-in"><span>    <span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span> <span class="co"># Pg. 33</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html" class="external-link">anova</a></span><span class="op">(</span><span class="va">fmtab3.3</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Analysis of Variance Table</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -140,7 +144,21 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/UCLATALL/supernova" class="external-link">supernova</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">fmtab3.3ANOVA1</span> <span class="op">&lt;-</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/stats/anova.html" class="external-link">anova</a></span><span class="op">(</span><span class="va">fmtab3.3</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="st">"F value"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html" class="external-link">anova</a></span><span class="op">(</span><span class="va">fmtab3.3</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="fl">3</span><span class="op">]</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html" class="external-link">anova</a></span><span class="op">(</span><span class="va">fmtab3.3</span><span class="op">)</span><span class="op">[</span><span class="fl">3</span>, <span class="fl">3</span><span class="op">]</span>, <span class="fu"><a href="https://rdrr.io/r/stats/anova.html" class="external-link">anova</a></span><span class="op">(</span><span class="va">fmtab3.3</span><span class="op">)</span><span class="op">[</span><span class="fl">3</span>, <span class="fl">3</span><span class="op">]</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">fmtab3.3ANOVA1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span><span class="st">"Pr(&gt;F)"</span>  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Fdist.html" class="external-link">pf</a></span><span class="op">(</span>q <span class="op">=</span> <span class="va">fmtab3.3ANOVA1</span><span class="op">[</span> ,<span class="fl">4</span><span class="op">]</span>, df1 <span class="op">=</span> <span class="va">fmtab3.3ANOVA1</span><span class="op">[</span> ,<span class="fl">1</span><span class="op">]</span>, df2 <span class="op">=</span> <span class="va">fmtab3.3ANOVA1</span><span class="op">[</span><span class="fl">4</span>,<span class="fl">1</span><span class="op">]</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              Df Sum Sq Mean Sq F value    Pr(&gt;F)    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Repl          1  20.30  20.301  3.4197 0.0686431 .  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> SeedLot       4 505.87 126.467 21.3035  1.59e-11 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Repl:SeedLot  4  23.75   5.936  5.9364 0.0003583 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residuals    70 175.61   2.509                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/UCLATALL/supernova" class="external-link">supernova</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/pkg/supernova/man/supernova.html" class="external-link">supernova</a></span><span class="op">(</span><span class="va">fmtab3.3</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Analysis of Variance Table (Type III SS)</span>
@@ -158,6 +176,7 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rvlenth/emmeans" class="external-link">emmeans</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span> <span class="co"># Pg. 33</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html" class="external-link">emmeans</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>     object     <span class="op">=</span> <span class="va">fmtab3.3</span></span></span>
@@ -180,7 +199,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Results are averaged over the levels of: Repl </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Confidence level used: 0.95 </span>
-<span class="r-in"><span></span></span>
+<span class="r-in"><span> <span class="co"># Pg. 34</span></span></span>
 <span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html" class="external-link">fitted.values</a></span><span class="op">(</span><span class="va">fmtab3.3</span><span class="op">)</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/residuals.html" class="external-link">residuals</a></span><span class="op">(</span><span class="va">fmtab3.3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span></span>
 <span class="r-in"><span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span></span>

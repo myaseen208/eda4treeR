@@ -95,7 +95,7 @@
     <div id="references">
     <h2>References</h2>
     
-<ol><li><p>Williams, E.R., Matheson, A.C. and Harwood, C.E. (2002).<em>Experimental Design and Analysis for Tree Improvement</em>.
+<ol><li><p>Williams, E.R., Matheson, A.C. and Harwood, C.E. (2023).<em>Experimental Design and Analysis for Tree Improvement</em>.
                CSIRO Publishing.</p></li>
 </ol></div>
     <div id="see-also">
@@ -114,28 +114,39 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">DataExam8.1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rvlenth/emmeans" class="external-link">emmeans</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/runehaubo/lmerTestR" class="external-link">lmerTest</a></span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: 'lmerTest'</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> The following object is masked from 'package:lme4':</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     lmer</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> The following object is masked from 'package:stats':</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     step</span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/lme4/lme4/" class="external-link">lme4</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">fm8.8</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/lme4/man/lmer.html" class="external-link">lmer</a></span><span class="op">(</span>formula<span class="op">=</span></span></span>
-<span class="r-in"><span>     <span class="va">Dbh</span><span class="op">~</span><span class="fl">1</span><span class="op">+</span><span class="va">Replication</span><span class="op">+</span><span class="va">Column</span><span class="op">+</span><span class="va">Province</span><span class="op">+</span><span class="op">(</span><span class="fl">1</span><span class="op">|</span><span class="va">Replication</span><span class="op">:</span><span class="va">Row</span><span class="op">)</span><span class="op">+</span><span class="op">(</span><span class="fl">1</span><span class="op">|</span><span class="va">Replication</span><span class="op">:</span><span class="va">Column</span><span class="op">)</span></span></span>
-<span class="r-in"><span>    ,data <span class="op">=</span> <span class="va">DataExam8.1</span></span></span>
-<span class="r-in"><span>    ,REML <span class="op">=</span> <span class="cn">TRUE</span></span></span>
-<span class="r-in"><span>    ,control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/lme4/man/lmerControl.html" class="external-link">lmerControl</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span>    ,start <span class="op">=</span> <span class="cn">NULL</span></span></span>
-<span class="r-in"><span>    , verbose <span class="op">=</span> <span class="fl">0L</span></span></span>
-<span class="r-in"><span>   <span class="co">#, subset</span></span></span>
-<span class="r-in"><span>   <span class="co">#, weights</span></span></span>
-<span class="r-in"><span>   <span class="co">#, na.action</span></span></span>
-<span class="r-in"><span>   <span class="co">#,offset</span></span></span>
-<span class="r-in"><span>    , contrasts <span class="op">=</span> <span class="cn">NULL</span></span></span>
-<span class="r-in"><span>    , devFunOnly <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/stats/anova.html" class="external-link">anova</a></span><span class="op">(</span><span class="va">fm8.8</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Analysis of Variance Table</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             npar Sum Sq Mean Sq F value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replication    3  2.604 0.86799  4.4054</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Column         9 28.199 3.13324 15.9027</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province      58 55.316 0.95372  4.8406</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Pg. 155</span></span></span>
+<span class="r-in"><span><span class="va">fm8.8</span> <span class="op">&lt;-</span></span></span>
+<span class="r-in"><span>    <span class="fu">lmerTest</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/lmerTest/man/lmer.html" class="external-link">lmer</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>            formula    <span class="op">=</span> <span class="va">Dbh</span> <span class="op">~</span> <span class="fl">1</span> <span class="op">+</span> <span class="va">Replication</span> <span class="op">+</span> <span class="va">Column</span> <span class="op">+</span> <span class="va">Province</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span><span class="op">|</span><span class="va">Replication</span><span class="op">:</span><span class="va">Row</span><span class="op">)</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span><span class="op">|</span><span class="va">Replication</span><span class="op">:</span><span class="va">Column</span><span class="op">)</span></span></span>
+<span class="r-in"><span>          , data       <span class="op">=</span> <span class="va">DataExam8.1</span></span></span>
+<span class="r-in"><span>          , REML       <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span>          , control    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/lme4/man/lmerControl.html" class="external-link">lmerControl</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span>          , start      <span class="op">=</span> <span class="cn">NULL</span></span></span>
+<span class="r-in"><span>          , verbose    <span class="op">=</span> <span class="fl">0L</span></span></span>
+<span class="r-in"><span>        <span class="co"># , subset</span></span></span>
+<span class="r-in"><span>        <span class="co"># , weights</span></span></span>
+<span class="r-in"><span>        <span class="co"># , na.action</span></span></span>
+<span class="r-in"><span>        <span class="co"># , offset</span></span></span>
+<span class="r-in"><span>          , contrasts  <span class="op">=</span> <span class="cn">NULL</span></span></span>
+<span class="r-in"><span>          , devFunOnly <span class="op">=</span> <span class="cn">FALSE</span></span></span>
+<span class="r-in"><span>          <span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span> <span class="co"># Pg. 157</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fm8.8</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Linear mixed model fit by REML ['lmerMod']</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Linear mixed model fit by REML. t-tests use Satterthwaite's method [</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> lmerModLmerTest]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Formula: Dbh ~ 1 + Replication + Column + Province + (1 | Replication:Row) +  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     (1 | Replication:Column)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Data: DataExam8.1</span>
@@ -154,90 +165,129 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> Number of obs: 236, groups:  Replication:Column, 40; Replication:Row, 24</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Fixed effects:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               Estimate Std. Error t value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)   2.901640   0.305602   9.495</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replication2 -0.625047   0.189413  -3.300</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replication3 -0.544633   0.189411  -2.875</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replication4 -0.252900   0.189447  -1.335</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Column2       0.003435   0.211350   0.016</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Column3       0.355786   0.207659   1.713</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Column4       0.326485   0.208629   1.565</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Column5       0.094549   0.207378   0.456</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Column6       0.285696   0.210291   1.359</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Column7      -0.200472   0.206776  -0.970</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Column8       0.009088   0.208545   0.044</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Column9      -0.325797   0.210140  -1.550</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Column10     -1.572672   0.209443  -7.509</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province2     0.710228   0.354793   2.002</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province3     0.428916   0.345468   1.242</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province4    -0.178125   0.354409  -0.503</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province5     1.299307   0.338097   3.843</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province6     1.094903   0.355427   3.081</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province7     1.490913   0.347099   4.295</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province8     0.273295   0.349186   0.783</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province10    0.232336   0.351343   0.661</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province11   -0.404897   0.347119  -1.166</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province12    0.327206   0.343284   0.953</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province13    0.518675   0.354027   1.465</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province14    0.213883   0.348989   0.613</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province15    1.005307   0.347914   2.890</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province16    1.424007   0.348833   4.082</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province17    1.000948   0.348453   2.873</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province18    0.917381   0.353613   2.594</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province19    1.215946   0.341866   3.557</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province20    0.925186   0.354913   2.607</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province21    0.791654   0.347596   2.278</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province22    0.884909   0.353644   2.502</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province23    0.808116   0.349819   2.310</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province24    1.251617   0.353276   3.543</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province25    1.399741   0.355797   3.934</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province26    1.086649   0.353742   3.072</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province27    1.060182   0.353456   2.999</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province28    0.661512   0.339238   1.950</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province29    1.463791   0.346371   4.226</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province30    1.102448   0.354548   3.109</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province31    1.674326   0.354615   4.722</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province32    1.843787   0.348492   5.291</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province33    1.275113   0.356381   3.578</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province34    1.442338   0.343664   4.197</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province35    1.648722   0.352634   4.675</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province36    1.411065   0.348875   4.045</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province37    0.987311   0.349879   2.822</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province38    0.623495   0.343593   1.815</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province39    1.068125   0.348690   3.063</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province40    1.293523   0.349723   3.699</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province41    1.314169   0.355238   3.699</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province42    1.435733   0.349513   4.108</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province45    1.770082   0.346258   5.112</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province46    1.036583   0.344447   3.009</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province47    2.019815   0.348256   5.800</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province48    1.342624   0.337249   3.981</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province50    0.091536   0.345515   0.265</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province51    1.018531   0.346239   2.942</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province52    0.903969   0.342882   2.636</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province53    1.148782   0.350055   3.282</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province54    1.090382   0.354716   3.074</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province55    0.294825   0.353085   0.835</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province56    0.318341   0.352053   0.904</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province57    1.535019   0.342899   4.477</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province58    0.547779   0.353748   1.549</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province59    0.960952   0.343013   2.801</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province60    0.566299   0.350254   1.617</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province61    0.747235   0.353647   2.113</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province62    0.812583   0.348005   2.335</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province63    1.120864   0.357348   3.137</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                Estimate Std. Error         df t value Pr(&gt;|t|)    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)    2.901640   0.305602 112.174435   9.495 4.78e-16 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Replication2  -0.625047   0.189413  21.418195  -3.300 0.003347 ** </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Replication3  -0.544633   0.189411  21.416868  -2.875 0.008940 ** </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Replication4  -0.252900   0.189447  21.426469  -1.335 0.195907    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Column2        0.003435   0.211350  24.743600   0.016 0.987165    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Column3        0.355786   0.207659  23.070583   1.713 0.100061    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Column4        0.326485   0.208629  23.495309   1.565 0.130975    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Column5        0.094549   0.207378  22.903081   0.456 0.652737    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Column6        0.285696   0.210291  24.193582   1.359 0.186815    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Column7       -0.200472   0.206776  22.692169  -0.970 0.342509    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Column8        0.009088   0.208545  23.415421   0.044 0.965610    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Column9       -0.325797   0.210140  24.192520  -1.550 0.134035    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Column10      -1.572672   0.209443  23.927072  -7.509 9.69e-08 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province2      0.710228   0.354793 155.494120   2.002 0.047044 *  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province3      0.428916   0.345468 144.578828   1.242 0.216413    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province4     -0.178125   0.354409 156.300767  -0.503 0.615956    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province5      1.299307   0.338097 141.585860   3.843 0.000183 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province6      1.094903   0.355427 157.842574   3.081 0.002438 ** </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province7      1.490913   0.347099 149.238144   4.295 3.13e-05 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province8      0.273295   0.349186 147.793242   0.783 0.435078    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province10     0.232336   0.351343 151.791245   0.661 0.509435    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province11    -0.404897   0.347119 147.856819  -1.166 0.245310    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province12     0.327206   0.343284 145.038305   0.953 0.342093    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province13     0.518675   0.354027 155.108827   1.465 0.144925    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province14     0.213883   0.348989 149.259583   0.613 0.540900    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province15     1.005307   0.347914 148.057611   2.890 0.004438 ** </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province16     1.424007   0.348833 151.271059   4.082 7.20e-05 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province17     1.000948   0.348453 150.213176   2.873 0.004661 ** </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province18     0.917381   0.353613 152.316488   2.594 0.010404 *  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province19     1.215946   0.341866 143.111466   3.557 0.000510 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province20     0.925186   0.354913 156.066473   2.607 0.010025 *  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province21     0.791654   0.347596 146.260213   2.278 0.024205 *  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province22     0.884909   0.353644 154.930362   2.502 0.013378 *  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province23     0.808116   0.349819 149.153558   2.310 0.022254 *  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province24     1.251617   0.353276 154.758967   3.543 0.000523 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province25     1.399741   0.355797 152.887956   3.934 0.000126 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province26     1.086649   0.353742 154.340664   3.072 0.002515 ** </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province27     1.060182   0.353456 150.189885   2.999 0.003167 ** </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province28     0.661512   0.339238 143.290317   1.950 0.053129 .  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province29     1.463791   0.346371 149.511576   4.226 4.12e-05 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province30     1.102448   0.354548 151.824553   3.109 0.002239 ** </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province31     1.674326   0.354615 155.163742   4.722 5.20e-06 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province32     1.843787   0.348492 148.355084   5.291 4.29e-07 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province33     1.275113   0.356381 151.939990   3.578 0.000465 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province34     1.442338   0.343664 149.425923   4.197 4.62e-05 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province35     1.648722   0.352634 150.435418   4.675 6.47e-06 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province36     1.411065   0.348875 150.116792   4.045 8.35e-05 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province37     0.987311   0.349879 148.603812   2.822 0.005428 ** </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province38     0.623495   0.343593 144.184979   1.815 0.071659 .  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province39     1.068125   0.348690 151.447236   3.063 0.002592 ** </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province40     1.293523   0.349723 151.955074   3.699 0.000302 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province41     1.314169   0.355238 156.069514   3.699 0.000299 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province42     1.435733   0.349513 147.587432   4.108 6.60e-05 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province45     1.770082   0.346258 149.917649   5.112 9.58e-07 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province46     1.036583   0.344447 143.357116   3.009 0.003093 ** </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province47     2.019815   0.348256 150.703961   5.800 3.77e-08 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province48     1.342624   0.337249 139.823992   3.981 0.000110 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province50     0.091536   0.345515 146.096465   0.265 0.791440    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province51     1.018531   0.346239 144.865161   2.942 0.003802 ** </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province52     0.903969   0.342882 145.406584   2.636 0.009289 ** </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province53     1.148782   0.350055 150.225870   3.282 0.001283 ** </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province54     1.090382   0.354716 153.881408   3.074 0.002500 ** </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province55     0.294825   0.353085 156.191083   0.835 0.404994    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province56     0.318341   0.352053 152.217429   0.904 0.367296    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province57     1.535019   0.342899 141.444724   4.477 1.55e-05 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province58     0.547779   0.353748 154.315319   1.549 0.123550    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province59     0.960952   0.343013 145.475049   2.801 0.005779 ** </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province60     0.566299   0.350254 148.687871   1.617 0.108036    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province61     0.747235   0.353647 157.166285   2.113 0.036186 *  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province62     0.812583   0.348005 150.316512   2.335 0.020868 *  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province63     1.120864   0.357348 154.538269   3.137 0.002047 ** </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Correlation matrix not shown by default, as p = 71 &gt; 12.</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Use print(x, correlation=TRUE)  or</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>     vcov(x)        if you need it</span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fm8.8</span><span class="op">)</span><span class="op">$</span><span class="va">varcor</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Groups             Name        Std.Dev.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Replication:Column (Intercept) 0.21464 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Replication:Row    (Intercept) 0.24469 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Residual                       0.44388 </span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/stats/anova.html" class="external-link">anova</a></span><span class="op">(</span><span class="va">fm8.8</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Type III Analysis of Variance Table with Satterthwaite's method</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             Sum Sq Mean Sq NumDF   DenDF F value    Pr(&gt;F)    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Replication  2.695 0.89819     3  21.422  4.5587   0.01281 *  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Column      24.882 2.76470     9  23.702 14.0321 1.652e-07 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province    55.316 0.95372    58 137.058  4.8406 1.916e-14 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/stats/anova.html" class="external-link">anova</a></span><span class="op">(</span><span class="va">fm8.8</span>, ddf <span class="op">=</span> <span class="st">"Kenward-Roger"</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>additional arguments ignored: 'ddf'</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Analysis of Variance Table</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             npar Sum Sq Mean Sq F value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replication    3  2.604 0.86799  4.4054</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Column         9 28.199 3.13324 15.9027</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province      58 55.316 0.95372  4.8406</span>
-<span class="r-in"><span>  <span class="fu">emmeans</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html" class="external-link">emmeans</a></span><span class="op">(</span><span class="va">fm8.8</span>,specs <span class="op">=</span><span class="st">"Replication"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Type III Analysis of Variance Table with Kenward-Roger's method</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             Sum Sq Mean Sq NumDF   DenDF F value    Pr(&gt;F)    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Replication  2.694 0.89811     3  22.453  4.5583   0.01226 *  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Column      24.808 2.75650     9  22.986 13.9898 2.268e-07 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province    54.691 0.94295    58 134.064  4.7842 4.195e-14 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/" class="external-link">car</a></span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: carData</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: 'car'</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> The following object is masked from 'package:dplyr':</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     recode</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> The following object is masked from 'package:purrr':</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     some</span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/car/man/Anova.html" class="external-link">Anova</a></span><span class="op">(</span><span class="va">fm8.8</span>, type <span class="op">=</span> <span class="st">"II"</span>, test.statistic <span class="op">=</span> <span class="st">"Chisq"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Analysis of Deviance Table (Type II Wald chisquare tests)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Response: Dbh</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               Chisq Df Pr(&gt;Chisq)    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Replication  13.676  3   0.003381 ** </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Column      126.289  9  &lt; 2.2e-16 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Province    280.754 58  &lt; 2.2e-16 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html" class="external-link">emmeans</a></span><span class="op">(</span><span class="va">fm8.8</span>, specs <span class="op">=</span> <span class="st">"Replication"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Replication emmean    SE   df lower.CL upper.CL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  1             3.75 0.134 22.4     3.48     4.03</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  2             3.13 0.134 22.4     2.85     3.41</span>
@@ -247,7 +297,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> Results are averaged over the levels of: Column, Province </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees-of-freedom method: kenward-roger </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Confidence level used: 0.95 </span>
-<span class="r-in"><span>  <span class="fu">emmeans</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html" class="external-link">emmeans</a></span><span class="op">(</span><span class="va">fm8.8</span>,specs <span class="op">=</span><span class="st">"Column"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html" class="external-link">emmeans</a></span><span class="op">(</span><span class="va">fm8.8</span>, specs <span class="op">=</span> <span class="st">"Column"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Column emmean    SE   df lower.CL upper.CL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  1        3.50 0.155 26.8     3.18     3.82</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  2        3.50 0.156 27.8     3.18     3.83</span>
@@ -263,7 +313,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> Results are averaged over the levels of: Replication, Province </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees-of-freedom method: kenward-roger </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Confidence level used: 0.95 </span>
-<span class="r-in"><span>  <span class="fu">emmeans</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html" class="external-link">emmeans</a></span><span class="op">(</span><span class="va">fm8.8</span>,specs <span class="op">=</span><span class="st">"Province"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html" class="external-link">emmeans</a></span><span class="op">(</span><span class="va">fm8.8</span>, specs <span class="op">=</span> <span class="st">"Province"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Province emmean    SE  df lower.CL upper.CL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  1          2.44 0.257 163     1.94     2.95</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  2          3.15 0.259 164     2.64     3.67</span>
@@ -328,73 +378,34 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> Results are averaged over the levels of: Replication, Column </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Degrees-of-freedom method: kenward-roger </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Confidence level used: 0.95 </span>
-<span class="r-in"><span>  <span class="va">RCB1</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html" class="external-link">aov</a></span><span class="op">(</span><span class="va">Dbh</span><span class="op">~</span><span class="va">Province</span><span class="op">+</span><span class="va">Replication</span>,data <span class="op">=</span> <span class="va">DataExam8.1</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="va">RCB</span><span class="op">&lt;-</span> <span class="fu">emmeans</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html" class="external-link">emmeans</a></span><span class="op">(</span><span class="va">RCB1</span>,specs<span class="op">=</span><span class="st">"Province"</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="va">Mixed</span><span class="op">&lt;-</span> <span class="fu">emmeans</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html" class="external-link">emmeans</a></span><span class="op">(</span><span class="va">fm8.8</span>,specs <span class="op">=</span><span class="st">"Province"</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="va">table8.9</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">RCB</span><span class="op">)</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'emmean'</span>, <span class="st">'SE'</span><span class="op">)</span><span class="op">]</span>,</span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">Mixed</span><span class="op">)</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'emmean'</span>, <span class="st">'SE'</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">table8.9</span><span class="op">)</span><span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"RCB(Mean)"</span>,<span class="st">"RCB(SE)"</span>, <span class="st">"Mixed(Mean)"</span>, <span class="st">"Mixed(SE)"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span> <span class="co"># Pg. 161</span></span></span>
+<span class="r-in"><span>  <span class="va">RCB1</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html" class="external-link">aov</a></span><span class="op">(</span><span class="va">Dbh</span><span class="op">~</span><span class="va">Province</span><span class="op">+</span><span class="va">Replication</span>,data <span class="op">=</span> <span class="va">DataExam8.1</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="va">RCB</span>   <span class="op">&lt;-</span></span></span>
+<span class="r-in"><span>          <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html" class="external-link">emmeans</a></span><span class="op">(</span><span class="va">RCB1</span>, specs <span class="op">=</span> <span class="st">"Province"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>          <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="va">Mixed</span> <span class="op">&lt;-</span></span></span>
+<span class="r-in"><span>          <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html" class="external-link">emmeans</a></span><span class="op">(</span><span class="va">fm8.8</span>, specs <span class="op">=</span> <span class="st">"Province"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>          <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="va">table8.9</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">RCB</span>, <span class="va">Mixed</span>, by <span class="op">=</span> <span class="st">"Province"</span>, suffix <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">".RCBD"</span>, <span class="st">".Mixed"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">table8.9</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    RCB(Mean)   RCB(SE) Mixed(Mean) Mixed(SE)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     1.8500 0.3821484    2.443605 0.2572392</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     3.2400 0.3821484    3.153833 0.2590290</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3     2.9375 0.3821484    2.872521 0.2561955</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4     2.4975 0.3821484    2.265480 0.2583426</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5     3.3425 0.3821484    3.742912 0.2568539</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6     3.3750 0.3821484    3.538508 0.2599454</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7     3.9825 0.3821484    3.934518 0.2578819</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8     2.6350 0.3821484    2.716900 0.2566741</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9     2.4650 0.3821484    2.675941 0.2569938</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10    2.3950 0.3821484    2.038708 0.2562404</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11    2.3875 0.3821484    2.770811 0.2571088</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12    2.5775 0.3821484    2.962280 0.2575629</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13    2.3425 0.3821484    2.657488 0.2561172</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14    3.7650 0.3821484    3.448912 0.2558282</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15    3.6000 0.3821484    3.867612 0.2557240</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16    3.4450 0.3821484    3.444553 0.2566187</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17    3.2550 0.3821484    3.360986 0.2571419</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18    3.8300 0.3821484    3.659551 0.2568099</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19    3.5525 0.3821484    3.368791 0.2567583</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20    3.3225 0.3821484    3.235259 0.2554642</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21    3.5475 0.3821484    3.328514 0.2573288</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22    3.1675 0.3821484    3.251721 0.2576640</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23    3.6425 0.3821484    3.695222 0.2573080</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24    4.0050 0.3821484    3.843346 0.2568431</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25    3.7350 0.3821484    3.530254 0.2568466</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26    3.5175 0.3821484    3.503787 0.2562348</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27    2.9925 0.3821484    3.105117 0.2562914</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28    4.3350 0.3821484    3.907396 0.2569825</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29    3.8225 0.3821484    3.546053 0.2559495</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30    4.3875 0.3821484    4.117931 0.2569224</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31    4.0425 0.3821484    4.287392 0.2580407</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32    3.8050 0.3821484    3.718718 0.2573235</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33    3.5850 0.3821484    3.885943 0.2591319</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34    4.2625 0.3821484    4.092327 0.2570324</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35    4.0025 0.3821484    3.854670 0.2572876</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36    3.6500 0.3821484    3.430916 0.2571593</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37    3.4600 0.3821484    3.067100 0.2573586</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38    3.3575 0.3821484    3.511730 0.2574858</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39    4.0175 0.3821484    3.737128 0.2586285</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40    3.4900 0.3821484    3.757773 0.2580288</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41    3.9075 0.3821484    3.879338 0.2568476</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42    3.9550 0.3821484    4.213687 0.2561950</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43    3.1975 0.3821484    3.480188 0.2571277</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44    4.1700 0.3821484    4.463420 0.2561192</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45    4.0425 0.3821484    3.786229 0.2567359</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46    2.7625 0.3821484    2.535141 0.2573069</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47    3.5575 0.3821484    3.462136 0.2574433</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48    3.1075 0.3821484    3.347574 0.2574401</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49    3.6275 0.3821484    3.592387 0.2558584</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50    3.4775 0.3821484    3.533987 0.2568994</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51    2.6125 0.3821484    2.738430 0.2585452</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52    2.8700 0.3821484    2.761946 0.2604520</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53    4.0350 0.3821484    3.978624 0.2552671</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54    3.1225 0.3821484    2.991384 0.2569200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55    3.3450 0.3821484    3.404557 0.2557690</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56    3.3675 0.3821484    3.009904 0.2567573</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57    2.9925 0.3821484    3.190840 0.2577702</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58    3.3450 0.3821484    3.256187 0.2563370</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59    3.7000 0.3821484    3.564469 0.2590750</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 59 × 11</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Province emmean.RCBD SE.RCBD df.RCBD lower.CL.RCBD upper.CL.RCBD emmean.Mixed</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 1               1.85   0.382     174          1.10          2.60         2.44</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 2               3.24   0.382     174          2.49          3.99         3.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 3               2.94   0.382     174          2.18          3.69         2.87</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 4               2.50   0.382     174          1.74          3.25         2.27</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 5               3.34   0.382     174          2.59          4.10         3.74</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 6               3.37   0.382     174          2.62          4.13         3.54</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 7               3.98   0.382     174          3.23          4.74         3.93</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 8               2.64   0.382     174          1.88          3.39         2.72</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 10              2.47   0.382     174          1.71          3.22         2.68</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 11              2.40   0.382     174          1.64          3.15         2.04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 49 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 4 more variables: SE.Mixed &lt;dbl&gt;, df.Mixed &lt;dbl&gt;, lower.CL.Mixed &lt;dbl&gt;,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   upper.CL.Mixed &lt;dbl&gt;</span></span>
 </code></pre></div>
     </div>
   </div>
