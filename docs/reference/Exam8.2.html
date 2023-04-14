@@ -121,20 +121,85 @@
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/lme4/man/lmer.html" class="external-link">lmer</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>    formula <span class="op">=</span> <span class="va">dbhmean</span> <span class="op">~</span> <span class="va">Repl</span> <span class="op">+</span> <span class="va">Column</span> <span class="op">+</span> <span class="va">Contcompf</span> <span class="op">+</span> <span class="va">Contcompf</span><span class="op">:</span><span class="va">Standard</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>              <span class="op">(</span><span class="fl">1</span><span class="op">|</span><span class="va">Repl</span><span class="op">:</span><span class="va">Row</span> <span class="op">)</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span><span class="op">|</span><span class="va">Repl</span><span class="op">:</span><span class="va">Column</span> <span class="op">)</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span><span class="op">|</span><span class="va">Contcompf</span><span class="op">:</span><span class="va">Clone</span><span class="op">)</span></span></span>
-<span class="r-in"><span>  , data    <span class="op">=</span> <span class="va">Data</span></span></span>
+<span class="r-in"><span>  , data    <span class="op">=</span> <span class="va">DataExam8.2</span></span></span>
 <span class="r-in"><span>    <span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> bad 'data': object 'Data' not found</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> fixed-effect model matrix is rank deficient so dropping 5 columns / coefficients</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fm8.2</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in h(simpleError(msg, call)):</span> error in evaluating the argument 'object' in selecting a method for function 'summary': object 'fm8.2' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Linear mixed model fit by REML. t-tests use Satterthwaite's method [</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> lmerModLmerTest]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Formula: dbhmean ~ Repl + Column + Contcompf + Contcompf:Standard + (1 |  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     Repl:Row) + (1 | Repl:Column) + (1 | Contcompf:Clone)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Data: DataExam8.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> REML criterion at convergence: 746.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Scaled residuals: </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      Min       1Q   Median       3Q      Max </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -2.23203 -0.64148  0.03063  0.52920  3.00825 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Random effects:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Groups          Name        Variance Std.Dev.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Contcompf:Clone (Intercept) 0.49500  0.7036  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Repl:Row        (Intercept) 0.08023  0.2833  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Repl:Column     (Intercept) 0.05286  0.2299  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Residual                    0.39923  0.6318  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Number of obs: 300, groups:  Contcompf:Clone, 57; Repl:Row, 50; Repl:Column, 30</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Fixed effects:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                          Estimate Std. Error       df t value Pr(&gt;|t|)    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)                5.9465     0.7910  61.1517   7.518 2.93e-10 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Repl2                      0.2958     0.2167  26.4669   1.365 0.183754    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Repl3                      0.3673     0.2167  26.4669   1.695 0.101836    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Repl4                      0.4848     0.2167  26.4669   2.237 0.033916 *  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Repl5                      0.5708     0.2167  26.4669   2.634 0.013923 *  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Column2                   -0.1497     0.2013  19.4810  -0.744 0.465921    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Column3                   -0.1278     0.2020  19.7650  -0.633 0.534107    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Column4                   -0.3884     0.2009  19.3185  -1.933 0.068042 .  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Column5                   -0.4594     0.2018  19.6615  -2.277 0.034139 *  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Column6                   -0.1114     0.2013  19.4681  -0.554 0.586148    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Contcompf1                 2.8234     0.7734  54.9050   3.651 0.000584 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Contcompf0:StandardUG323   2.8868     0.4362 214.4339   6.618 2.87e-10 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Contcompf0:StandardU6      0.4703     0.4251 202.8252   1.106 0.269914    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Contcompf0:StandardPN14    1.6185     0.4324 206.7230   3.743 0.000236 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Correlation matrix not shown by default, as p = 14 &gt; 12.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Use print(x, correlation=TRUE)  or</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     vcov(x)        if you need it</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> fit warnings:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> fixed-effect model matrix is rank deficient so dropping 5 columns / coefficients</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fm8.2</span><span class="op">)</span><span class="op">$</span><span class="va">varcor</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in h(simpleError(msg, call)):</span> error in evaluating the argument 'object' in selecting a method for function 'summary': object 'fm8.2' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Groups          Name        Std.Dev.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Contcompf:Clone (Intercept) 0.70356 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Repl:Row        (Intercept) 0.28326 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Repl:Column     (Intercept) 0.22990 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Residual                    0.63185 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html" class="external-link">anova</a></span><span class="op">(</span><span class="va">fm8.2</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in anova(fm8.2):</span> object 'fm8.2' not found</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Missing cells for: Contcompf0:Standard0, Contcompf1:StandardUG323, Contcompf1:StandardU6, Contcompf1:StandardPN14, Contcompf1:StandardSSOseed.  </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Interpret type III hypotheses with care.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Type III Analysis of Variance Table with Satterthwaite's method</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     Sum Sq Mean Sq NumDF   DenDF F value    Pr(&gt;F)    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Repl                3.2720  0.8180     4  26.467  2.0489 0.1162606    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Column              3.1018  0.6204     5  19.545  1.5539 0.2194719    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Contcompf           5.3203  5.3203     1  54.905 13.3265 0.0005845 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Contcompf:Standard 20.6587  6.8862     3 207.152 17.2488 4.896e-10 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/" class="external-link">car</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/car/man/Anova.html" class="external-link">Anova</a></span><span class="op">(</span><span class="va">fm8.2</span>, type <span class="op">=</span> <span class="st">"II"</span>, test.statistic <span class="op">=</span> <span class="st">"Chisq"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in Anova(fm8.2, type = "II", test.statistic = "Chisq"):</span> object 'fm8.2' not found</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Analysis of Deviance Table (Type II Wald chisquare tests)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Response: dbhmean</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                      Chisq Df Pr(&gt;Chisq)    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Repl                8.1957  4    0.08467 .  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Column              7.7694  5    0.16941    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Contcompf           4.6841  1    0.03044 *  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Contcompf:Standard 51.7463  3  3.392e-11 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

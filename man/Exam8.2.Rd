@@ -19,7 +19,7 @@ fm8.2  <-
   lmer(
     formula = dbhmean ~ Repl + Column + Contcompf + Contcompf:Standard +
               (1|Repl:Row ) + (1|Repl:Column ) + (1|Contcompf:Clone)
-  , data    = Data
+  , data    = DataExam8.2
     )
 summary(fm8.2)
 summary(fm8.2)$varcor
