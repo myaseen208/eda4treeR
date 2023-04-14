@@ -13,7 +13,9 @@ library(tidyverse)
 library(ggplot2)
 library(dae)
 
-fm4.6    <- aov(
+# Pg. 58
+fm4.6    <-
+  aov(
       formula     = Height ~ Rep + Irrig*Ferti*SeedDLot +
                              Error(Rep/Irrig:Ferti)
     , data        = DataExam4.4
@@ -28,13 +30,14 @@ fm4.6    <- aov(
     , singular.ok = TRUE
     , contrasts   = NULL
     )
+
+# Pg. 61
  summary(fm4.6)
 
-   library(supernova)
+# Pg. 61
+ model.tables(x = fm4.6, type = "means")
 
-   supernova(fm4.6)
-
-
+# Pg. 61
    emmeans(
        object     = fm4.6
      , specs      = ~ Irrig

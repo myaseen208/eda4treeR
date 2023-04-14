@@ -8,17 +8,16 @@ Exam4.3.1 presents the germination count data for 4 Pre-Treatments and 6 Seedlot
 }
 \examples{
 
-data(DataExam4.3.1)
+data(DataExam4.3)
 library(tidyverse)
 library(ggplot2)
 
-# Pg. 51
-
+# Pg. 57
 fm4.4    <-
   aov(
-      formula     = Percent ~ Replication + Pretreatment*SeedLot
-    , data        = DataExam4.3.1 \%>\%
-                    filter(Pretreatment != "Control")
+      formula     = Percent ~ Repl + Treat*SeedLot
+    , data        = DataExam4.3 \%>\%
+                    filter(Treat != "control")
   # , subset
   # , weights
   # , na.action
@@ -32,19 +31,16 @@ fm4.4    <-
    )
 
 
- # Pg. 54
+ # Pg. 57
  anova(fm4.4)
-
- library(supernova)
-
- supernova(fm4.4)
+ model.tables(x = fm4.4, type = "means")
 
   library(emmeans)
 
 
   emmeans(
       object     = fm4.4
-    , specs      = ~ Pretreatment
+    , specs      = ~ Treat
     , by         = NULL
     , fac.reduce = function(coefs) apply(coefs, 2, mean)
     , contr      =
@@ -56,7 +52,7 @@ fm4.4    <-
 
  emmip(
      object        = fm4.4
-   , formula       = ~ Pretreatment
+   , formula       = ~ Treat
    , type          = c("link", "response", "predict.type")[1]
    , CIs           = c(TRUE, FALSE)[1]
    , PIs           = c(TRUE, FALSE)[2]
@@ -94,7 +90,7 @@ fm4.4    <-
 
   emmeans(
         object     = fm4.4
-      , specs      = ~ Pretreatment * SeedLot
+      , specs      = ~ Treat * SeedLot
       , by         = NULL
       , fac.reduce = function(coefs) apply(coefs, 2, mean)
       , contr      =
@@ -106,7 +102,7 @@ fm4.4    <-
 
  emmip(
      object        = fm4.4
-   , formula       = SeedLot ~ Pretreatment
+   , formula       = SeedLot ~ Treat
    , type          = c("link", "response", "predict.type")[1]
    , CIs           = c(TRUE, FALSE)[1]
    , PIs           = c(TRUE, FALSE)[2]
@@ -120,7 +116,7 @@ fm4.4    <-
 
  emmip(
      object        = fm4.4
-   , formula       = Pretreatment ~ SeedLot
+   , formula       = Treat ~ SeedLot
    , type          = c("link", "response", "predict.type")[1]
    , CIs           = c(TRUE, FALSE)[1]
    , PIs           = c(TRUE, FALSE)[2]

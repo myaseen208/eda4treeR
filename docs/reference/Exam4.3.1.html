@@ -108,17 +108,16 @@
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">DataExam4.3.1</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">DataExam4.3</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Pg. 51</span></span></span>
-<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Pg. 57</span></span></span>
 <span class="r-in"><span><span class="va">fm4.4</span>    <span class="op">&lt;-</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/stats/aov.html" class="external-link">aov</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>      formula     <span class="op">=</span> <span class="va">Percent</span> <span class="op">~</span> <span class="va">Replication</span> <span class="op">+</span> <span class="va">Pretreatment</span><span class="op">*</span><span class="va">SeedLot</span></span></span>
-<span class="r-in"><span>    , data        <span class="op">=</span> <span class="va">DataExam4.3.1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>                    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Pretreatment</span> <span class="op">!=</span> <span class="st">"Control"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>      formula     <span class="op">=</span> <span class="va">Percent</span> <span class="op">~</span> <span class="va">Repl</span> <span class="op">+</span> <span class="va">Treat</span><span class="op">*</span><span class="va">SeedLot</span></span></span>
+<span class="r-in"><span>    , data        <span class="op">=</span> <span class="va">DataExam4.3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>                    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">Treat</span> <span class="op">!=</span> <span class="st">"control"</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="co"># , subset</span></span></span>
 <span class="r-in"><span>  <span class="co"># , weights</span></span></span>
 <span class="r-in"><span>  <span class="co"># , na.action</span></span></span>
@@ -132,43 +131,53 @@
 <span class="r-in"><span>   <span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span> <span class="co"># Pg. 54</span></span></span>
+<span class="r-in"><span> <span class="co"># Pg. 57</span></span></span>
 <span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html" class="external-link">anova</a></span><span class="op">(</span><span class="va">fm4.4</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Analysis of Variance Table</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response: Percent</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                      Df  Sum Sq Mean Sq F value   Pr(&gt;F)   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replication           2   407.1  203.56  0.6483 0.529280   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Pretreatment          2  4449.8 2224.89  7.0859 0.002677 **</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> SeedLot               5  5880.9 1176.18  3.7459 0.008277 **</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Pretreatment:SeedLot 10  1370.7  137.07  0.4365 0.917844   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residuals            34 10675.6  313.99                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               Df Sum Sq Mean Sq F value    Pr(&gt;F)    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Repl           2   64.6   32.30  0.2511 0.7793606    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Treat          2 5300.1 2650.07 20.6055 1.375e-06 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> SeedLot        5 4148.1  829.63  6.4507 0.0002578 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Treat:SeedLot 10  961.2   96.12  0.7474 0.6759614    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residuals     34 4372.7  128.61                      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/UCLATALL/supernova" class="external-link">supernova</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/pkg/supernova/man/supernova.html" class="external-link">supernova</a></span><span class="op">(</span><span class="va">fm4.4</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Analysis of Variance Table (Type III SS)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Model: Percent ~ Replication + Pretreatment * SeedLot</span>
+<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/stats/model.tables.html" class="external-link">model.tables</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">fm4.4</span>, type <span class="op">=</span> <span class="st">"means"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Tables of means</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Grand mean</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67.85185 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                SS df      MS     F   PRE     p</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  -------------------- --------------- | --------- -- ------- ----- ----- -----</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 Model (error reduced) | 12108.444 19 637.287 2.030 .5314 .0351</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           Replication                 |   407.111  2 203.556 0.648 .0367 .5293</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          Pretreatment                 |    99.556  2  49.778 0.159 .0092 .8540</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               SeedLot                 |  2909.333  5 581.867 1.853 .2142 .1288</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Pretreatment:SeedLot                 |  1370.667 10 137.067 0.437 .1138 .9178</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 Error (from model)    | 10675.556 34 313.987                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  -------------------- --------------- | --------- -- ------- ----- ----- -----</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                 Total (empty model)   | 22784.000 53 429.887                  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Repl </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Repl</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     1     2     3 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69.11 66.44 68.00 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Treat </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Treat</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   nick   bw&amp;s bw1min </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  56.89  65.78  80.89 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  SeedLot </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> SeedLot</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18211 18212 18217 18248 18249 18265 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77.33 69.33 63.11 53.33 64.89 79.11 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Treat:SeedLot </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         SeedLot</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Treat    18211 18212 18217 18248 18249 18265</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   nick   65.33 54.67 57.33 40.00 49.33 74.67</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   bw&amp;s   78.67 68.00 54.67 52.00 61.33 80.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   bw1min 88.00 85.33 77.33 68.00 84.00 82.67</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rvlenth/emmeans" class="external-link">emmeans</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html" class="external-link">emmeans</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>      object     <span class="op">=</span> <span class="va">fm4.4</span></span></span>
-<span class="r-in"><span>    , specs      <span class="op">=</span> <span class="op">~</span> <span class="va">Pretreatment</span></span></span>
+<span class="r-in"><span>    , specs      <span class="op">=</span> <span class="op">~</span> <span class="va">Treat</span></span></span>
 <span class="r-in"><span>    , by         <span class="op">=</span> <span class="cn">NULL</span></span></span>
 <span class="r-in"><span>    , fac.reduce <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">coefs</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply</a></span><span class="op">(</span><span class="va">coefs</span>, <span class="fl">2</span>, <span class="va">mean</span><span class="op">)</span></span></span>
 <span class="r-in"><span>    , contr      <span class="op">=</span></span></span>
@@ -178,17 +187,17 @@
 <span class="r-in"><span>    , tran       <span class="op">=</span></span></span>
 <span class="r-in"><span>    <span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: Results may be misleading due to involvement in interactions</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Pretreatment emmean   SE df lower.CL upper.CL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Nick           54.0 4.18 34     45.5     62.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  BWS            65.8 4.18 34     57.3     74.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  B1M            76.2 4.18 34     67.7     84.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Treat  emmean   SE df lower.CL upper.CL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  nick     56.9 2.67 34     51.5     62.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  bw&amp;s     65.8 2.67 34     60.3     71.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  bw1min   80.9 2.67 34     75.5     86.3</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Results are averaged over the levels of: Replication, SeedLot </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Results are averaged over the levels of: Repl, SeedLot </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Confidence level used: 0.95 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmip.html" class="external-link">emmip</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>     object        <span class="op">=</span> <span class="va">fm4.4</span></span></span>
-<span class="r-in"><span>   , formula       <span class="op">=</span> <span class="op">~</span> <span class="va">Pretreatment</span></span></span>
+<span class="r-in"><span>   , formula       <span class="op">=</span> <span class="op">~</span> <span class="va">Treat</span></span></span>
 <span class="r-in"><span>   , type          <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"link"</span>, <span class="st">"response"</span>, <span class="st">"predict.type"</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span></span>
 <span class="r-in"><span>   , CIs           <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span></span>
 <span class="r-in"><span>   , PIs           <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span></span>
@@ -214,14 +223,14 @@
 <span class="r-in"><span>      <span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: Results may be misleading due to involvement in interactions</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  SeedLot emmean   SE df lower.CL upper.CL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  18265     79.1 5.91 34     67.1     91.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  18249     55.6 5.91 34     43.6     67.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  18248     53.3 5.91 34     41.3     65.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  18211     77.3 5.91 34     65.3     89.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  18212     69.3 5.91 34     57.3     81.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  18217     57.3 5.91 34     45.3     69.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  18211     77.3 3.78 34     69.7     85.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  18212     69.3 3.78 34     61.7     77.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  18217     63.1 3.78 34     55.4     70.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  18248     53.3 3.78 34     45.7     61.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  18249     64.9 3.78 34     57.2     72.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  18265     79.1 3.78 34     71.4     86.8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Results are averaged over the levels of: Replication, Pretreatment </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Results are averaged over the levels of: Repl, Treat </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Confidence level used: 0.95 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmip.html" class="external-link">emmip</a></span><span class="op">(</span></span></span>
@@ -241,7 +250,7 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html" class="external-link">emmeans</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>        object     <span class="op">=</span> <span class="va">fm4.4</span></span></span>
-<span class="r-in"><span>      , specs      <span class="op">=</span> <span class="op">~</span> <span class="va">Pretreatment</span> <span class="op">*</span> <span class="va">SeedLot</span></span></span>
+<span class="r-in"><span>      , specs      <span class="op">=</span> <span class="op">~</span> <span class="va">Treat</span> <span class="op">*</span> <span class="va">SeedLot</span></span></span>
 <span class="r-in"><span>      , by         <span class="op">=</span> <span class="cn">NULL</span></span></span>
 <span class="r-in"><span>      , fac.reduce <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">coefs</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply</a></span><span class="op">(</span><span class="va">coefs</span>, <span class="fl">2</span>, <span class="va">mean</span><span class="op">)</span></span></span>
 <span class="r-in"><span>      , contr      <span class="op">=</span></span></span>
@@ -250,32 +259,32 @@
 <span class="r-in"><span>      , offset     <span class="op">=</span></span></span>
 <span class="r-in"><span>      , tran       <span class="op">=</span></span></span>
 <span class="r-in"><span>      <span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Pretreatment SeedLot emmean   SE df lower.CL upper.CL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Nick         18265     74.7 10.2 34     53.9     95.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  BWS          18265     80.0 10.2 34     59.2    100.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  B1M          18265     82.7 10.2 34     61.9    103.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Nick         18249     49.3 10.2 34     28.5     70.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  BWS          18249     61.3 10.2 34     40.5     82.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  B1M          18249     56.0 10.2 34     35.2     76.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Nick         18248     40.0 10.2 34     19.2     60.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  BWS          18248     52.0 10.2 34     31.2     72.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  B1M          18248     68.0 10.2 34     47.2     88.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Nick         18211     65.3 10.2 34     44.5     86.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  BWS          18211     78.7 10.2 34     57.9     99.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  B1M          18211     88.0 10.2 34     67.2    108.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Nick         18212     54.7 10.2 34     33.9     75.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  BWS          18212     68.0 10.2 34     47.2     88.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  B1M          18212     85.3 10.2 34     64.5    106.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Nick         18217     40.0 10.2 34     19.2     60.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  BWS          18217     54.7 10.2 34     33.9     75.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  B1M          18217     77.3 10.2 34     56.5     98.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Treat  SeedLot emmean   SE df lower.CL upper.CL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  nick   18211     65.3 6.55 34     52.0     78.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  bw&amp;s   18211     78.7 6.55 34     65.4     92.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  bw1min 18211     88.0 6.55 34     74.7    101.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  nick   18212     54.7 6.55 34     41.4     68.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  bw&amp;s   18212     68.0 6.55 34     54.7     81.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  bw1min 18212     85.3 6.55 34     72.0     98.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  nick   18217     57.3 6.55 34     44.0     70.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  bw&amp;s   18217     54.7 6.55 34     41.4     68.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  bw1min 18217     77.3 6.55 34     64.0     90.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  nick   18248     40.0 6.55 34     26.7     53.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  bw&amp;s   18248     52.0 6.55 34     38.7     65.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  bw1min 18248     68.0 6.55 34     54.7     81.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  nick   18249     49.3 6.55 34     36.0     62.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  bw&amp;s   18249     61.3 6.55 34     48.0     74.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  bw1min 18249     84.0 6.55 34     70.7     97.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  nick   18265     74.7 6.55 34     61.4     88.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  bw&amp;s   18265     80.0 6.55 34     66.7     93.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  bw1min 18265     82.7 6.55 34     69.4     96.0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Results are averaged over the levels of: Replication </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Results are averaged over the levels of: Repl </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Confidence level used: 0.95 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmip.html" class="external-link">emmip</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>     object        <span class="op">=</span> <span class="va">fm4.4</span></span></span>
-<span class="r-in"><span>   , formula       <span class="op">=</span> <span class="va">SeedLot</span> <span class="op">~</span> <span class="va">Pretreatment</span></span></span>
+<span class="r-in"><span>   , formula       <span class="op">=</span> <span class="va">SeedLot</span> <span class="op">~</span> <span class="va">Treat</span></span></span>
 <span class="r-in"><span>   , type          <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"link"</span>, <span class="st">"response"</span>, <span class="st">"predict.type"</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span></span>
 <span class="r-in"><span>   , CIs           <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span></span>
 <span class="r-in"><span>   , PIs           <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span></span>
@@ -290,7 +299,7 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmip.html" class="external-link">emmip</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>     object        <span class="op">=</span> <span class="va">fm4.4</span></span></span>
-<span class="r-in"><span>   , formula       <span class="op">=</span> <span class="va">Pretreatment</span> <span class="op">~</span> <span class="va">SeedLot</span></span></span>
+<span class="r-in"><span>   , formula       <span class="op">=</span> <span class="va">Treat</span> <span class="op">~</span> <span class="va">SeedLot</span></span></span>
 <span class="r-in"><span>   , type          <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"link"</span>, <span class="st">"response"</span>, <span class="st">"predict.type"</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span></span>
 <span class="r-in"><span>   , CIs           <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span></span>
 <span class="r-in"><span>   , PIs           <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span></span>

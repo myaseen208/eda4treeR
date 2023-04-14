@@ -27,14 +27,21 @@
 #' library(tidyverse)
 #' library(ggplot2)
 #'
+#' DataExam4.3 <-
+#'  DataExam4.3 %>%
+#'  mutate(
+#'   Row         = as_factor(Row)
+#' , Column      = as_factor(Column)
+#' , Replication = as_factor(Replication)
+#' , SeedLot     = as_factor(SeedLot)
+#'  )
 #'
-#'  # Pg.
-#'
+#'  # Pg. 50
 #'  fm4.2    <-
 #'    aov(
-#'        formula     = Percent ~ Replication + Contcomp + SeedLot +
-#'                                Pretreatment/Contcomp + Contcomp /SeedLot +
-#'                                Pretreatment/ Contcomp/SeedLot
+#'        formula     = Percent ~ Repl + Contcomp + SeedLot +
+#'                                Treat/Contcomp + Contcomp /SeedLot +
+#'                                Treat/ Contcomp/SeedLot
 #'       , data      = DataExam4.3
 #'     # , subset
 #'     # , weights
@@ -47,15 +54,15 @@
 #'       , singular.ok = TRUE
 #'       , contrasts   = NULL
 #'      )
+#'
+#'  # Pg. 54
 #'  anova(fm4.2)
 #'
-#'  library(supernova)
 #'
-#'  supernova(fm4.2)
+#'  # Pg. 50
+#'  model.tables(x = fm4.2, type = "means")
 #'
 #'  library(emmeans)
-#'
-#'
 #'    emmeans(
 #'        object     = fm4.2
 #'      , specs      = ~ Contcomp
@@ -84,7 +91,7 @@
 #'
 #'     emmeans(
 #'        object     = fm4.2
-#'      , specs      = ~ Contcomp + Pretreatment
+#'      , specs      = ~ Contcomp + Treat
 #'      , by         = NULL
 #'      , fac.reduce = function(coefs) apply(coefs, 2, mean)
 #'      , contr      =
@@ -96,7 +103,7 @@
 #'
 #'   emmip(
 #'       object        = fm4.2
-#'     , formula       = Contcomp ~ Pretreatment
+#'     , formula       = Contcomp ~ Treat
 #'     , type          = c("link", "response", "predict.type")[1]
 #'     , CIs           = c(TRUE, FALSE)[1]
 #'     , PIs           = c(TRUE, FALSE)[2]
@@ -158,7 +165,7 @@
 #'     theme_classic()
 #'
 #'  DataExam4.3 %>%
-#'    dplyr::group_by(Pretreatment,Contcomp,SeedLot) %>%
+#'    dplyr::group_by(Treat, Contcomp, SeedLot) %>%
 #'    dplyr::summarize(Mean=mean(Percent))
 #'    RESFIT <- data.frame(residualvalue=residuals(fm4.2),fittedvalue=fitted.values(fm4.2))
 #'    ggplot(mapping = aes(x = fitted.values(fm4.2), y = residuals(fm4.2)))+

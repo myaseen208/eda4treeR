@@ -111,14 +111,24 @@
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">DataExam4.3</span> <span class="op">&lt;-</span></span></span>
+<span class="r-in"><span> <span class="va">DataExam4.3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  Row         <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/as_factor.html" class="external-link">as_factor</a></span><span class="op">(</span><span class="va">Row</span><span class="op">)</span></span></span>
+<span class="r-in"><span>, Column      <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/as_factor.html" class="external-link">as_factor</a></span><span class="op">(</span><span class="va">Column</span><span class="op">)</span></span></span>
+<span class="r-in"><span>, Replication <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/as_factor.html" class="external-link">as_factor</a></span><span class="op">(</span><span class="va">Replication</span><span class="op">)</span></span></span>
+<span class="r-in"><span>, SeedLot     <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/as_factor.html" class="external-link">as_factor</a></span><span class="op">(</span><span class="va">SeedLot</span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in mutate(., Row = as_factor(Row), Column = as_factor(Column), Replication = as_factor(Replication),     SeedLot = as_factor(SeedLot)):</span> <span style="color: #00BBBB;">ℹ</span> In argument: `Replication = as_factor(Replication)`.</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Caused by error in `as_factor()`:</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> object 'Replication' not found</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span> <span class="co"># Pg.</span></span></span>
-<span class="r-in"><span></span></span>
+<span class="r-in"><span> <span class="co"># Pg. 50</span></span></span>
 <span class="r-in"><span> <span class="va">fm4.2</span>    <span class="op">&lt;-</span></span></span>
 <span class="r-in"><span>   <span class="fu"><a href="https://rdrr.io/r/stats/aov.html" class="external-link">aov</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>       formula     <span class="op">=</span> <span class="va">Percent</span> <span class="op">~</span> <span class="va">Replication</span> <span class="op">+</span> <span class="va">Contcomp</span> <span class="op">+</span> <span class="va">SeedLot</span> <span class="op">+</span></span></span>
-<span class="r-in"><span>                               <span class="va">Pretreatment</span><span class="op">/</span><span class="va">Contcomp</span> <span class="op">+</span> <span class="va">Contcomp</span> <span class="op">/</span><span class="va">SeedLot</span> <span class="op">+</span></span></span>
-<span class="r-in"><span>                               <span class="va">Pretreatment</span><span class="op">/</span> <span class="va">Contcomp</span><span class="op">/</span><span class="va">SeedLot</span></span></span>
+<span class="r-in"><span>       formula     <span class="op">=</span> <span class="va">Percent</span> <span class="op">~</span> <span class="va">Repl</span> <span class="op">+</span> <span class="va">Contcomp</span> <span class="op">+</span> <span class="va">SeedLot</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>                               <span class="va">Treat</span><span class="op">/</span><span class="va">Contcomp</span> <span class="op">+</span> <span class="va">Contcomp</span> <span class="op">/</span><span class="va">SeedLot</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>                               <span class="va">Treat</span><span class="op">/</span> <span class="va">Contcomp</span><span class="op">/</span><span class="va">SeedLot</span></span></span>
 <span class="r-in"><span>      , data      <span class="op">=</span> <span class="va">DataExam4.3</span></span></span>
 <span class="r-in"><span>    <span class="co"># , subset</span></span></span>
 <span class="r-in"><span>    <span class="co"># , weights</span></span></span>
@@ -131,57 +141,98 @@
 <span class="r-in"><span>      , singular.ok <span class="op">=</span> <span class="cn">TRUE</span></span></span>
 <span class="r-in"><span>      , contrasts   <span class="op">=</span> <span class="cn">NULL</span></span></span>
 <span class="r-in"><span>     <span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span> <span class="co"># Pg. 54</span></span></span>
 <span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html" class="external-link">anova</a></span><span class="op">(</span><span class="va">fm4.2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Analysis of Variance Table</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Response: Percent</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                               Df Sum Sq Mean Sq  F value    Pr(&gt;F)    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replication                    1     16      16   0.0438  0.834884    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Contcomp                       1  46817   46817 125.5720 &lt; 2.2e-16 ***</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> SeedLot                        1     51      51   0.1379  0.711622    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Pretreatment                   2   4450    2225   5.9676  0.004233 ** </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Contcomp:SeedLot               1    666     666   1.7859  0.186230    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Contcomp:SeedLot:Pretreatment  2    645     322   0.8650  0.426011    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residuals                     63  23488     373                       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                        Df Sum Sq Mean Sq  F value    Pr(&gt;F)    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Repl                    2     35      18   0.1804 0.8355379    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Contcomp                1  58542   58542 601.5217 &lt; 2.2e-16 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> SeedLot                 5   2894     579   5.9481 0.0002538 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Treat                   2   5300    2650  27.2295 1.576e-08 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Contcomp:SeedLot        5   1347     269   2.7682 0.0287571 *  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Contcomp:SeedLot:Treat 10    961      96   0.9876 0.4674993    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residuals              46   4477      97                       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/UCLATALL/supernova" class="external-link">supernova</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/pkg/supernova/man/supernova.html" class="external-link">supernova</a></span><span class="op">(</span><span class="va">fm4.2</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Analysis of Variance Table (Type III SS)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Model: Percent ~ Replication + Contcomp + SeedLot + Pretreatment/Contcomp + Contcomp/SeedLot + Pretreatment/Contcomp/SeedLot</span>
+<span class="r-in"><span> <span class="co"># Pg. 50</span></span></span>
+<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/stats/model.tables.html" class="external-link">model.tables</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">fm4.2</span>, type <span class="op">=</span> <span class="st">"means"</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Tables of means</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Grand mean</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51.38889 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                         SS df       MS      F</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  ----------------------------- --------------- | --------- -- -------- ------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                          Model (error reduced) | 52644.990  8 6580.624 15.409</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    Replication                 |    16.333  1   16.333  0.038</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       Contcomp                 |     0.000  1    0.000  0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                        SeedLot                 |     0.000  1    0.000  0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   Pretreatment                 |     0.000  3    0.000  0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          Contcomp:Pretreatment                 |     0.000  3    0.000  0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               Contcomp:SeedLot                 |     0.000  1    0.000  0.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Contcomp:SeedLot:Pretreatment                 |   644.956  3  214.985  0.503</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                          Error (from model)    | 23488.121 55  427.057       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  ----------------------------- --------------- | --------- -- -------- ------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                          Total (empty model)   | 76133.111 71 1072.297       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    PRE     p</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  ----- -----</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .6915 .0000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .0007 .8457</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .0000 .0000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .0000 .0000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .0000 .0000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .0000 .0000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .0000 .0000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  .0267 .6815</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  ----- -----</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Repl </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         1     2     3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     52.33 50.67 51.17</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rep 24.00 24.00 24.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Contcomp </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     Treated Tontrol</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       67.85       2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rep   54.00      18</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  SeedLot </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     18211 18212 18217 18248 18249 18265</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        58 52.33    49 40.67 48.67 59.67</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rep    12 12.00    12 12.00 12.00 12.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Treat </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      nick  bw&amp;s control bw1min</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     40.43 49.31   51.39  64.43</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rep 18.00 18.00   18.00  18.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Contcomp:SeedLot </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          SeedLot</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Contcomp  18211 18212 18217 18248 18249 18265</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Treated 77.33 69.33 63.11 53.33 64.89 79.11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   rep      9.00  9.00  9.00  9.00  9.00  9.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Tontrol  0.00  1.33  6.67  2.67  0.00  1.33</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   rep      3.00  3.00  3.00  3.00  3.00  3.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Contcomp:SeedLot:Treat </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> , , Treat = nick</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          SeedLot</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Contcomp  18211 18212 18217 18248 18249 18265</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Treated 65.33 54.67 57.33 40.00 49.33 74.67</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   rep      3.00  3.00  3.00  3.00  3.00  3.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Tontrol                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   rep      0.00  0.00  0.00  0.00  0.00  0.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> , , Treat = bw&amp;s</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          SeedLot</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Contcomp  18211 18212 18217 18248 18249 18265</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Treated 78.67 68.00 54.67 52.00 61.33 80.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   rep      3.00  3.00  3.00  3.00  3.00  3.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Tontrol                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   rep      0.00  0.00  0.00  0.00  0.00  0.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> , , Treat = control</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          SeedLot</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Contcomp  18211 18212 18217 18248 18249 18265</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Treated                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   rep      0.00  0.00  0.00  0.00  0.00  0.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Tontrol  0.00  1.33  6.67  2.67  0.00  1.33</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   rep      3.00  3.00  3.00  3.00  3.00  3.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> , , Treat = bw1min</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          SeedLot</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Contcomp  18211 18212 18217 18248 18249 18265</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Treated 88.00 85.33 77.33 68.00 84.00 82.67</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   rep      3.00  3.00  3.00  3.00  3.00  3.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Tontrol                                    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   rep      0.00  0.00  0.00  0.00  0.00  0.00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rvlenth/emmeans" class="external-link">emmeans</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span>   <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html" class="external-link">emmeans</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>       object     <span class="op">=</span> <span class="va">fm4.2</span></span></span>
 <span class="r-in"><span>     , specs      <span class="op">=</span> <span class="op">~</span> <span class="va">Contcomp</span></span></span>
@@ -194,13 +245,13 @@
 <span class="r-in"><span>     , tran       <span class="op">=</span></span></span>
 <span class="r-in"><span>     <span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: A nesting structure was detected in the fitted model:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     Pretreatment %in% Contcomp</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     Treat %in% Contcomp</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: Results may be misleading due to involvement in interactions</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Contcomp emmean   SE df lower.CL upper.CL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Control    6.44 4.55 63    -2.65     15.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Treated   65.33 2.63 63    60.08     70.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Treated    67.9 1.34 46    65.15    70.55</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Tontrol     2.0 2.33 46    -2.68     6.68</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Results are averaged over the levels of: Pretreatment </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Results are averaged over the levels of: Repl, SeedLot, Treat </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Confidence level used: 0.95 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmip.html" class="external-link">emmip</a></span><span class="op">(</span></span></span>
@@ -216,14 +267,14 @@
 <span class="r-in"><span>    <span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: A nesting structure was detected in the fitted model:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     Pretreatment %in% Contcomp</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     Treat %in% Contcomp</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: Results may be misleading due to involvement in interactions</span>
 <span class="r-plt img"><img src="Exam4.3-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html" class="external-link">emmeans</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>       object     <span class="op">=</span> <span class="va">fm4.2</span></span></span>
-<span class="r-in"><span>     , specs      <span class="op">=</span> <span class="op">~</span> <span class="va">Contcomp</span> <span class="op">+</span> <span class="va">Pretreatment</span></span></span>
+<span class="r-in"><span>     , specs      <span class="op">=</span> <span class="op">~</span> <span class="va">Contcomp</span> <span class="op">+</span> <span class="va">Treat</span></span></span>
 <span class="r-in"><span>     , by         <span class="op">=</span> <span class="cn">NULL</span></span></span>
 <span class="r-in"><span>     , fac.reduce <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">coefs</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/apply.html" class="external-link">apply</a></span><span class="op">(</span><span class="va">coefs</span>, <span class="fl">2</span>, <span class="va">mean</span><span class="op">)</span></span></span>
 <span class="r-in"><span>     , contr      <span class="op">=</span></span></span>
@@ -233,19 +284,20 @@
 <span class="r-in"><span>     , tran       <span class="op">=</span></span></span>
 <span class="r-in"><span>     <span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: A nesting structure was detected in the fitted model:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     Pretreatment %in% Contcomp</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     Treat %in% Contcomp</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: Results may be misleading due to involvement in interactions</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Pretreatment Contcomp emmean   SE df lower.CL upper.CL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Control      Control    6.44 4.55 63    -2.65     15.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  B1M          Treated   76.22 4.55 63    67.13     85.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  BWS          Treated   65.78 4.55 63    56.68     74.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Nick         Treated   54.00 4.55 63    44.91     63.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Treat   Contcomp emmean   SE df lower.CL upper.CL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  nick    Treated    56.9 2.33 46    52.21    61.57</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  bw&amp;s    Treated    65.8 2.33 46    61.10    70.46</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  bw1min  Treated    80.9 2.33 46    76.21    85.57</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  control Tontrol     2.0 2.33 46    -2.68     6.68</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Results are averaged over the levels of: Repl, SeedLot </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Confidence level used: 0.95 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmip.html" class="external-link">emmip</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>      object        <span class="op">=</span> <span class="va">fm4.2</span></span></span>
-<span class="r-in"><span>    , formula       <span class="op">=</span> <span class="va">Contcomp</span> <span class="op">~</span> <span class="va">Pretreatment</span></span></span>
+<span class="r-in"><span>    , formula       <span class="op">=</span> <span class="va">Contcomp</span> <span class="op">~</span> <span class="va">Treat</span></span></span>
 <span class="r-in"><span>    , type          <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"link"</span>, <span class="st">"response"</span>, <span class="st">"predict.type"</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span></span>
 <span class="r-in"><span>    , CIs           <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span></span>
 <span class="r-in"><span>    , PIs           <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></span></span>
@@ -256,7 +308,7 @@
 <span class="r-in"><span>    <span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: A nesting structure was detected in the fitted model:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     Pretreatment %in% Contcomp</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     Treat %in% Contcomp</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: Results may be misleading due to involvement in interactions</span>
 <span class="r-plt img"><img src="Exam4.3-2.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
@@ -272,12 +324,17 @@
 <span class="r-in"><span>     , tran       <span class="op">=</span></span></span>
 <span class="r-in"><span>     <span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: A nesting structure was detected in the fitted model:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     Pretreatment %in% Contcomp</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     Treat %in% Contcomp</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: Results may be misleading due to involvement in interactions</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  SeedLot emmean   SE df lower.CL upper.CL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    18234   35.9 2.63 63     30.6     41.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  18211     38.7 3.29 46     32.0     45.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  18212     35.3 3.29 46     28.7     42.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  18217     34.9 3.29 46     28.3     41.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  18248     28.0 3.29 46     21.4     34.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  18249     32.4 3.29 46     25.8     39.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  18265     40.2 3.29 46     33.6     46.8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Results are averaged over the levels of: Pretreatment, Contcomp </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Results are averaged over the levels of: Repl, Treat, Contcomp </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Confidence level used: 0.95 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmip.html" class="external-link">emmip</a></span><span class="op">(</span></span></span>
@@ -293,11 +350,8 @@
 <span class="r-in"><span>    <span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: A nesting structure was detected in the fitted model:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     Pretreatment %in% Contcomp</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     Treat %in% Contcomp</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: Results may be misleading due to involvement in interactions</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Suggestion: Add 'at = list(SeedLot = ...)' to call to see &gt; 1 value per group.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> `geom_line()`: Each group consists of only one observation.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Do you need to adjust the <span style="color: #00BB00;">group</span> aesthetic?</span>
 <span class="r-plt img"><img src="Exam4.3-3.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html" class="external-link">emmeans</a></span><span class="op">(</span></span></span>
@@ -312,13 +366,23 @@
 <span class="r-in"><span>     , tran       <span class="op">=</span></span></span>
 <span class="r-in"><span>     <span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: A nesting structure was detected in the fitted model:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     Pretreatment %in% Contcomp</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     Treat %in% Contcomp</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: Results may be misleading due to involvement in interactions</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Contcomp SeedLot emmean   SE df lower.CL upper.CL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Control    18234   6.44 4.55 63    -2.65     15.5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Treated    18234  65.33 2.63 63    60.08     70.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Treated  18211    77.33 3.29 46     70.7     84.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Tontrol  18211     0.00 5.70 46    -11.5     11.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Treated  18212    69.33 3.29 46     62.7     76.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Tontrol  18212     1.33 5.70 46    -10.1     12.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Treated  18217    63.11 3.29 46     56.5     69.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Tontrol  18217     6.67 5.70 46     -4.8     18.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Treated  18248    53.33 3.29 46     46.7     60.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Tontrol  18248     2.67 5.70 46     -8.8     14.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Treated  18249    64.89 3.29 46     58.3     71.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Tontrol  18249     0.00 5.70 46    -11.5     11.5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Treated  18265    79.11 3.29 46     72.5     85.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Tontrol  18265     1.33 5.70 46    -10.1     12.8</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Results are averaged over the levels of: Pretreatment </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Results are averaged over the levels of: Repl, Treat </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Confidence level used: 0.95 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmip.html" class="external-link">emmip</a></span><span class="op">(</span></span></span>
@@ -334,32 +398,29 @@
 <span class="r-in"><span>    <span class="op">)</span> <span class="op">+</span></span></span>
 <span class="r-in"><span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_classic</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: A nesting structure was detected in the fitted model:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     Pretreatment %in% Contcomp</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     Treat %in% Contcomp</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: Results may be misleading due to involvement in interactions</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Suggestion: Add 'at = list(SeedLot = ...)' to call to see &gt; 1 value per group.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> `geom_line()`: Each group consists of only one observation.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Do you need to adjust the <span style="color: #00BB00;">group</span> aesthetic?</span>
 <span class="r-plt img"><img src="Exam4.3-4.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="va">DataExam4.3</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
-<span class="r-in"><span>   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">Pretreatment</span>,<span class="va">Contcomp</span>,<span class="va">SeedLot</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">Treat</span>, <span class="va">Contcomp</span>, <span class="va">SeedLot</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html" class="external-link">summarize</a></span><span class="op">(</span>Mean<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">Percent</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> `summarise()` has grouped output by 'Pretreatment', 'Contcomp'. You can</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> override using the `.groups` argument.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> `summarise()` has grouped output by 'Treat', 'Contcomp'. You can override using</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> the `.groups` argument.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 24 × 4</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Groups:   Pretreatment, Contcomp [4]</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    Pretreatment Contcomp SeedLot  Mean</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> B1M          Treated    <span style="text-decoration: underline;">18</span>211  88  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> B1M          Treated    <span style="text-decoration: underline;">18</span>212  85.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> B1M          Treated    <span style="text-decoration: underline;">18</span>217  77.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> B1M          Treated    <span style="text-decoration: underline;">18</span>248  68  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> B1M          Treated    <span style="text-decoration: underline;">18</span>249  56  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> B1M          Treated    <span style="text-decoration: underline;">18</span>265  82.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> BWS          Treated    <span style="text-decoration: underline;">18</span>211  78.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> BWS          Treated    <span style="text-decoration: underline;">18</span>212  68  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> BWS          Treated    <span style="text-decoration: underline;">18</span>217  54.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> BWS          Treated    <span style="text-decoration: underline;">18</span>248  52  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Groups:   Treat, Contcomp [4]</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Treat Contcomp SeedLot  Mean</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span> <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> nick  Treated  18211    65.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> nick  Treated  18212    54.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> nick  Treated  18217    57.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> nick  Treated  18248    40  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> nick  Treated  18249    49.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> nick  Treated  18265    74.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> bw&amp;s  Treated  18211    78.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> bw&amp;s  Treated  18212    68  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> bw&amp;s  Treated  18217    54.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> bw&amp;s  Treated  18248    52  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 14 more rows</span></span>
 <span class="r-in"><span>   <span class="va">RESFIT</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>residualvalue<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html" class="external-link">residuals</a></span><span class="op">(</span><span class="va">fm4.2</span><span class="op">)</span>,fittedvalue<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html" class="external-link">fitted.values</a></span><span class="op">(</span><span class="va">fm4.2</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html" class="external-link">fitted.values</a></span><span class="op">(</span><span class="va">fm4.2</span><span class="op">)</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/residuals.html" class="external-link">residuals</a></span><span class="op">(</span><span class="va">fm4.2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span></span>
