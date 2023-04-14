@@ -29,6 +29,7 @@
 #'
 #' # Pg.
 #'
+#' library(lmerTest)
 #' fm8.2  <-
 #'   lmer(
 #'     formula = dbhmean ~ Repl + Column + Contcompf + Contcompf:Standard +
