@@ -27,14 +27,6 @@
 #' library(tidyverse)
 #' library(ggplot2)
 #'
-#' DataExam4.3 <-
-#'  DataExam4.3 %>%
-#'  mutate(
-#'   Row         = as_factor(Row)
-#' , Column      = as_factor(Column)
-#' , Replication = as_factor(Replication)
-#' , SeedLot     = as_factor(SeedLot)
-#'  )
 #'
 #'  # Pg. 50
 #'  fm4.2    <-

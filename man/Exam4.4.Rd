@@ -64,56 +64,6 @@ fm4.6    <-
     theme_classic()
 
 
-   emmeans(
-         object     = fm4.6
-       , specs      = ~ Ferti
-       , by         = NULL
-       , fac.reduce = function(coefs) apply(coefs, 2, mean)
-       , contr      =
-       , options    = get_emm_option("emmeans")
-       , weights    =
-       , offset     =
-       , tran       =
-       )
-
-  emmip(
-      object        = fm4.4
-    , formula       = ~ Ferti
-    , type          = c("link", "response", "predict.type")[1]
-    , CIs           = c(TRUE, FALSE)[1]
-    , PIs           = c(TRUE, FALSE)[2]
-    , style         =
-    , engine        = get_emm_option("graphics.engine")
-    , plotit        = TRUE
-    , nesting.order = FALSE
-    ) +
-    theme_classic()
-
-   emmeans(
-         object     = fm4.6
-       , specs      = ~ SeedLot
-       , by         = NULL
-       , fac.reduce = function(coefs) apply(coefs, 2, mean)
-       , contr      =
-       , options    = get_emm_option("emmeans")
-       , weights    =
-       , offset     =
-       , tran       =
-       )
-
-  emmip(
-      object        = fm4.4
-    , formula       = ~ SeedLot
-    , type          = c("link", "response", "predict.type")[1]
-    , CIs           = c(TRUE, FALSE)[1]
-    , PIs           = c(TRUE, FALSE)[2]
-    , style         =
-    , engine        = get_emm_option("graphics.engine")
-    , plotit        = TRUE
-    , nesting.order = FALSE
-    ) +
-    theme_classic()
-
 }
 \references{
 \enumerate{
