@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-## `eda4treeR`: Experimental Design and Analysis for Tree Improvement
+# `eda4treeR`: Experimental Design and Analysis for Tree Improvement <img src = "man/figures/eda4treeR_hexSticker.png" align = "right" height = "140/"/>
 
 ```{r,echo = FALSE, message = FALSE}
 devtools::load_all(".")

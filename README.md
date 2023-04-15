@@ -1,5 +1,5 @@
 
-## `eda4treeR`: Experimental Design and Analysis for Tree Improvement
+# `eda4treeR`: Experimental Design and Analysis for Tree Improvement <img src = "man/figures/eda4treeR_hexSticker.png" align = "right" height = "140/"/>
 
 ###### Version : [0.5.0](https://myaseen208.github.io/eda4treeR/); License: [GPL-2\|GPL-3](https://www.r-project.org/Licenses/)
 
@@ -38,7 +38,7 @@ downloads](https://cranlogs.r-pkg.org/badges/grand-total/eda4treeR?color=green)]
 [![Project Status:
 WIP](http://www.repostatus.org/badges/latest/inactive.svg)](http://www.repostatus.org/#inactive)
 [![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2023--03--31-yellowgreen.svg)](https://github.com/myaseen208/eda4treeR)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2023--04--15-yellowgreen.svg)](https://github.com/myaseen208/eda4treeR)
 [![Rdoc](http://www.rdocumentation.org/badges/version/eda4treeR)](http://www.rdocumentation.org/packages/eda4treeR)
 
 ------------------------------------------------------------------------
