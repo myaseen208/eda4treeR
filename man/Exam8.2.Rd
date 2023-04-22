@@ -28,7 +28,9 @@ fm8.2  <-
               (1|Repl:Row ) + (1|Repl:Column ) + (1|Contcompv:Clone)
   , data    = DataExam8.2
     )
+\dontrun{
 varcomp(fm8.2)
+}
 anova(fm8.2)
 Anova(fm8.2, type = "II", test.statistic = "Chisq")
 

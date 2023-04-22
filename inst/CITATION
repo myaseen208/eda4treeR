@@ -1,38 +1,9 @@
-citHeader("To cite the R package 'eda4treeR' in publications use:")
+bibentry(
+  "manual",
+  header = "Please, support this project by citing it in your publications!",
+  title = "eda4treeR: Experimental Design and Analysis for Tree Improvement",
+	author = "Muhammad Yaseen, Sami Ullah, Kent M. Eskridge, Emlyn Williams",
+  year = 2023,
+  journal = "The Comprehensive R Archive Network (CRAN)",
+)
 
-if(!exists("meta") || is.null(meta))
-meta <- packageDescription("eda4treeR")
-
-year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date)
-if (!length(year)) {
- year <- format(packageDate("eda4treeR"), "%Y")
- }
-
-vers <- paste("R package version", meta$Version)
-
-citEntry(
-  entry  = "Manual"
-, title  = "eda4treeR: Experimental Design and Analysis for Tree Improvement"
-, author = personList(
-  person(c("Muhammad", "Yaseen"),  email = "myaseen208@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-5923-1714"))
-, person(c("Sami", "Ullah"),  email = "samiullahuos@gmail.com", role = c("aut", "ctb"))
-, person(c("Kent", "M.", "Eskridge"), email = "keskridge1@unl.edu", role = c("aut", "ctb"))
-, person(c("Emlyn", "Williams"),  email = "emlyn@alphastat.net", role = c("aut", "ctb"))
-            )
-, year = year
-, textVersion = paste(
-       "Muhammad Yaseen, Sami Ullah,  Kent M. Eskridge, and Emlyn Williams ("
-      , year
-      , ").  eda4treeR: Experimental Design and Analysis for Tree Improvement."
-      , vers
-      , "
-      , "
-      , "https://myaseen208.github.io/eda4treeR/"
-      , "https://cran.r-project.org/package=eda4treeR"
-      , "."
-      , sep = "")
-      , note = {c(paste(vers), "https://myaseen208.github.io/eda4treeR/ " , "https://cran.r-project.org/package=eda4treeR")})
-
-citFooter("This free and open-source software implements academic
-research by the authors and co-workers. If you use it, please support
-the project by citing the package.")
