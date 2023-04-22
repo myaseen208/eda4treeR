@@ -27,21 +27,25 @@ Authors@R:
         )
         )
 Maintainer: Muhammad Yaseen <myaseen208@gmail.com>
-Description: Provides data sets and R Codes for Williams, E.R., Matheson, A.C. and Harwood, C.E. (2002). Experimental Design and Analysis for Tree Improvement, CSIRO Publishing.
+Description: Provides data sets and R Codes for E.R. Williams, C.E. Harwood and A.C. Matheson (2023). Experimental Design and Analysis for Tree Improvement, CSIRO Publishing.
 Depends: R (>= 4.1.0)
 Imports: 
-  dplyr,
+  car,
   dae,
+  dplyr,
   emmeans,
   ggplot2,
-  lme4,
+  lmerTest,
   magrittr,
-  pbkrtest,
+  predictmeans,
   stats,
-  supernova,
-  tidyverse
+  supernova
 License: GPL-3
 URL: https://github.com/MYaseen208/eda4treeR
+     https://CRAN.R-project.org/package=eda4treeR
+     https://myaseen208.com/eda4treeR/
+     https://myaseen208.com/EDATR/
+BugReports: https://github.com/myaseen208/eda4treeR/issues
 LazyData: TRUE
 RoxygenNote: 7.2.3
 Suggests: 

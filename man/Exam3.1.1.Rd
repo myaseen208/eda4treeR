@@ -2,74 +2,39 @@
 % Please edit documentation in R/Exam3.1.1.R
 \name{Exam3.1.1}
 \alias{Exam3.1.1}
-\title{Example 3.1.1 from Experimental Design & Analysis for Tree Improvement}
+\title{Example 3.1.1 from Experimental Design and Analysis for Tree Improvement}
 \description{
 Exam3.1.1 is part of data from Australian Centre for Agricultural Research (ACIAR)
              in Queensland, Australia (Experiment 309).
 }
 \examples{
+library(car)
+library(dae)
+library(dplyr)
+library(emmeans)
+library(ggplot2)
+library(lmerTest)
+library(magrittr)
+library(predictmeans)
+library(supernova)
 
-library(tidyverse)
 data(DataExam3.1.1)
 
 # Pg. 36
-
-fm3.8   <-
-  lm(
-     formula     = Mean ~ Repl + SeedLot
-   , data        = DataExam3.1.1
- # , subset
- # , weights
- # , na.action
-   , method      = "qr"
-   , model       = TRUE
-   , x           = FALSE
-   , y           = FALSE
-   , qr          = TRUE
-   , singular.ok = TRUE
-   , contrasts   = NULL
-    )
+fm3.8 <- lm(formula  = Mean ~ Repl + SeedLot, data = DataExam3.1.1)
 
 # Pg. 40
-
 anova(fm3.8)
 
-
-
- library(emmeans)
-
- # Pg. 40
-
- emmeans(
-     object     = fm3.8
-   , specs      = ~ SeedLot
-   , by         = NULL
-   , fac.reduce = function(coefs) apply(coefs, 2, mean)
-   , contr      =
-   , options    = get_emm_option("emmeans")
-   , weights    =
-   , offset     =
-   , tran       =
-   )
-
-
- emmip(
-     object        = fm3.8
-   , formula       = ~ SeedLot
-   , type          = c("link", "response", "predict.type")[1]
-   , CIs           = c(TRUE, FALSE)[1]
-   , PIs           = c(TRUE, FALSE)[2]
-   , style         =
-   , engine        = get_emm_option("graphics.engine")
-   , plotit        = TRUE
-   , nesting.order = FALSE
-   ) +
-   theme_classic()
+# Pg. 40
+emmeans(object = fm3.8, specs = ~ SeedLot)
+emmip(object = fm3.8, formula  = ~ SeedLot) +
+ theme_classic()
 
 }
 \references{
 \enumerate{
-         \item Williams, E. R., Matheson, A. C. and Harwood, C. E. (2023). \emph{Experimental Design and Analysis for Tree Improvement}.
+         \item E.R. Williams, C.E. Harwood and A.C. Matheson (2023). \emph{Experimental Design and Analysis for Tree Improvement}.
                CSIRO Publishing (\href{https://www.publish.csiro.au/book/3145/}{https://www.publish.csiro.au/book/3145/}).
              }
 }

@@ -1,4 +1,4 @@
-#' @title    Example 4.3 from Experimental Design & Analysis for Tree Improvement
+#' @title    Example 4.3 from Experimental Design and Analysis for Tree Improvement
 #' @name     Exam4.3
 #' @description Exam4.3 presents the germination count data for 4 Pre-Treatments and 6 Seedlots.
 #' @author
@@ -9,152 +9,57 @@
 #'
 #' @references
 #' \enumerate{
-#'          \item Williams, E. R., Matheson, A. C. and Harwood, C. E. (2023). \emph{Experimental Design and Analysis for Tree Improvement}.
+#'          \item E.R. Williams, C.E. Harwood and A.C. Matheson (2023). \emph{Experimental Design and Analysis for Tree Improvement}.
 #'                CSIRO Publishing (\href{https://www.publish.csiro.au/book/3145/}{https://www.publish.csiro.au/book/3145/}).
 #'              }
 #'
 #' @seealso
 #'    \code{\link{DataExam4.3}}
 #'
-#' @import ggplot2
-#' @importFrom magrittr %>%
-#' @importFrom stats lm anova
-#' @importFrom supernova supernova
+#' @importFrom car Anova
+#' @import dae
+#' @import dplyr
 #' @importFrom emmeans emmeans emmip
+#' @import ggplot2
+#' @importFrom lmerTest lmer
+#' @importFrom magrittr %>%
+#' @import predictmeans
+#' @importFrom stats lm anova model.tables
+#' @importFrom supernova supernova
 #'
 #' @examples
-#' data(DataExam4.3)
-#' library(tidyverse)
+#' library(car)
+#' library(dae)
+#' library(dplyr)
+#' library(emmeans)
 #' library(ggplot2)
+#' library(lmerTest)
+#' library(magrittr)
+#' library(predictmeans)
+#' library(supernova)
 #'
+#' data(DataExam4.3)
 #'
 #'  # Pg. 50
 #'  fm4.2    <-
 #'    aov(
-#'        formula     = Percent ~ Repl + Contcomp + SeedLot +
-#'                                Treat/Contcomp + Contcomp /SeedLot +
-#'                                Treat/ Contcomp/SeedLot
-#'       , data      = DataExam4.3
-#'     # , subset
-#'     # , weights
-#'     # , na.action
-#'       , method      = "qr"
-#'       , model       = TRUE
-#'       , x           = FALSE
-#'       , y           = FALSE
-#'       , qr          = TRUE
-#'       , singular.ok = TRUE
-#'       , contrasts   = NULL
+#'        formula = Percent ~ Repl + Contcomp + SeedLot +
+#'                            Treat/Contcomp + Contcomp /SeedLot +
+#'                            Treat/ Contcomp/SeedLot
+#'       , data   = DataExam4.3
 #'      )
 #'
 #'  # Pg. 54
 #'  anova(fm4.2)
 #'
-#'
-#'  # Pg. 50
+#'  # Pg. 54
 #'  model.tables(x = fm4.2, type = "means")
 #'
-#'  library(emmeans)
-#'    emmeans(
-#'        object     = fm4.2
-#'      , specs      = ~ Contcomp
-#'      , by         = NULL
-#'      , fac.reduce = function(coefs) apply(coefs, 2, mean)
-#'      , contr      =
-#'      , options    = get_emm_option("emmeans")
-#'      , weights    =
-#'      , offset     =
-#'      , tran       =
-#'      )
-#'
-#'   emmip(
-#'       object        = fm4.2
-#'     , formula       = ~ Contcomp
-#'     , type          = c("link", "response", "predict.type")[1]
-#'     , CIs           = c(TRUE, FALSE)[1]
-#'     , PIs           = c(TRUE, FALSE)[2]
-#'     , style         =
-#'     , engine        = get_emm_option("graphics.engine")
-#'     , plotit        = TRUE
-#'     , nesting.order = FALSE
-#'     ) +
-#'     theme_classic()
-#'
-#'
-#'     emmeans(
-#'        object     = fm4.2
-#'      , specs      = ~ Contcomp + Treat
-#'      , by         = NULL
-#'      , fac.reduce = function(coefs) apply(coefs, 2, mean)
-#'      , contr      =
-#'      , options    = get_emm_option("emmeans")
-#'      , weights    =
-#'      , offset     =
-#'      , tran       =
-#'      )
-#'
-#'   emmip(
-#'       object        = fm4.2
-#'     , formula       = Contcomp ~ Treat
-#'     , type          = c("link", "response", "predict.type")[1]
-#'     , CIs           = c(TRUE, FALSE)[1]
-#'     , PIs           = c(TRUE, FALSE)[2]
-#'     , style         =
-#'     , engine        = get_emm_option("graphics.engine")
-#'     , plotit        = TRUE
-#'     , nesting.order = FALSE
-#'     ) +
-#'     theme_classic()
-#'
-#'      emmeans(
-#'        object     = fm4.2
-#'      , specs      = ~ SeedLot
-#'      , by         = NULL
-#'      , fac.reduce = function(coefs) apply(coefs, 2, mean)
-#'      , contr      =
-#'      , options    = get_emm_option("emmeans")
-#'      , weights    =
-#'      , offset     =
-#'      , tran       =
-#'      )
-#'
-#'   emmip(
-#'       object        = fm4.2
-#'     , formula       = ~ SeedLot
-#'     , type          = c("link", "response", "predict.type")[1]
-#'     , CIs           = c(TRUE, FALSE)[1]
-#'     , PIs           = c(TRUE, FALSE)[2]
-#'     , style         =
-#'     , engine        = get_emm_option("graphics.engine")
-#'     , plotit        = TRUE
-#'     , nesting.order = FALSE
-#'     ) +
-#'     theme_classic()
-#'
-#'     emmeans(
-#'        object     = fm4.2
-#'      , specs      = ~ Contcomp + SeedLot
-#'      , by         = NULL
-#'      , fac.reduce = function(coefs) apply(coefs, 2, mean)
-#'      , contr      =
-#'      , options    = get_emm_option("emmeans")
-#'      , weights    =
-#'      , offset     =
-#'      , tran       =
-#'      )
-#'
-#'   emmip(
-#'       object        = fm4.2
-#'     , formula       = Contcomp ~ SeedLot
-#'     , type          = c("link", "response", "predict.type")[1]
-#'     , CIs           = c(TRUE, FALSE)[1]
-#'     , PIs           = c(TRUE, FALSE)[2]
-#'     , style         =
-#'     , engine        = get_emm_option("graphics.engine")
-#'     , plotit        = TRUE
-#'     , nesting.order = FALSE
-#'     ) +
-#'     theme_classic()
+#'  emmeans(object = fm4.2, specs = ~ Contcomp)
+#'  emmeans(object = fm4.2, specs = ~ SeedLot)
+#'  emmeans(object = fm4.2, specs = ~ Contcomp + Treat)
+#'  emmeans(object = fm4.2, specs = ~ Contcomp + SeedLot)
+#'  emmeans(object = fm4.2, specs = ~ Contcomp + Treat + SeedLot)
 #'
 #'  DataExam4.3 %>%
 #'    dplyr::group_by(Treat, Contcomp, SeedLot) %>%

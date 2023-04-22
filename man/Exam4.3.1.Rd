@@ -2,15 +2,22 @@
 % Please edit documentation in R/Exam4.3.1.R
 \name{Exam4.3.1}
 \alias{Exam4.3.1}
-\title{Example 4.3.1 from Experimental Design & Analysis for Tree Improvement}
+\title{Example 4.3.1 from Experimental Design and Analysis for Tree Improvement}
 \description{
 Exam4.3.1 presents the germination count data for 4 Pre-Treatments and 6 Seedlots.
 }
 \examples{
+library(car)
+library(dae)
+library(dplyr)
+library(emmeans)
+library(ggplot2)
+library(lmerTest)
+library(magrittr)
+library(predictmeans)
+library(supernova)
 
 data(DataExam4.3)
-library(tidyverse)
-library(ggplot2)
 
 # Pg. 57
 fm4.4    <-
@@ -18,118 +25,19 @@ fm4.4    <-
       formula     = Percent ~ Repl + Treat*SeedLot
     , data        = DataExam4.3 \%>\%
                     filter(Treat != "control")
-  # , subset
-  # , weights
-  # , na.action
-    , method      = "qr"
-    , model       = TRUE
-    , x           = FALSE
-    , y           = FALSE
-    , qr          = TRUE
-    , singular.ok = TRUE
-    , contrasts   = NULL
-   )
-
+     )
 
  # Pg. 57
  anova(fm4.4)
  model.tables(x = fm4.4, type = "means")
 
-  library(emmeans)
-
-
-  emmeans(
-      object     = fm4.4
-    , specs      = ~ Treat
-    , by         = NULL
-    , fac.reduce = function(coefs) apply(coefs, 2, mean)
-    , contr      =
-    , options    = get_emm_option("emmeans")
-    , weights    =
-    , offset     =
-    , tran       =
-    )
-
- emmip(
-     object        = fm4.4
-   , formula       = ~ Treat
-   , type          = c("link", "response", "predict.type")[1]
-   , CIs           = c(TRUE, FALSE)[1]
-   , PIs           = c(TRUE, FALSE)[2]
-   , style         =
-   , engine        = get_emm_option("graphics.engine")
-   , plotit        = TRUE
-   , nesting.order = FALSE
-   ) +
-   theme_classic()
-
-  emmeans(
-        object     = fm4.4
-      , specs      = ~ SeedLot
-      , by         = NULL
-      , fac.reduce = function(coefs) apply(coefs, 2, mean)
-      , contr      =
-      , options    = get_emm_option("emmeans")
-      , weights    =
-      , offset     =
-      , tran       =
-      )
-
- emmip(
-     object        = fm4.4
-   , formula       = ~ SeedLot
-   , type          = c("link", "response", "predict.type")[1]
-   , CIs           = c(TRUE, FALSE)[1]
-   , PIs           = c(TRUE, FALSE)[2]
-   , style         =
-   , engine        = get_emm_option("graphics.engine")
-   , plotit        = TRUE
-   , nesting.order = FALSE
-   ) +
-   theme_classic()
-
-  emmeans(
-        object     = fm4.4
-      , specs      = ~ Treat * SeedLot
-      , by         = NULL
-      , fac.reduce = function(coefs) apply(coefs, 2, mean)
-      , contr      =
-      , options    = get_emm_option("emmeans")
-      , weights    =
-      , offset     =
-      , tran       =
-      )
-
- emmip(
-     object        = fm4.4
-   , formula       = SeedLot ~ Treat
-   , type          = c("link", "response", "predict.type")[1]
-   , CIs           = c(TRUE, FALSE)[1]
-   , PIs           = c(TRUE, FALSE)[2]
-   , style         =
-   , engine        = get_emm_option("graphics.engine")
-   , plotit        = TRUE
-   , nesting.order = FALSE
-   ) +
-   theme_classic()
-
-
- emmip(
-     object        = fm4.4
-   , formula       = Treat ~ SeedLot
-   , type          = c("link", "response", "predict.type")[1]
-   , CIs           = c(TRUE, FALSE)[1]
-   , PIs           = c(TRUE, FALSE)[2]
-   , style         =
-   , engine        = get_emm_option("graphics.engine")
-   , plotit        = TRUE
-   , nesting.order = FALSE
-   ) +
-   theme_classic()
+ emmeans(object = fm4.4, specs = ~ Treat)
+ emmeans(object = fm4.4, specs = ~ SeedLot)
+ emmeans(object = fm4.4, specs = ~ Treat * SeedLot)
 }
 \references{
 \enumerate{
-         \item Williams, E. R., Matheson, A. C. and Harwood, C. E. (2023). \emph{Experimental Design and Analysis for Tree Improvement}.
+         \item E.R. Williams, C.E. Harwood and A.C. Matheson (2023). \emph{Experimental Design and Analysis for Tree Improvement}.
                CSIRO Publishing (\href{https://www.publish.csiro.au/book/3145/}{https://www.publish.csiro.au/book/3145/}).
              }
 }

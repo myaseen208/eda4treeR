@@ -81,7 +81,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Example 8.1.2 from Experimental Design &amp; Analysis for Tree Improvement</h1>
-    <small class="dont-index">Source: <a href="https://github.com/MYaseen208/eda4treeR/blob/HEAD/R/Exam8.1.2.R" class="external-link"><code>R/Exam8.1.2.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/myaseen208/eda4treeR/blob/HEAD/R/Exam8.1.2.R" class="external-link"><code>R/Exam8.1.2.R</code></a></small>
     <div class="hidden name"><code>Exam8.1.2.Rd</code></div>
     </div>
 
@@ -95,8 +95,8 @@
     <div id="references">
     <h2>References</h2>
     
-<ol><li><p>Williams, E.R., Matheson, A.C. and Harwood, C.E. (2002).<em>Experimental Design and Analysis for Tree Improvement</em>.
-               CSIRO Publishing.</p></li>
+<ol><li><p>E.R. Williams, C.E. Harwood and A.C. Matheson (2023). <em>Experimental Design and Analysis for Tree Improvement</em>.
+               CSIRO Publishing (<a href="https://www.publish.csiro.au/book/3145/" class="external-link">https://www.publish.csiro.au/book/3145/</a>).</p></li>
 </ol></div>
     <div id="see-also">
     <h2>See also</h2>
@@ -111,27 +111,20 @@
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">DataExam8.1</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-forge.r-project.org/projects/car/" class="external-link">car</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://chris.brien.name" class="external-link">dae</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rvlenth/emmeans" class="external-link">emmeans</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/runehaubo/lmerTestR" class="external-link">lmerTest</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://magrittr.tidyverse.org" class="external-link">magrittr</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://CRAN.R-project.org/package=predictmeans" class="external-link">predictmeans</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/UCLATALL/supernova" class="external-link">supernova</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">DataExam8.1</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Pg. 167</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">fm8.11</span> <span class="op">&lt;-</span></span></span>
-<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html" class="external-link">aov</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    formula     <span class="op">=</span> <span class="va">Dbh</span> <span class="op">~</span> <span class="va">Country</span><span class="op">*</span><span class="va">Province</span></span></span>
-<span class="r-in"><span>  , data        <span class="op">=</span> <span class="va">DataExam8.1</span></span></span>
-<span class="r-in"><span> <span class="co">#, subset</span></span></span>
-<span class="r-in"><span> <span class="co">#, weights</span></span></span>
-<span class="r-in"><span> <span class="co">#, na.action</span></span></span>
-<span class="r-in"><span>  , method      <span class="op">=</span> <span class="st">"qr"</span></span></span>
-<span class="r-in"><span>  , model       <span class="op">=</span> <span class="cn">TRUE</span></span></span>
-<span class="r-in"><span>  , x           <span class="op">=</span> <span class="cn">FALSE</span></span></span>
-<span class="r-in"><span>  , y           <span class="op">=</span> <span class="cn">FALSE</span></span></span>
-<span class="r-in"><span>  , qr          <span class="op">=</span> <span class="cn">TRUE</span></span></span>
-<span class="r-in"><span>  , singular.ok <span class="op">=</span> <span class="cn">TRUE</span></span></span>
-<span class="r-in"><span>  , contrasts   <span class="op">=</span> <span class="cn">NULL</span></span></span>
-<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">fm8.11</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html" class="external-link">aov</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">dbh</span> <span class="op">~</span> <span class="va">country</span> <span class="op">+</span> <span class="va">country</span><span class="op">:</span><span class="va">prov</span>, data <span class="op">=</span> <span class="va">DataExam8.1</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="va">b</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html" class="external-link">anova</a></span><span class="op">(</span><span class="va">fm8.11</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="va">Res</span>                     <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">b</span><span class="op">[[</span><span class="st">"Sum Sq"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></span>
@@ -145,39 +138,39 @@
 <span class="r-in"><span>  <span class="va">b</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Analysis of Variance Table</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Response: Dbh</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            Df Sum Sq Mean Sq F value    Pr(&gt;F)    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Country    17 54.651  3.2148 16.4777 1.177e-08 ***</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Province   41 18.653  0.4549  2.3318  0.001442 ** </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Residuals 119 23.217  0.1951                      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Response: dbh</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               Df Sum Sq Mean Sq F value        Pr(&gt;F)    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> country       17 54.619  3.2129  16.468 0.00000001235 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> country:prov  41 18.606  0.4538   2.326      0.001502 ** </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residuals    119 23.217  0.1951                          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html" class="external-link">emmeans</a></span><span class="op">(</span><span class="va">fm8.11</span>, specs <span class="op">=</span> <span class="st">"Country"</span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html" class="external-link">emmeans</a></span><span class="op">(</span><span class="va">fm8.11</span>, specs <span class="op">=</span> <span class="st">"country"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: A nesting structure was detected in the fitted model:</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span>     Province %in% Country</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     prov %in% country</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: Results may be misleading due to involvement in interactions</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Country     emmean    SE  df lower.CL upper.CL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Australia     2.63 0.202 177     2.23     3.03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Benin         3.34 0.403 177     2.55     4.14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  China         3.69 0.233 177     3.23     4.15</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Egypt         2.50 0.233 177     2.04     2.96</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Fiji          2.61 0.233 177     2.15     3.07</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Guam          2.34 0.403 177     1.55     3.14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  country     emmean    SE  df lower.CL upper.CL</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  India         3.57 0.165 177     3.25     3.90</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Vietnam       3.28 0.181 177     2.92     3.63</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Egypt         2.50 0.233 177     2.04     2.96</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Kenya         3.49 0.143 177     3.21     3.77</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Malaysia      4.03 0.134 177     3.77     4.30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mauritius     3.12 0.403 177     2.33     3.92</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  PNG           3.65 0.403 177     2.85     4.45</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Philippines   3.61 0.233 177     3.15     4.07</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Puerto Rico   3.35 0.403 177     2.55     4.14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Solomon IS    3.70 0.285 177     3.14     4.26</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Sri Lanks     3.23 0.233 177     2.78     3.69</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Fiji          2.61 0.233 177     2.15     3.07</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  Thailand      3.84 0.202 177     3.44     4.24</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Vanuatu       2.76 0.403 177     1.97     3.56</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Vietnam       3.28 0.180 177     2.92     3.63</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Malaysia      4.03 0.135 177     3.77     4.30</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Philippines   3.61 0.233 177     3.15     4.07</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Australia     2.63 0.202 177     2.23     3.03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  PNG           3.65 0.404 177     2.85     4.45</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Solomon Is.   3.70 0.285 177     3.14     4.26</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mauritius     3.12 0.404 177     2.33     3.92</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Sri Lanka     3.24 0.233 177     2.78     3.70</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Guam          2.34 0.404 177     1.55     3.14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  China         3.69 0.233 177     3.23     4.15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Puerto Rico   3.35 0.404 177     2.55     4.14</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Vanuatu       2.76 0.404 177     1.97     3.56</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Benin         3.34 0.404 177     2.55     4.14</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Results are averaged over the levels of: Province </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Results are averaged over the levels of: prov </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Confidence level used: 0.95 </span>
 </code></pre></div>
     </div>

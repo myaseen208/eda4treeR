@@ -28,7 +28,7 @@ version](https://img.shields.io/badge/R%3E%3D-2.10.0-6666ff.svg)](https://cran.r
 v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version-last-release/eda4treeR)](https://cran.r-project.org/package=eda4treeR)
 [![rstudio mirror
-downloads](https://cranlogs.r-pkg.org/badges/grand-total/eda4treeR?color=green)](https://CRAN.R-project.org/package=eda4treeR)
+dow.nloads](https://cranlogs.r-pkg.org/badges/grand-total/eda4treeR?color=green)](https://CRAN.R-project.org/package=eda4treeR)
 <!-- [![packageversion](https://img.shields.io/badge/Package%20version-0.2.3.3-orange.svg)](https://github.com/myaseen208/eda4treeR) -->
 
 [![develVersion](https://img.shields.io/badge/devel%20version-0.5.0-orange.svg)](https://github.com/myaseen208/eda4treeR)
@@ -36,18 +36,17 @@ downloads](https://cranlogs.r-pkg.org/badges/grand-total/eda4treeR?color=green)]
 <!-- [![GitHub Download Count](https://github-basic-badges.herokuapp.com/downloads/myaseen208/eda4treeR/total.svg)] -->
 
 [![Project Status:
-WIP](http://www.repostatus.org/badges/latest/inactive.svg)](http://www.repostatus.org/#inactive)
+WIP](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
 [![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![Last-changedate](https://img.shields.io/badge/last%20change-2023--04--15-yellowgreen.svg)](https://github.com/myaseen208/eda4treeR)
-[![Rdoc](http://www.rdocumentation.org/badges/version/eda4treeR)](http://www.rdocumentation.org/packages/eda4treeR)
+
 
 ------------------------------------------------------------------------
 
 ## Description
 
-Provides data sets and R Codes for Williams, E.R., Matheson, A.C. and
-Harwood, C.E. (2002). Experimental Design and Analysis for Tree
-Improvement, CSIRO Publishing.
+Provides data sets and R Codes for E.R. Williams, C.E. Harwood and A.C. Matheson (2023). **Experimental Design and Analysis for Tree
+Improvement**, CSIRO Publishing [https://www.publish.csiro.au/book/3145/](https://www.publish.csiro.au/book/3145/).
 
    
 
@@ -84,7 +83,11 @@ news(package = "eda4treeR")
 
 [Github page](https://github.com/myaseen208/eda4treeR)
 
+
 [Documentation website](https://myaseen208.github.io/eda4treeR/)
+
+[Companion Website](https://myaseen208.com/EDATR/) 
+
 
 ## Citing `eda4treeR`
 

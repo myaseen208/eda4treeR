@@ -2,114 +2,45 @@
 % Please edit documentation in R/Exam5.1.R
 \name{Exam5.1}
 \alias{Exam5.1}
-\title{Example 5.1 from Experimental Design & Analysis for Tree Improvement}
+\title{Example 5.1 from Experimental Design and Analysis for Tree Improvement}
 \description{
 Exam5.1 presents the height of 27 seedlots from 4 sites.
 }
 \examples{
-data(DataExam5.1)
-library(tidyverse)
+library(car)
+library(dae)
+library(dplyr)
+library(emmeans)
 library(ggplot2)
+library(lmerTest)
+library(magrittr)
+library(predictmeans)
+library(supernova)
+
+data(DataExam5.1)
 
 # Pg.68
+fm5.4 <- lm(formula = Ht ~ Site*SeedLot, data = DataExam5.1)
 
-fm5.4 <-
-  lm(
-      formula     = Ht~Site*SeedLot
-    , data        = DataExam5.1
-  # , subset
-  # , weights
-  # , na.action
-    , method      = "qr"
-    , model       = TRUE
-    , x           = FALSE
-    , y           = FALSE
-    , qr          = TRUE
-    , singular.ok = TRUE
-    , contrasts   = NULL
-       )
+# Pg. 73
+anova(fm5.4)
 
-  # Pg. 73
-
-  anova(fm5.4)
-
-  library(supernova)
-
-  supernova(fm5.4)
-
-  library(emmeans)
-
-  # Pg. 73
-
-  emmeans(
-      object     = fm5.4
-    , specs      = ~ Site
-    , by         = NULL
-    , fac.reduce = function(coefs) apply(coefs, 2, mean)
-    , contr      =
-    , options    = get_emm_option("emmeans")
-    , weights    =
-    , offset     =
-    , tran       =
-    )
+# Pg. 73
+emmeans(object = fm5.4, specs = ~ Site)
+emmeans(object = fm5.4, specs = ~ SeedLot)
+b <- anova(fm5.4)
+Res                     <- length(b[["Sum Sq"]])
+df                      <- 208
+MSS                     <- 1040
+b[["Df"]][Res]          <- df
+b[["Sum Sq"]][Res]      <- MSS*df
+b[["Mean Sq"]][Res]     <- b[["Sum Sq"]][Res]/b[["Df"]][Res]
+b[["F value"]][1:Res-1] <- b[["Mean Sq"]][1:Res-1]/b[["Mean Sq"]][Res]
+b[["Pr(>F)"]][Res-1]     <- df(b[["F value"]][Res-1],b[["Df"]][Res-1],b[["Df"]][Res])
+b
 
 
- emmip(
-     object        = fm5.4
-   , formula       = ~ Site
-   , type          = c("link", "response", "predict.type")[1]
-   , CIs           = c(TRUE, FALSE)[1]
-   , PIs           = c(TRUE, FALSE)[2]
-   , style         =
-   , engine        = get_emm_option("graphics.engine")
-   , plotit        = TRUE
-   , nesting.order = FALSE
-   ) +
-   theme_classic()
-
-  # Pg. 73
-
-  emmeans(
-      object     = fm5.4
-    , specs      = ~ SeedLot
-    , by         = NULL
-    , fac.reduce = function(coefs) apply(coefs, 2, mean)
-    , contr      =
-    , options    = get_emm_option("emmeans")
-    , weights    =
-    , offset     =
-    , tran       =
-    )
-
- emmip(
-     object        = fm5.4
-   , formula       = ~ SeedLot
-   , type          = c("link", "response", "predict.type")[1]
-   , CIs           = c(TRUE, FALSE)[1]
-   , PIs           = c(TRUE, FALSE)[2]
-   , style         =
-   , engine        = get_emm_option("graphics.engine")
-   , plotit        = TRUE
-   , nesting.order = FALSE
-   ) +
-   theme_classic()
-
-
-
-     b <- anova(fm5.4)
-     Res                     <- length(b[["Sum Sq"]])
-     df                      <- 208
-     MSS                     <- 1040
-     b[["Df"]][Res]          <- df
-     b[["Sum Sq"]][Res]      <- MSS*df
-     b[["Mean Sq"]][Res]     <- b[["Sum Sq"]][Res]/b[["Df"]][Res]
-     b[["F value"]][1:Res-1] <- b[["Mean Sq"]][1:Res-1]/b[["Mean Sq"]][Res]
-     b[["Pr(>F)"]][Res-1]     <- df(b[["F value"]][Res-1],b[["Df"]][Res-1],b[["Df"]][Res])
-     b
-
-
-     RegCoeff <- function(DataExam5.1)
-     {
+ RegCoeff <- function(DataExam5.1){
      fm     <- lm(formula = Ht ~ SiteMean
               ,data    = DataExam5.1)
                setNames(data.frame(t(coef(fm)))
@@ -128,7 +59,7 @@ fm5.4 <-
   theme_classic()+
   labs(y="Seedlot mean",x="Sitemean")
 
-     RegCoeff     <-
+ RegCoeff     <-
      DataExam5.1 \%>\%
      group_by(SeedLot) \%>\%
      do(RegCoeff(.))
@@ -148,7 +79,7 @@ fm5.4 <-
 }
 \references{
 \enumerate{
-         \item Williams, E. R., Matheson, A. C. and Harwood, C. E. (2023). \emph{Experimental Design and Analysis for Tree Improvement}.
+         \item E.R. Williams, C.E. Harwood and A.C. Matheson (2023). \emph{Experimental Design and Analysis for Tree Improvement}.
                CSIRO Publishing (\href{https://www.publish.csiro.au/book/3145/}{https://www.publish.csiro.au/book/3145/}).
              }
 }

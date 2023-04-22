@@ -11,42 +11,39 @@
 #'
 #' @references
 #' \enumerate{
-#'          \item Williams, E.R., Matheson, A.C. and Harwood, C.E. (2002).\emph{Experimental Design and Analysis for Tree Improvement}.
-#'                CSIRO Publishing.
+#'          \item E.R. Williams, C.E. Harwood and A.C. Matheson (2023). \emph{Experimental Design and Analysis for Tree Improvement}.
+#'                CSIRO Publishing (\href{https://www.publish.csiro.au/book/3145/}{https://www.publish.csiro.au/book/3145/}).
 #'              }
 #'
 #' @seealso
 #'    \code{\link{DataExam8.1}}
 #'
+#' @importFrom car Anova
+#' @import dae
+#' @import dplyr
+#' @importFrom emmeans emmeans emmip
 #' @import ggplot2
+#' @importFrom lmerTest lmer
 #' @importFrom magrittr %>%
-#' @importFrom stats lm anova
-#' @import emmeans
-#' @import pbkrtest
-#' @import lme4
+#' @import predictmeans
+#' @importFrom stats lm anova model.tables
+#' @importFrom supernova supernova
 #'
 #' @examples
-#' data(DataExam8.1)
-#' library(tidyverse)
+#' library(car)
+#' library(dae)
+#' library(dplyr)
 #' library(emmeans)
+#' library(ggplot2)
+#' library(lmerTest)
+#' library(magrittr)
+#' library(predictmeans)
+#' library(supernova)
+#'
+#' data(DataExam8.1)
 #'
 #' # Pg. 167
-#'
-#' fm8.11 <-
-#'  aov(
-#'     formula     = Dbh ~ Country*Province
-#'   , data        = DataExam8.1
-#'  #, subset
-#'  #, weights
-#'  #, na.action
-#'   , method      = "qr"
-#'   , model       = TRUE
-#'   , x           = FALSE
-#'   , y           = FALSE
-#'   , qr          = TRUE
-#'   , singular.ok = TRUE
-#'   , contrasts   = NULL
-#'   )
+#' fm8.11 <- aov(formula = dbh ~ country + country:prov, data = DataExam8.1)
 #'
 #'   b <- anova(fm8.11)
 #'   Res                     <- length(b[["Sum Sq"]])
@@ -59,5 +56,5 @@
 #'   b[["Pr(>F)"]][Res-1]     <- df(b[["F value"]][Res-1],b[["Df"]][Res-1],b[["Df"]][Res])
 #'   b
 #'
-#'  emmeans(fm8.11, specs = "Country")
+#'  emmeans(fm8.11, specs = "country")
 NULL

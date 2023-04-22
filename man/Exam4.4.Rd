@@ -2,16 +2,23 @@
 % Please edit documentation in R/Exam4.4.R
 \name{Exam4.4}
 \alias{Exam4.4}
-\title{Example 4.4 from Experimental Design & Analysis for Tree Improvement}
+\title{Example 4.4 from Experimental Design and Analysis for Tree Improvement}
 \description{
 Exam4.4 presents the height means for 4 seedlots under factorial arrangement for two
              levels of Fertilizer and two levels of Irrigation.
 }
 \examples{
-data(DataExam4.4)
-library(tidyverse)
-library(ggplot2)
+library(car)
 library(dae)
+library(dplyr)
+library(emmeans)
+library(ggplot2)
+library(lmerTest)
+library(magrittr)
+library(predictmeans)
+library(supernova)
+
+data(DataExam4.4)
 
 # Pg. 58
 fm4.6    <-
@@ -19,55 +26,23 @@ fm4.6    <-
       formula     = Height ~ Rep + Irrig*Ferti*SeedDLot +
                              Error(Rep/Irrig:Ferti)
     , data        = DataExam4.4
-  # , subset
-  # , weights
-  # , na.action
-    , method      = "qr"
-    , model       = TRUE
-    , x           = FALSE
-    , y           = FALSE
-    , qr          = TRUE
-    , singular.ok = TRUE
-    , contrasts   = NULL
     )
 
 # Pg. 61
  summary(fm4.6)
 
 # Pg. 61
- model.tables(x = fm4.6, type = "means")
+model.tables(x = fm4.6, type = "means")
 
 # Pg. 61
-   emmeans(
-       object     = fm4.6
-     , specs      = ~ Irrig
-     , by         = NULL
-     , fac.reduce = function(coefs) apply(coefs, 2, mean)
-     , contr      =
-     , options    = get_emm_option("emmeans")
-     , weights    =
-     , offset     =
-     , tran       =
-     )
-
-  emmip(
-      object        = fm4.6
-    , formula       = ~ Irrig
-    , type          = c("link", "response", "predict.type")[1]
-    , CIs           = c(TRUE, FALSE)[1]
-    , PIs           = c(TRUE, FALSE)[2]
-    , style         =
-    , engine        = get_emm_option("graphics.engine")
-    , plotit        = TRUE
-    , nesting.order = FALSE
-    ) +
+emmeans(object = fm4.6, specs = ~ Irrig)
+emmip(object = fm4.6, formula  = ~ Irrig) +
     theme_classic()
-
 
 }
 \references{
 \enumerate{
-         \item Williams, E. R., Matheson, A. C. and Harwood, C. E. (2023). \emph{Experimental Design and Analysis for Tree Improvement}.
+         \item E.R. Williams, C.E. Harwood and A.C. Matheson (2023). \emph{Experimental Design and Analysis for Tree Improvement}.
                CSIRO Publishing (\href{https://www.publish.csiro.au/book/3145/}{https://www.publish.csiro.au/book/3145/}).
              }
 }

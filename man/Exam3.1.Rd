@@ -2,65 +2,47 @@
 % Please edit documentation in R/Exam3.1.R
 \name{Exam3.1}
 \alias{Exam3.1}
-\title{Data for Example 3.1 from Experimental Design & Analysis for Tree Improvement}
+\title{Data for Example 3.1 from Experimental Design and Analysis for Tree Improvement}
 \description{
 Exam3.1 is part of data from Australian Centre for Agricultural Research (ACIAR)
              in Queensland, Australia (Experiment 309).
 }
 \examples{
+library(car)
+library(dae)
+library(dplyr)
+library(emmeans)
+library(ggplot2)
+library(lmerTest)
+library(magrittr)
+library(predictmeans)
+library(supernova)
+
 data(DataExam3.1)
-library(tidyverse)
 
 # Pg. 28
-
-fmtab3.3     <-
-  lm(
-     formula     = Ht ~ Repl*SeedLot
-   , data        = DataExam3.1
- # , subset
- # , weights
- # , na.action
-   , method      = "qr"
-   , model       = TRUE
-   , x           = FALSE
-   , y           = FALSE
-   , qr          = TRUE
-   , singular.ok = TRUE
-   , contrasts   = NULL
-    )
-
- # Pg. 33
-
- anova(fmtab3.3)
+fmtab3.3 <- lm(formula = Ht ~ Repl*SeedLot, data = DataExam3.1)
 
 fmtab3.3ANOVA1 <-
   anova(fmtab3.3) \%>\%
-  mutate("F value" = c(anova(fmtab3.3)[1:2, 3]/anova(fmtab3.3)[3, 3], anova(fmtab3.3)[3, 3], NA))
+  mutate(
+  "F value" = c(anova(fmtab3.3)[1:2, 3]/anova(fmtab3.3)[3, 3]
+               , anova(fmtab3.3)[4, 3]
+               , NA)
+               )
 
+ # Pg. 33 (Table 3.3)
 fmtab3.3ANOVA1 \%>\%
-  mutate("Pr(>F)"  = pf(q = fmtab3.3ANOVA1[ ,4], df1 = fmtab3.3ANOVA1[ ,1], df2 = fmtab3.3ANOVA1[4,1], lower.tail = FALSE))
+  mutate(
+  "Pr(>F)"  = pf(q = fmtab3.3ANOVA1[ ,4]
+               , df1 = fmtab3.3ANOVA1[ ,1]
+               , df2 = fmtab3.3ANOVA1[4,1], lower.tail = FALSE)
+               )
 
-library(supernova)
+ # Pg. 33  (Table 3.3)
+ emmeans(object  = fmtab3.3, specs = ~ SeedLot)
 
- supernova(fmtab3.3)
-
- library(emmeans)
-
- # Pg. 33
-
- emmeans(
-     object     = fmtab3.3
-   , specs      = ~ SeedLot
-   , by         = NULL
-   , fac.reduce = function(coefs) apply(coefs, 2, mean)
-   , contr      =
-   , options    = get_emm_option("emmeans")
-   , weights    =
-   , offset     =
-   , tran       =
-   )
- # Pg. 34
- library(ggplot2)
+ # Pg. 34  (Figure 3.2)
  ggplot(mapping = aes(x = fitted.values(fmtab3.3), y = residuals(fmtab3.3)))+
  geom_point(size = 2) +
  labs(
@@ -69,10 +51,36 @@ library(supernova)
    ) +
  theme_classic()
 
+
+# Pg. 33 (Table 3.4)
+DataExam3.1m <- DataExam3.1
+DataExam3.1m[c(28, 51, 76), 5] <- NA
+DataExam3.1m[c(28, 51, 76), 6] <- NA
+
+
+fmtab3.4 <- lm(formula = Ht ~ Repl*SeedLot, data = DataExam3.1m)
+
+fmtab3.4ANOVA1 <-
+  anova(fmtab3.4) \%>\%
+  mutate(
+      "F value" = c(anova(fmtab3.4)[1:2, 3]/anova(fmtab3.4)[3, 3]
+                   , anova(fmtab3.4)[4, 3], NA))
+
+# Pg. 33 (Table 3.4)
+fmtab3.4ANOVA1 \%>\%
+  mutate(
+        "Pr(>F)"  = pf(q = fmtab3.4ANOVA1[ ,4]
+                     , df1 = fmtab3.4ANOVA1[ ,1]
+                     , df2 = fmtab3.4ANOVA1[4,1], lower.tail = FALSE)
+                     )
+
+ # Pg. 33  (Table 3.4)
+ emmeans(object  = fmtab3.4, specs = ~ SeedLot)
+
 }
 \references{
 \enumerate{
-         \item Williams, E. R., Matheson, A. C. and Harwood, C. E. (2023). \emph{Experimental Design and Analysis for Tree Improvement}.
+         \item E.R. Williams, C.E. Harwood and A.C. Matheson (2023). \emph{Experimental Design and Analysis for Tree Improvement}.
                CSIRO Publishing (\href{https://www.publish.csiro.au/book/3145/}{https://www.publish.csiro.au/book/3145/}).
              }
 }
