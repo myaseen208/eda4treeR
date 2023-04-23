@@ -1,7 +1,7 @@
 
 # `eda4treeR`: Experimental Design and Analysis for Tree Improvement <img src = "man/figures/eda4treeR_hexSticker.png" align = "right" height = "140/"/>
 
-###### Version : [0.5.0](https://myaseen208.github.io/eda4treeR/); License: [GPL-2\|GPL-3](https://www.r-project.org/Licenses/)
+###### Version : [0.5.0](https://myaseen208.com/eda4treeR/); License: [GPL-2\|GPL-3](https://www.r-project.org/Licenses/)
 
 ##### *Muhammad Yaseen<sup>1,2,3</sup>, Sami Ullah<sup>4</sup>, Kent M. Eskridge<sup>5</sup>, Emlyn Williams<sup>6</sup>*
 
@@ -28,7 +28,7 @@ version](https://img.shields.io/badge/R%3E%3D-2.10.0-6666ff.svg)](https://cran.r
 v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version-last-release/eda4treeR)](https://cran.r-project.org/package=eda4treeR)
 [![rstudio mirror
-dow.nloads](https://cranlogs.r-pkg.org/badges/grand-total/eda4treeR?color=green)](https://CRAN.R-project.org/package=eda4treeR)
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/eda4treeR?color=green)](https://CRAN.R-project.org/package=eda4treeR)
 <!-- [![packageversion](https://img.shields.io/badge/Package%20version-0.2.3.3-orange.svg)](https://github.com/myaseen208/eda4treeR) -->
 
 [![develVersion](https://img.shields.io/badge/devel%20version-0.5.0-orange.svg)](https://github.com/myaseen208/eda4treeR)
@@ -37,16 +37,16 @@ dow.nloads](https://cranlogs.r-pkg.org/badges/grand-total/eda4treeR?color=green)
 
 [![Project Status:
 WIP](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
-[![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
-[![Last-changedate](https://img.shields.io/badge/last%20change-2023--04--15-yellowgreen.svg)](https://github.com/myaseen208/eda4treeR)
-
+[![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2023--04--23-yellowgreen.svg)](https://github.com/myaseen208/eda4treeR)
 
 ------------------------------------------------------------------------
 
 ## Description
 
-Provides data sets and R Codes for E.R. Williams, C.E. Harwood and A.C. Matheson (2023). **Experimental Design and Analysis for Tree
-Improvement**, CSIRO Publishing [https://www.publish.csiro.au/book/3145/](https://www.publish.csiro.au/book/3145/).
+Provides data sets and R Codes for E.R. Williams, C.E. Harwood and A.C.
+Matheson (2023). Experimental Design and Analysis for Tree Improvement,
+CSIRO Publishing.
 
    
 
@@ -83,11 +83,9 @@ news(package = "eda4treeR")
 
 [Github page](https://github.com/myaseen208/eda4treeR)
 
+[Documentation website](https://myaseen208.com/eda4treeR/)
 
-[Documentation website](https://myaseen208.github.io/eda4treeR/)
-
-[Companion Website](https://myaseen208.com/EDATR/) 
-
+[Companion website](https://myaseen208.com/EDATR/)
 
 ## Citing `eda4treeR`
 
@@ -96,26 +94,3 @@ To cite the R package `eda4treeR` in publications use:
 ``` r
 citation("eda4treeR")
 ```
-
-
-    To cite the R package 'eda4treeR' in publications use:
-
-      Muhammad Yaseen, Sami Ullah, Kent M. Eskridge, and Emlyn Williams
-      (2023).  eda4treeR: Experimental Design and Analysis for Tree
-      Improvement.R package version 0.5.0 ,
-      https://myaseen208.github.io/eda4treeR/https://cran.r-project.org/package=eda4treeR.
-
-    A BibTeX entry for LaTeX users is
-
-      @Manual{,
-        title = {eda4treeR: Experimental Design and Analysis for Tree Improvement},
-        author = {{Muhammad Yaseen} and {Sami Ullah} and {Kent M. Eskridge} and {Emlyn Williams}},
-        year = {2023},
-        note = {R package version 0.5.0},
-        note = {https://myaseen208.github.io/eda4treeR/ },
-        note = {https://cran.r-project.org/package=eda4treeR},
-      }
-
-    This free and open-source software implements academic research by the
-    authors and co-workers. If you use it, please support the project by
-    citing the package.
