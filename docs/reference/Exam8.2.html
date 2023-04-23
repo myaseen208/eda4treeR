@@ -131,9 +131,19 @@
 <span class="r-in"><span>  , data    <span class="op">=</span> <span class="va">DataExam8.2</span></span></span>
 <span class="r-in"><span>    <span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> fixed-effect model matrix is rank deficient so dropping 5 columns / coefficients</span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co">#\dontrun{</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/predictmeans/man/varcomp.html" class="external-link">varcomp</a></span><span class="op">(</span><span class="va">fm8.2</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>numerical expression has 300 elements: only the first used</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>numerical expression has 300 elements: only the first used</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>numerical expression has 300 elements: only the first used</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>numerical expression has 300 elements: only the first used</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Computing profile confidence intervals ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                               vcov     SE  2.5 % 97.5 %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Contcompv:Clone.(Intercept) 0.4950 0.1126 0.3057 0.7422</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Repl:Row.(Intercept)        0.0802 0.0351 0.0173 0.1458</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Repl:Column.(Intercept)     0.0529 0.0326 0.0000 0.0783</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> residual                    0.3992 0.0435 0.3245 0.5024</span>
+<span class="r-in"><span><span class="co">#}</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html" class="external-link">anova</a></span><span class="op">(</span><span class="va">fm8.2</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Missing cells for: Contcompf0:Standard0, Contcompf1:StandardUG323, Contcompf1:StandardU6, Contcompf1:StandardPN14, Contcompf1:StandardSSOseed.  </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Interpret type III hypotheses with care.</span>

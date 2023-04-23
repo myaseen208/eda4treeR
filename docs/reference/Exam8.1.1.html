@@ -132,9 +132,14 @@
 <span class="r-in"><span>          <span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Pg. 157</span></span></span>
-<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/predictmeans/man/varcomp.html" class="external-link">varcomp</a></span><span class="op">(</span><span class="va">fm8.8</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Computing profile confidence intervals ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                        vcov     SE  2.5 % 97.5 %</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> repl:col.(Intercept) 0.0459 0.0262 0.0000 0.0565</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> repl:row.(Intercept) 0.0640 0.0294 0.0210 0.1161</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> residual             0.1951 0.0253 0.1126 0.1782</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/anova.html" class="external-link">anova</a></span><span class="op">(</span><span class="va">fm8.8</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Type III Analysis of Variance Table with Satterthwaite's method</span>

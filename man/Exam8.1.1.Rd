@@ -30,9 +30,9 @@ fm8.8 <-
           )
 
 # Pg. 157
-\dontrun{
+# \dontrun{
 varcomp(fm8.8)
-}
+# }
 
 anova(fm8.8)
 anova(fm8.8, ddf = "Kenward-Roger")
