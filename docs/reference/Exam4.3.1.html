@@ -140,7 +140,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> Residuals     34 4372.7  128.61                      </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
-<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/stats/model.tables.html" class="external-link">model.tables</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">fm4.4</span>, type <span class="op">=</span> <span class="st">"means"</span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/stats/model.tables.html" class="external-link">model.tables</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">fm4.4</span>, type <span class="op">=</span> <span class="st">"means"</span>, se <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Tables of means</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Grand mean</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          </span>
@@ -167,6 +167,11 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>   nick   65.33 54.67 57.33 40.00 49.33 74.67</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   bw&amp;s   78.67 68.00 54.67 52.00 61.33 80.00</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   bw1min 88.00 85.33 77.33 68.00 84.00 82.67</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Standard errors for differences of means</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          Repl Treat SeedLot Treat:SeedLot</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         3.780 3.780   5.346         9.260</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> replic.    18    18       9             3</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/pkg/emmeans/man/emmeans.html" class="external-link">emmeans</a></span><span class="op">(</span>object <span class="op">=</span> <span class="va">fm4.4</span>, specs <span class="op">=</span> <span class="op">~</span> <span class="va">Treat</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> NOTE: Results may be misleading due to involvement in interactions</span>

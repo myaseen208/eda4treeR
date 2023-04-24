@@ -147,55 +147,18 @@
 <span class="r-in"><span>    <span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Pg. 104</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fm6.3.1</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Linear mixed model fit by REML. t-tests use Satterthwaite's method [</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> lmerModLmerTest]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Formula: Dbh.mean ~ 1 + Replication + (1 | Family)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    Data: DataExam6.2.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> REML criterion at convergence: 519</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Scaled residuals: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      Min       1Q   Median       3Q      Max </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -2.88039 -0.58138  0.00457  0.60595  2.07527 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Random effects:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Groups   Name        Variance Std.Dev.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Family   (Intercept) 0.2584   0.5084  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Residual             1.1667   1.0801  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Number of obs: 164, groups:  Family, 41</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Fixed effects:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               Estimate Std. Error        df t value Pr(&gt;|t|)    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)   14.38829    0.18644 145.63228  77.174   &lt;2e-16 ***</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replication2  -0.15561    0.23856 120.00000  -0.652   0.5155    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replication3  -0.60951    0.23856 120.00000  -2.555   0.0119 *  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replication4   0.05195    0.23856 120.00000   0.218   0.8280    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Correlation of Fixed Effects:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             (Intr) Rplct2 Rplct3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replicatin2 -0.640              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replicatin3 -0.640  0.500       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replicatin4 -0.640  0.500  0.500</span>
+<span class="r-in"><span><span class="co"># summary(fm6.3.1)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/predictmeans/man/varcomp.html" class="external-link">varcomp</a></span><span class="op">(</span><span class="va">fm6.3.1</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Computing profile confidence intervals ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                      vcov     SE  2.5 % 97.5 %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Family.(Intercept) 0.2584 0.1286 0.0538 0.5767</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> residual           1.1667 0.1506 0.8954 1.4774</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/nlme/man/VarCorr.html" class="external-link">VarCorr</a></span><span class="op">(</span><span class="va">fm6.3.1</span><span class="op">)</span>, comp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Variance"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Groups   Name        Variance</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Family   (Intercept) 0.25844 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Residual             1.16670 </span>
 <span class="r-in"><span><span class="va">sigma2f</span> <span class="op">&lt;-</span> <span class="fl">0.2584</span></span></span>
 <span class="r-in"><span><span class="va">h2</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">sigma2f</span><span class="op">/</span><span class="op">(</span><span class="fl">0.3</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">Sigma2t</span> <span class="op">+</span> <span class="va">sigma2m</span> <span class="op">+</span> <span class="va">sigma2f</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span>hmean <span class="op">=</span> <span class="va">w</span>, <span class="va">Sigma2t</span>, <span class="va">sigma2m</span>, <span class="va">sigma2f</span>, <span class="va">h2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         hmean  Sigma2t   sigma2m sigma2f        h2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 4.408602 3.920732 0.2773606  0.2584 0.1932761</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="st">"Dbh Heritability for all the Provinces"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Dbh Heritability for all the Provinces"</span>
 <span class="r-in"><span><span class="va">fm6.4</span> <span class="op">&lt;-</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/stats/lm.html" class="external-link">lm</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>      formula     <span class="op">=</span> <span class="va">Dbh.mean</span> <span class="op">~</span> <span class="va">Replication</span><span class="op">+</span><span class="va">Family</span></span></span>
@@ -217,59 +180,17 @@
 <span class="r-in"><span>    <span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Pg. 107</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fm6.4.1</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Linear mixed model fit by REML. t-tests use Satterthwaite's method [</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> lmerModLmerTest]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Formula: Dbh.mean ~ 1 + Replication + Province + (1 | Family)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    Data: DataExam6.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> REML criterion at convergence: 602.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Scaled residuals: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      Min       1Q   Median       3Q      Max </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -2.85944 -0.56725 -0.00966  0.59971  2.14173 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Random effects:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Groups   Name        Variance Std.Dev.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Family   (Intercept) 0.3514   0.5928  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Residual             1.0951   1.0465  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Number of obs: 192, groups:  Family, 48</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Fixed effects:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               Estimate Std. Error       df t value Pr(&gt;|t|)    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)    14.3356     0.1799 144.5626  79.693  &lt; 2e-16 ***</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replication2   -0.1119     0.2136 141.0000  -0.524   0.6013    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replication3   -0.4754     0.2136 141.0000  -2.226   0.0276 *  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replication4    0.0850     0.2136 141.0000   0.398   0.6913    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ProvinceSabah  -0.9237     0.5726  45.0000  -1.613   0.1137    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ProvinceQLD    -2.3540     0.3745  45.0000  -6.285 1.18e-07 ***</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Correlation of Fixed Effects:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             (Intr) Rplct2 Rplct3 Rplct4 PrvncS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replicatin2 -0.594                            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replicatin3 -0.594  0.500                     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replicatin4 -0.594  0.500  0.500              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ProvinceSbh -0.148  0.000  0.000  0.000       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ProvinceQLD -0.226  0.000  0.000  0.000  0.071</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/predictmeans/man/varcomp.html" class="external-link">varcomp</a></span><span class="op">(</span><span class="va">fm6.4.1</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Computing profile confidence intervals ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                      vcov     SE  2.5 % 97.5 %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Family.(Intercept) 0.3514 0.1358 0.1203 0.6361</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> residual           1.0951 0.1304 0.8584 1.3634</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/nlme/man/VarCorr.html" class="external-link">VarCorr</a></span><span class="op">(</span><span class="va">fm6.4.1</span><span class="op">)</span>,comp<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Variance"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Groups   Name        Variance</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Family   (Intercept) 0.35139 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Residual             1.09507 </span>
 <span class="r-in"><span><span class="va">sigma2f</span> <span class="op">&lt;-</span> <span class="fl">0.3514</span></span></span>
 <span class="r-in"><span><span class="va">h2</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">sigma2f</span><span class="op">/</span><span class="op">(</span><span class="fl">0.3</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">Sigma2t</span><span class="op">+</span><span class="va">sigma2m</span><span class="op">+</span><span class="va">sigma2f</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span>hmean <span class="op">=</span> <span class="va">w</span>, <span class="va">Sigma2t</span>, <span class="va">sigma2m</span>, <span class="va">sigma2f</span>, <span class="va">h2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         hmean  Sigma2t  sigma2m sigma2f        h2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 4.451314 3.860156 0.227873  0.3514 0.2638477</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="st">"Genetic Correlation Between Dbh and Height for PNG Province"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Genetic Correlation Between Dbh and Height for PNG Province"</span>
 <span class="r-in"><span><span class="va">fm6.7.1</span> <span class="op">&lt;-</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/lme4/man/lmer.html" class="external-link">lmer</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>      formula   <span class="op">=</span> <span class="va">Dbh.mean</span> <span class="op">~</span> <span class="fl">1</span><span class="op">+</span><span class="va">Replication</span><span class="op">+</span><span class="op">(</span><span class="fl">1</span><span class="op">|</span><span class="va">Family</span><span class="op">)</span></span></span>
@@ -278,47 +199,11 @@
 <span class="r-in"><span>    <span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Pg. 116</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fm6.7.1</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Linear mixed model fit by REML. t-tests use Satterthwaite's method [</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> lmerModLmerTest]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Formula: Dbh.mean ~ 1 + Replication + (1 | Family)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    Data: DataExam6.2.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> REML criterion at convergence: 519</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Scaled residuals: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      Min       1Q   Median       3Q      Max </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -2.88039 -0.58138  0.00457  0.60595  2.07527 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Random effects:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Groups   Name        Variance Std.Dev.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Family   (Intercept) 0.2584   0.5084  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Residual             1.1667   1.0801  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Number of obs: 164, groups:  Family, 41</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Fixed effects:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               Estimate Std. Error        df t value Pr(&gt;|t|)    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)   14.38829    0.18644 145.63228  77.174   &lt;2e-16 ***</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replication2  -0.15561    0.23856 120.00000  -0.652   0.5155    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replication3  -0.60951    0.23856 120.00000  -2.555   0.0119 *  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replication4   0.05195    0.23856 120.00000   0.218   0.8280    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Correlation of Fixed Effects:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             (Intr) Rplct2 Rplct3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replicatin2 -0.640              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replicatin3 -0.640  0.500       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replicatin4 -0.640  0.500  0.500</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/predictmeans/man/varcomp.html" class="external-link">varcomp</a></span><span class="op">(</span><span class="va">fm6.7.1</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Computing profile confidence intervals ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                      vcov     SE  2.5 % 97.5 %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Family.(Intercept) 0.2584 0.1286 0.0538 0.5767</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> residual           1.1667 0.1506 0.8954 1.4774</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/nlme/man/VarCorr.html" class="external-link">VarCorr</a></span><span class="op">(</span><span class="va">fm6.7.1</span><span class="op">)</span>,comp<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Variance"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Groups   Name        Variance</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Family   (Intercept) 0.25844 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Residual             1.16670 </span>
 <span class="r-in"><span><span class="va">sigma2f</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">0.2584</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">fm6.7.2</span><span class="op">&lt;-</span></span></span>
@@ -329,47 +214,11 @@
 <span class="r-in"><span>    <span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Pg. 116</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fm6.7.2</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Linear mixed model fit by REML. t-tests use Satterthwaite's method [</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> lmerModLmerTest]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Formula: Ht.mean ~ 1 + Replication + (1 | Family)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    Data: DataExam6.2.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> REML criterion at convergence: 505.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Scaled residuals: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      Min       1Q   Median       3Q      Max </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -3.12570 -0.52588  0.04163  0.63270  2.81217 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Random effects:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Groups   Name        Variance Std.Dev.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Family   (Intercept) 0.2711   0.5207  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Residual             1.0549   1.0271  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Number of obs: 164, groups:  Family, 41</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Fixed effects:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              Estimate Std. Error       df t value Pr(&gt;|t|)    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)   11.6839     0.1798 142.1714  64.968  &lt; 2e-16 ***</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replication2   0.2761     0.2268 120.0000   1.217  0.22595    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replication3   0.6227     0.2268 120.0000   2.745  0.00698 ** </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replication4   1.9320     0.2268 120.0000   8.516 5.61e-14 ***</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Correlation of Fixed Effects:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             (Intr) Rplct2 Rplct3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replicatin2 -0.631              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replicatin3 -0.631  0.500       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replicatin4 -0.631  0.500  0.500</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/predictmeans/man/varcomp.html" class="external-link">varcomp</a></span><span class="op">(</span><span class="va">fm6.7.2</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Computing profile confidence intervals ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                      vcov     SE  2.5 % 97.5 %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Family.(Intercept) 0.2711 0.1243 0.0743 0.5794</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> residual           1.0549 0.1362 0.8097 1.3359</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/nlme/man/VarCorr.html" class="external-link">VarCorr</a></span><span class="op">(</span><span class="va">fm6.7.2</span><span class="op">)</span>,comp<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Variance"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Groups   Name        Variance</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Family   (Intercept) 0.27111 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Residual             1.05494 </span>
 <span class="r-in"><span><span class="va">sigma2f</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">0.2711</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">fm6.7.3</span> <span class="op">&lt;-</span></span></span>
@@ -381,51 +230,15 @@
 <span class="r-in"><span>    <span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Pg. 116</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fm6.7.3</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Linear mixed model fit by REML. t-tests use Satterthwaite's method [</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> lmerModLmerTest]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Formula: Sum.means ~ 1 + Replication + (1 | Family)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    Data: DataExam6.2.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> REML criterion at convergence: 686.4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Scaled residuals: </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      Min       1Q   Median       3Q      Max </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -3.15407 -0.50211 -0.02361  0.55745  2.61472 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Random effects:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Groups   Name        Variance Std.Dev.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Family   (Intercept) 0.8729   0.9343  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Residual             3.2428   1.8008  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Number of obs: 164, groups:  Family, 41</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Fixed effects:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               Estimate Std. Error        df t value Pr(&gt;|t|)    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)   26.07220    0.31683 140.97508  82.290  &lt; 2e-16 ***</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replication2   0.12049    0.39773 120.00000   0.303    0.762    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replication3   0.01317    0.39773 120.00000   0.033    0.974    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replication4   1.98390    0.39773 120.00000   4.988 2.08e-06 ***</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Correlation of Fixed Effects:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             (Intr) Rplct2 Rplct3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replicatin2 -0.628              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replicatin3 -0.628  0.500       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Replicatin4 -0.628  0.500  0.500</span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/pkg/predictmeans/man/varcomp.html" class="external-link">varcomp</a></span><span class="op">(</span><span class="va">fm6.7.3</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Computing profile confidence intervals ...</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                      vcov     SE  2.5 % 97.5 %</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Family.(Intercept) 0.8729 0.3907 0.2553 1.8421</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> residual           3.2428 0.4186 2.4888 4.1063</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/nlme/man/VarCorr.html" class="external-link">VarCorr</a></span><span class="op">(</span><span class="va">fm6.7.3</span><span class="op">)</span>,comp<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Variance"</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Groups   Name        Variance</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Family   (Intercept) 0.87292 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Residual             3.24281 </span>
 <span class="r-in"><span><span class="va">sigma2f</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">0.873</span></span></span>
-<span class="r-in"><span><span class="va">sigma2xy</span>    <span class="op">&lt;-</span> <span class="fl">0.5</span><span class="op">*</span><span class="op">(</span><span class="va">sigma2f</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">-</span><span class="va">sigma2f</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">-</span><span class="va">sigma2f</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">sigma2xy</span>   <span class="op">&lt;-</span> <span class="fl">0.5</span><span class="op">*</span><span class="op">(</span><span class="va">sigma2f</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">-</span><span class="va">sigma2f</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">-</span><span class="va">sigma2f</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">GenCorr</span> <span class="op">&lt;-</span> <span class="va">sigma2xy</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">sqrt</a></span><span class="op">(</span><span class="va">sigma2f</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">*</span><span class="va">sigma2f</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span>S2x<span class="op">=</span><span class="va">sigma2f</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,S2y<span class="op">=</span><span class="va">sigma2f</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,S2.x.plus.y<span class="op">=</span><span class="va">sigma2f</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>,<span class="va">GenCorr</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span>S2x <span class="op">=</span> <span class="va">sigma2f</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, S2y <span class="op">=</span> <span class="va">sigma2f</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, S2.x.plus.y <span class="op">=</span> <span class="va">sigma2f</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>, <span class="va">GenCorr</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         S2x    S2y S2.x.plus.y   GenCorr</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.2584 0.2711       0.873 0.6489119</span>
 </code></pre></div>

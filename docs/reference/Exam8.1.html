@@ -126,7 +126,7 @@
 <span class="r-in"><span><span class="co"># Pg. 141</span></span></span>
 <span class="r-in"><span><span class="va">fm8.4</span> <span class="op">&lt;-</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/stats/aov.html" class="external-link">aov</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>    formula <span class="op">=</span> <span class="va">dbh</span> <span class="op">~</span> <span class="va">inoc</span> <span class="op">+</span> <span class="va">repl</span> <span class="op">+</span> <span class="fu">Error</span><span class="op">(</span><span class="va">repl</span><span class="op">/</span><span class="va">inoc</span><span class="op">)</span> <span class="op">+</span> <span class="va">inoc</span><span class="op">*</span><span class="va">country</span><span class="op">*</span><span class="va">prov</span></span></span>
+<span class="r-in"><span>    formula <span class="op">=</span> <span class="va">dbh</span> <span class="op">~</span> <span class="va">inoc</span> <span class="op">+</span> <span class="fu">Error</span><span class="op">(</span><span class="va">repl</span><span class="op">/</span><span class="va">inoc</span><span class="op">)</span> <span class="op">+</span> <span class="va">inoc</span><span class="op">*</span><span class="va">country</span><span class="op">*</span><span class="va">prov</span></span></span>
 <span class="r-in"><span>  , data    <span class="op">=</span> <span class="va">DataExam8.1</span></span></span>
 <span class="r-in"><span>     <span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Error() model is singular</span>
@@ -135,9 +135,11 @@
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fm8.4</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Error: repl</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      Df Sum Sq Mean Sq</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> inoc  1 11.542  11.542</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> repl  2  2.014   1.007</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           Df Sum Sq Mean Sq F value Pr(&gt;F)  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> inoc       1 11.542  11.542   11.46 0.0773 .</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residuals  2  2.014   1.007                 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Error: Within</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>               Df Sum Sq Mean Sq F value       Pr(&gt;F)    </span>
@@ -150,7 +152,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Pg. 150</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/model.tables.html" class="external-link">model.tables</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">fm8.4</span>, type <span class="op">=</span> <span class="st">"means"</span>, se   <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/model.tables.html" class="external-link">model.tables</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">fm8.4</span>, type <span class="op">=</span> <span class="st">"means"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Tables of means</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Grand mean</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         </span>
@@ -160,11 +162,6 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>     7 weeks  1 week</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>       3.625   3.183</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> rep 118.000 118.000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  repl </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          1      2     3      4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3.532  3.379  3.43  3.276</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> rep 59.000 59.000 59.00 59.000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  country </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      India Vietnam  Egypt  Kenya   Fiji Thailand Malaysia Philippines Australia</span>
@@ -251,7 +248,7 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">RESFit</span> <span class="op">&lt;-</span></span></span>
 <span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>     fittedvalue    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/dae/man/fitted.aovlist.html" class="external-link">fitted.aovlist</a></span><span class="op">(</span><span class="va">fm8.4</span><span class="op">)</span></span></span>
+<span class="r-in"><span>      fittedvalue    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/dae/man/fitted.aovlist.html" class="external-link">fitted.aovlist</a></span><span class="op">(</span><span class="va">fm8.4</span><span class="op">)</span></span></span>
 <span class="r-in"><span>    , residualvalue <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/proj.html" class="external-link">proj</a></span><span class="op">(</span><span class="va">fm8.4</span><span class="op">)</span><span class="op">$</span><span class="va">Within</span><span class="op">[</span>,<span class="st">"Residuals"</span><span class="op">]</span></span></span>
 <span class="r-in"><span>    <span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
@@ -264,19 +261,19 @@
 <span class="r-in"><span><span class="co"># Pg. 153</span></span></span>
 <span class="r-in"><span><span class="va">fm8.6</span> <span class="op">&lt;-</span></span></span>
 <span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html" class="external-link">aov</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>   formula      <span class="op">=</span> <span class="va">dbh</span> <span class="op">~</span> <span class="va">inoc</span> <span class="op">+</span> <span class="va">repl</span> <span class="op">+</span> <span class="va">col</span> <span class="op">+</span> <span class="va">repl</span><span class="op">/</span><span class="va">row</span> <span class="op">+</span> <span class="va">repl</span><span class="op">/</span><span class="va">col</span> <span class="op">+</span></span></span>
-<span class="r-in"><span>                        <span class="va">prov</span> <span class="op">+</span> <span class="va">inoc</span><span class="op">/</span><span class="va">prov</span></span></span>
-<span class="r-in"><span> , data         <span class="op">=</span> <span class="va">DataExam8.1</span></span></span>
+<span class="r-in"><span>   formula <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/terms.html" class="external-link">terms</a></span><span class="op">(</span><span class="va">dbh</span> <span class="op">~</span> <span class="va">inoc</span> <span class="op">+</span> <span class="va">repl</span> <span class="op">+</span> <span class="va">col</span> <span class="op">+</span> <span class="va">repl</span><span class="op">:</span><span class="va">row</span> <span class="op">+</span> <span class="va">repl</span><span class="op">:</span><span class="va">col</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>                        <span class="va">prov</span> <span class="op">+</span> <span class="va">inoc</span><span class="op">:</span><span class="va">prov</span>, keep.order <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span> , data   <span class="op">=</span> <span class="va">DataExam8.1</span></span></span>
 <span class="r-in"><span> <span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fm8.6</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             Df Sum Sq Mean Sq F value        Pr(&gt;F)    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> inoc         1  11.54  11.542  48.054 0.00000000327 ***</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> repl         2   2.01   1.007   4.193       0.01975 *  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> repl         2   2.01   1.007   4.193      0.019746 *  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> col          9  65.24   7.249  30.182       &lt; 2e-16 ***</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> prov        58  63.64   1.097   4.569 0.00000001168 ***</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> repl:row    20  12.63   0.632   2.630       0.00205 ** </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> repl:col    27  10.61   0.393   1.637       0.05746 .  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> inoc:prov   58   8.47   0.146   0.608       0.97054    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> repl:row    20  16.59   0.830   3.454      0.000105 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> repl:col    27  16.41   0.608   2.530      0.001443 ** </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> prov        58  53.89   0.929   3.869 0.00000026687 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> inoc:prov   58   8.47   0.146   0.608      0.970544    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Residuals   60  14.41   0.240                          </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
