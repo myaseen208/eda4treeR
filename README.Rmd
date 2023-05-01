@@ -22,15 +22,12 @@ devtools::load_all(".")
 ##### *Muhammad Yaseen^1,2,3^, Sami Ullah^4^, Kent M. Eskridge^5^, Emlyn Williams^6^*
 
 
-1. Asian Development Bank (ADB), Islamabad, Pakistan.
-
-2. Benazir Income Support Programme (BISP), Islamabad, Pakistan.
-
-3. Department of Mathematics and Statistics, University of Agriculture Faisalabad, Pakistan.
-
-4. College of Agriculutre, University of Sargodha, Pakistan.
-5. Department of Statistics, University of Nebraska-Lincoln, Lincoln NE, USA
-6. Commonwealth Scientific and Industrial Research Organisation (CSIRO), Australia.
+1. [Asian Development Bank (ADB), Islamabad, Pakistan](https://myaseen208.com/)
+2. [Benazir Income Support Programme (BISP), Islamabad, Pakistan](https://myaseen208.com/)
+3. [Department of Mathematics and Statistics, University of Agriculture Faisalabad, Pakistan](https://myaseen208.com/)
+4. College of Agriculutre, University of Sargodha, Pakistan
+5. [Department of Statistics, University of Nebraska-Lincoln, Lincoln NE, USA](https://statistics.unl.edu/kent-m-eskridge)
+6. [Australian National University, Canberra, ACT, Australia](https://services.anu.edu.au/business-units/research-initiatives-and-infrastructure/statistical-support-network/associate)
 
 
 ***

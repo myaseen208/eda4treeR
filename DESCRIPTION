@@ -1,7 +1,7 @@
 Package: eda4treeR
 Type: Package
 Title: Experimental Design and Analysis for Tree Improvement
-Version: 0.5.0
+Version: 0.6.0
 Authors@R: 
     c(
         person(
@@ -22,7 +22,7 @@ Authors@R:
         )
       , person(
           c("Emlyn", "Williams")
-        , email = "emlyn@alphastat.net"
+        , email = "emlyn.williams@anu.edu.au"
         , role = c("aut", "ctb")
         )
         )
