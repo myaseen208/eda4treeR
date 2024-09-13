@@ -5,6 +5,7 @@ home:
   description: Experimental Design and Analysis for Tree Improvement
 
 template:
+  bootstrap: 5
   params:
     bootswatch: united
     ganalytics: UA-116716530-2
@@ -39,11 +40,18 @@ navbar:
       text: News
       href: news/index.html
   right:
-    - icon: "fa-github"
+    - text: "GitHub"
       href: https://github.com/myaseen208/eda4treeR
-    - text: "RG"
+      icon: fa-github
+      aria-label: "GitHub repository"
+    - text: "ResearchGate"
       href: https://www.researchgate.net/profile/Muhammad_Yaseen10
-    - icon: "fab fa-twitter"
+      icon: fa-github
+      aria-label: "ResearchGate"
+    - text: "Twitter"
       href: https://twitter.com/myaseen208
+      icon: "fab fa-twitter"
+      aria-label: "Twitter"
+
 
 reference:
